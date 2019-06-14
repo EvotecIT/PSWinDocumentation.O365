@@ -7,13 +7,13 @@
     $AzureUsers = foreach ($User in $O365UAzureADUsers) {
         $MFAOptions = @{ }
         $MFAOptions.AuthAvailable = @(
-        foreach ($Auth in $User.StrongAuthenticationMethods) {
-            if ($Auth.IsDefault) {
-                $MFAOptions.AuthDefault = $Auth.MethodType
-            } else {
-                $MFAOptions.AuthAvailable += $Auth.MethodType
+            foreach ($Auth in $User.StrongAuthenticationMethods) {
+                if ($Auth.IsDefault) {
+                    $MFAOptions.AuthDefault = $Auth.MethodType
+                } else {
+                    $Auth.MethodType
+                }
             }
-        }
         )
 
         [pscustomobject] @{
