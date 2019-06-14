@@ -21,7 +21,7 @@
             O365UExchangeRecipientsPermissions,
             O365UExchangeMailUsers,
             O365UExchangeMailBoxes,
-            O365UExchangeInboxRules,
+            O365UExchangeMailboxesInboxRules,
             O365UExchangeUnifiedGroups,
 
 
