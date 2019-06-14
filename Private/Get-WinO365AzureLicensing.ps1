@@ -1,16 +1,18 @@
-function Get-ReportO365Licenses {
-    [CmdletBinding()]    
+function Get-WinO365AzureLicensing {
+    [CmdletBinding()]
     param(
-
+        [Array] $O365UAzureLicensing
     )
-    $O365UAzureLicensing = Get-MsolAccountSku
+    if ($null -eq $O365UAzureLicensing) {
+        $O365UAzureLicensing = Get-MsolAccountSku
+    }
 
     $Licenses = foreach ($License in $O365UAzureLicensing ) {
         $LicensesTotal = $License.ActiveUnits + $License.WarningUnits
         $LicensesUsed = $License.ConsumedUnits
         $LicensesLeft = $LicensesTotal - $LicensesUsed
-        $LicenseName = Convert-Office365License -License $License.SkuPartNumber   #$($Global:O365SKU).Item("$($License.SkuPartNumber)") 
-        if ($LicenseName -eq $null) { $LicenseName = $License.SkuPartNumber}
+        $LicenseName = Convert-Office365License -License $License.SkuPartNumber   #$($Global:O365SKU).Item("$($License.SkuPartNumber)")
+        if ($null -eq $LicenseName) { $LicenseName = $License.SkuPartNumber }
 
         [PSCustomObject] @{
             Name                 = $LicenseName

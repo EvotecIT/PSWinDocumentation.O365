@@ -17,7 +17,7 @@ function Get-ReportO365Mailboxes {
         $Commands = Test-AvailabilityCommands -Commands "Get-$($Prefix)Mailbox", "Get-$($Prefix)MsolUser", "Get-$($Prefix)MailboxStatistics"
         if ($Commands -contains $false) {
             Write-Warning "Get-ReportO365Mailboxes - One of commands Get-$($Prefix)Mailbox, Get-$($Prefix)MsolUser, Get-$($Prefix)MailboxStatistics is not available. Make sure connectivity to Office 365 exists."
-            return 
+            return
         }
     }
 
@@ -38,7 +38,7 @@ function Get-ReportO365Mailboxes {
             ($Object.MailboxStatisticsArchive).Add((& "Get-$($Prefix)MailboxStatistics" -Identity $Mailbox.Guid.Guid -Archive | Select-Object $PropertiesMailboxStatsArchive))
         }
     }
-    
+
     Write-Verbose "Get-ReportO365Mailboxes - Preparing output data"
     $Object.Output = foreach ($Mailbox in $Object.Mailbox) {
         $Azure = $Object.Azure | Where-Object { $_.UserPrincipalName -eq $Mailbox.UserPrincipalName }
@@ -100,7 +100,7 @@ function Get-ReportO365Mailboxes {
             $MailboxPermissions = Get-MailboxPermission -Identity $Mailbox.PrimarySmtpAddress.ToString()
             #No non-default permissions found, continue to next mailbox
             if (-not $MailboxPermissions) { continue }
-        
+
             $Permissions = foreach ($Permission in ($MailboxPermissions | Where-Object {($_.User -ne "NT AUTHORITY\SELF") -and ($_.IsInherited -ne $true)}) ) {
                 [PSCustomObject] @{
                     DiplayName           = $Mailbox.DisplayName
@@ -144,3 +144,6 @@ function Get-ReportO365Mailboxes {
         return $Object.Output
     }
 }
+
+#$Object = Get-ReportO365Mailboxes -SkipAvailability -All
+#$Object.Output | Out-HtmlView -FilePath $Env:USERPROFILE\Desktop\OutputMetacortex.html

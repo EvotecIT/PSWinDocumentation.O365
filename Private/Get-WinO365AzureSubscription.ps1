@@ -1,8 +1,11 @@
-function Get-ReportO365Subscriptions {
+function Get-WinO365AzureSubscription {
+    [CmdletBinding()]
     param(
-
+        [Array] $O365UAzureSubscription
     )
-    $O365UAzureSubscription = Get-MsolSubscription
+    if ($null -eq $O365UAzureSubscription) {
+        $O365UAzureSubscription = Get-MsolSubscription
+    }
     $Licenses = foreach ($Subscription in $O365UAzureSubscription) {
         foreach ($Plan in $Subscription.ServiceStatus) {
             [PSCustomObject] @{

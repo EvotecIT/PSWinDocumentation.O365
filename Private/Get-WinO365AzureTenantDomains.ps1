@@ -1,8 +1,11 @@
-function Get-ReportO365TenantDomains {
+function Get-WinO365AzureTenantDomains {
+    [CmdletBinding()]
     param(
-
+        [Array] $O365UAzureTenantDomains
     )
-    $O365UAzureTenantDomains = Get-MsolDomain | Select-Object Authentication, Capabilities, IsDefault, IsInitial, Name, RootDomain, Status, VerificationMethod   
+    if ($null -eq $O365UAzureTenantDomains) {
+        $O365UAzureTenantDomains = Get-MsolDomain #| Select-Object Authentication, Capabilities, IsDefault, IsInitial, Name, RootDomain, Status, VerificationMethod
+    }
     foreach ($Domain in $O365UAzureTenantDomains) {
         [PsCustomObject] @{
             'Domain Name'         = $Domain.Name
