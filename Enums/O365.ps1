@@ -22,6 +22,8 @@
             O365UExchangeMailUsers,
             O365UExchangeMailBoxes,
             O365UExchangeInboxRules,
+            O365UExchangeUnifiedGroups,
+
 
             // Clean O365 Azure Data
             O365UAzureADUsers,
@@ -29,6 +31,8 @@
             O365UAzureADGroups,
             O365UAzureADContacts,
             O365UAzureADGroupMembers,
+            O365UAzureLicensing,
+            O365UAzureSubscription,
 
             // Prepared O365 Azure Data
             O365AzureLicensing,
@@ -40,7 +44,10 @@
             O365AzureADUsersMFA,
             O365AzureADUsersStatisticsByCountry,
             O365AzureADUsersStatisticsByCity,
-            O365AzureADUsersStatisticsByCountryCity
+            O365AzureADUsersStatisticsByCountryCity,
+
+
+            O365TeamsConfiguration
         }
     }
 "@

@@ -29,6 +29,7 @@
         [PSWinDocumentation.O365]::O365AzureADUsersMFA
         [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCountry
         [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCity
+        [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCountryCity
     )
     $Data.O365UAzureADUsersDeleted = Get-DataInformation -Text "Getting O365 information - O365UAzureADUsersDeleted" {
         Get-WinO365UAzureUsers  #-Prefix $Prefix
@@ -76,75 +77,26 @@
         [PSWinDocumentation.O365]::O365AzureADGroupMembersUser
     )
     $Data.O365AzureADUsersMFA = Get-DataInformation -Text "Getting O365 information - O365AzureADUsersMFA" {
-        Get-WinO365AzureADUsersMFA
+        Get-WinO365AzureADUsersMFA -O365UAzureADUsers $Data.O365UAzureADUsers
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::O365AzureADUsersMFA
     )
+    $Data.O365AzureADUsersStatisticsByCountry = Get-DataInformation -Text "Getting O365 information - O365AzureADUsersMFA" {
+        Get-WinO365AzureADUsersStatisticsByCountry -O365UAzureADUsers $Data.O365UAzureADUsers
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCountry
+    )
+    $Data.O365AzureADUsersStatisticsByCountry = Get-DataInformation -Text "Getting O365 information - O365AzureADUsersMFA" {
+        Get-WinO365AzureADUsersStatisticsByCity -O365UAzureADUsers $Data.O365UAzureADUsers
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCity
+    )
+    $Data.O365AzureADUsersStatisticsByCountry = Get-DataInformation -Text "Getting O365 information - O365AzureADUsersMFA" {
+        Get-WinO365AzureADUsersStatisticsByCountryCity -O365UAzureADUsers $Data.O365UAzureADUsers
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCountryCity
+    )
 
-
-    if (Find-TypesNeeded -TypesRequired $TypesRequired -TypesNeeded @([PSWinDocumentation.O365]::O365AzureADUsersMFA)) {
-
-        $Data.O365AzureADUsersMFA = Invoke-Command -ScriptBlock {
-            $AzureUsers = foreach ($User in $Data.O365UAzureADUsers) {
-                $MFAOptions = @{ }
-                $MFAOptions.AuthAvailable = @()
-                foreach ($Auth in $User.StrongAuthenticationMethods) {
-                    if ($Auth.IsDefault) {
-                        $MFAOptions.AuthDefault = $Auth.MethodType
-                    } else {
-                        $MFAOptions.AuthAvailable += $Auth.MethodType
-                    }
-                }
-
-                [pscustomobject] @{
-                    'UserPrincipalName'               = $User.UserPrincipalName
-                    'Display Name'                    = $User.DisplayName
-
-                    'Method Default'                  = $MFAOptions.AuthDefault
-                    'Method Alternative'              = ($MFAOptions.AuthAvailable | Sort-Object) -join ','
-
-
-                    'App Authentication Type'         = $User.StrongAuthenticationPhoneAppDetails.AuthenticationType
-                    'App Device Name'                 = $User.StrongAuthenticationPhoneAppDetails.DeviceName
-                    'App Device Tag'                  = $User.StrongAuthenticationPhoneAppDetails.DeviceTag
-                    'App Device Token'                = $User.StrongAuthenticationPhoneAppDetails.DeviceToken
-                    'App Notification Type'           = $User.StrongAuthenticationPhoneAppDetails.NotificationType
-                    'App Oath Secret Key'             = $User.StrongAuthenticationPhoneAppDetails.OathSecretKey
-                    'App Oath Token Time Drift'       = $User.StrongAuthenticationPhoneAppDetails.OathTokenTimeDrift
-                    'App Version'                     = $User.StrongAuthenticationPhoneAppDetails.PhoneAppVersion
-
-                    'User Details Email'              = $User.StrongAuthenticationUserDetails.Email
-                    'User Details Phone'              = $User.StrongAuthenticationUserDetails.PhoneNumber
-                    'User Details Phone Alt'          = $User.StrongAuthenticationUserDetails.AlternativePhoneNumber
-                    'User Details Pin'                = $User.StrongAuthenticationUserDetails.Pin
-                    'User Details OldPin'             = $User.StrongAuthenticationUserDetails.OldPin
-                    'Strong Password Required'        = $User.StrongPasswordRequired
-
-                    'Requirement Relying Party'       = $User.StrongAuthenticationRequirements.RelyingParty
-                    'Requirement Not Issued Before'   = $User.StrongAuthenticationRequirements.RememberDevicesNotIssuedBefore
-                    'Requirement State'               = $User.StrongAuthenticationRequirements.State
-
-                    # Below needs checking...
-                    'StrongAuthenticationProofupTime' = $User.StrongAuthenticationProofupTime
-
-                }
-
-            }
-            return $AzureUsers | Sort-Object 'UserPrincipalName'
-        }
-    }
-    if (Find-TypesNeeded -TypesRequired $TypesRequired -TypesNeeded @([PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCountry)) {
-        Write-Verbose "Get-WinO365Azure - Getting O365AzureADUsersStatisticsByCountry"
-        $Data.O365AzureADUsersStatisticsByCountry = $Data.O365UAzureADUsers | Group-Object Country | Select-Object @{ L = 'Country'; Expression = { if ($_.Name -ne '') { $_.Name } else { 'Unknown' } } } , @{ L = 'Users Count'; Expression = { $_.Count } } | Sort-Object 'Country'
-    }
-    if (Find-TypesNeeded -TypesRequired $TypesRequired -TypesNeeded @([PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCity)) {
-        Write-Verbose "Get-WinO365Azure - Getting O365AzureADUsersStatisticsByCity"
-        $Data.O365AzureADUsersStatisticsByCity = $Data.O365UAzureADUsers | Group-Object City | Select-Object @{ L = 'City'; Expression = { if ($_.Name -ne '') { $_.Name } else { 'Unknown' } } } , @{ L = 'Users Count'; Expression = { $_.Count } } | Sort-Object 'City'
-    }
-    if (Find-TypesNeeded -TypesRequired $TypesRequired -TypesNeeded @([PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCountryCity)) {
-        Write-Verbose "Get-WinO365Azure - Getting O365AzureADUsersStatisticsByCountryCity"
-        $Data.O365AzureADUsersStatisticsByCountryCity = $Data.O365UAzureADUsers | Group-Object Country, City | Select-Object @{ L = 'Country, City'; Expression = { if ($_.Name -ne '') { $_.Name } else { 'Unknown' } } } , @{ L = 'Users Count'; Expression = { $_.Count } } | Sort-Object 'Country, City'
-    }
 
 
     ## Microsoft Exchange
