@@ -23,7 +23,7 @@
 
     # MSOnline
     $Data.O365UAzureADUsers = Get-DataInformation -Text "Getting O365 information - O365UAzureADUsers" {
-        Get-WinO365UAzureUsers  #-Prefix $Prefix
+        Get-WinO365UAzureADUsers  #-Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::O365UAzureADUsers
         [PSWinDocumentation.O365]::O365AzureADUsersMFA
@@ -32,7 +32,7 @@
         [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCountryCity
     )
     $Data.O365UAzureADUsersDeleted = Get-DataInformation -Text "Getting O365 information - O365UAzureADUsersDeleted" {
-        Get-WinO365UAzureUsers  #-Prefix $Prefix
+        Get-WinO365UAzureADUsersDeleted  #-Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::O365UAzureADUsersDeleted
     )
@@ -86,12 +86,12 @@
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCountry
     )
-    $Data.O365AzureADUsersStatisticsByCountry = Get-DataInformation -Text "Getting O365 information - O365AzureADUsersStatisticsByCountry" {
+    $Data.O365AzureADUsersStatisticsByCity = Get-DataInformation -Text "Getting O365 information - O365AzureADUsersStatisticsByCity" {
         Get-WinO365AzureADUsersStatisticsByCity -O365UAzureADUsers $Data.O365UAzureADUsers
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCity
     )
-    $Data.O365AzureADUsersStatisticsByCountry = Get-DataInformation -Text "Getting O365 information - O365AzureADUsersStatisticsByCountry" {
+    $Data.O365AzureADUsersStatisticsByCountryCity = Get-DataInformation -Text "Getting O365 information - O365AzureADUsersStatisticsByCountryCity" {
         Get-WinO365AzureADUsersStatisticsByCountryCity -O365UAzureADUsers $Data.O365UAzureADUsers
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCountryCity
@@ -143,7 +143,7 @@
         [PSWinDocumentation.O365]::O365UExchangeGroupsDistributionMembers
     )
     $Data.O365UExchangeMailboxesJunk = Get-DataInformation -Text "Getting O365 information - O365UExchangeMailboxesJunk" {
-        Get-WinO365UExchangeMailboxesJunk -Prefix $Prefix -O365UExchangeGroupsDistribution $Data.O365UExchangeMailBoxes
+        Get-WinO365UExchangeMailboxesJunk -Prefix $Prefix -O365UExchangeMailBoxes $Data.O365UExchangeMailBoxes
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::O365UExchangeMailboxesJunk
     )
@@ -153,70 +153,38 @@
         [PSWinDocumentation.O365]::O365UExchangeContacts
     )
     $Data.O365UExchangeMailboxesInboxRules = Get-DataInformation -Text "Getting O365 information - O365UExchangeMailboxesInboxRules" {
-        Get-WinO365UExchangeInboxRules -Prefix $Prefix -O365UExchangeMailBoxes $Data.O365UExchangeMailBoxes
+        Get-WinO365UExchangeMailboxesInboxRules -Prefix $Prefix -O365UExchangeMailBoxes $Data.O365UExchangeMailBoxes
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::O365UExchangeMailboxesInboxRules
     )
+    $Data.O365UExchangeContactsMail = Get-DataInformation -Text "Getting O365 information - O365UExchangeContactsMail" {
+        Get-WinO365UExchangeContactsMail -Prefix $Prefix
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365UExchangeContactsMail
+    )
+    $Data.O365UExchangeMailboxesRooms = Get-DataInformation -Text "Getting O365 information - O365UExchangeMailboxesRooms" {
+        Get-WinO365UExchangeMailboxesRooms -O365UExchangeMailBoxes $O365UExchangeMailBoxes
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365UExchangeMailboxesRooms
+        [PSWinDocumentation.O365]::O365UExchangeRoomsCalendarProcessing
+    )
+    $Data.O365UExchangeMailboxesEquipment = Get-DataInformation -Text "Getting O365 information - O365UExchangeMailboxesEquipment" {
+        Get-WinO365UExchangeMailboxesEquipment  -O365UExchangeMailBoxes $O365UExchangeMailBoxes
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365UExchangeMailboxesEquipment
+        [PSWinDocumentation.O365]::O365UExchangeEquipmentCalendarProcessing
+    )
+    $Data.O365UExchangeRoomsCalendarProcessing = Get-DataInformation -Text "Getting O365 information - O365UExchangeMailboxesRooms" {
+        Get-WinO365UExchangeRoomsCalendarProcessing -Prefix $Prefix -O365UExchangeMailboxesRooms $Data.O365UExchangeMailboxesRooms
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365UExchangeRoomsCalendarProcessing
+    )
 
-
-    if (Find-TypesNeeded -TypesRequired $TypesRequired -TypesNeeded @([PSWinDocumentation.O365]::O365UExchangeContacts)) {
-        Write-Verbose "Get-WinO365Exchange - Getting O365UExchangeContacts"
-        $Data.O365ExchangeInboxRules = Invoke-Command -ScriptBlock {
-            return $Data.O365UExchangeInboxRules
-        }
-    }
-    if (Find-TypesNeeded -TypesRequired $TypesRequired -TypesNeeded @([PSWinDocumentation.O365]::O365UExchangeContacts)) {
-        Write-Verbose "Get-WinO365Exchange - Getting O365UExchangeContacts"
-        $Data.O365ExchangeInboxRules = Invoke-Command -ScriptBlock {
-            return $Data.O365UExchangeInboxRules
-        }
-    }
-
-    if (Find-TypesNeeded -TypesRequired $TypesRequired -TypesNeeded @([PSWinDocumentation.O365]::O365UExchangeContactsMail)) {
-        Write-Verbose "Get-WinO365Exchange - Getting O365UExchangeContactsMail"
-        $Data.O365UExchangeContactsMail = & "Get-$($prefix)MailContact" -ResultSize unlimited
-    }
-    if (Find-TypesNeeded -TypesRequired $TypesRequired -TypesNeeded @([PSWinDocumentation.O365]::O365UExchangeMailboxesRooms, [PSWinDocumentation.O365]::O365UExchangeRoomsCalendarProcessing)) {
-        Write-Verbose "Get-WinO365Exchange - Getting O365UExchangeMailboxesRooms"
-        $Data.O365UExchangeMailboxesRooms = $Data.O365UExchangeMailBoxes | Where-Object { $_.RecipientTypeDetails -eq 'RoomMailbox' }
-    }
-    if (Find-TypesNeeded -TypesRequired $TypesRequired -TypesNeeded @([PSWinDocumentation.O365]::O365UExchangeMailboxesEquipment, [PSWinDocumentation.O365]::O365UExchangeEquipmentCalendarProcessing)) {
-        Write-Verbose "Get-WinO365Exchange - Getting O365UExchangeMailboxesEquipment"
-        $Data.O365UExchangeMailboxesEquipment = $Data.O365UExchangeMailBoxes | Where-Object { $_.RecipientTypeDetails -eq 'EquipmentMailbox' }
-    }
-    if (Find-TypesNeeded -TypesRequired $TypesRequired -TypesNeeded @([PSWinDocumentation.O365]::O365UExchangeRoomsCalendarProcessing)) {
-        Write-Verbose "Get-WinO365Exchange - Getting O365UExchangeRoomsCalendarProcessing"
-        $Data.O365UExchangeRoomsCalendarProcessing = Invoke-Command -ScriptBlock {
-            $Output = @()
-            foreach ($Mailbox in $Data.O365UExchangeMailboxesRooms) {
-                $Object = & "Get-$($prefix)CalendarProcessing" -Identity $Mailbox.PrimarySmtpAddress -ResultSize unlimited
-                if ($Object) {
-                    $Object | Add-Member -MemberType NoteProperty -Name "MailboxPrimarySmtpAddress" -Value $Mailbox.PrimarySmtpAddress
-                    $Object | Add-Member -MemberType NoteProperty -Name "MailboxAlias" -Value $Mailbox.Alias
-                    $Object | Add-Member -MemberType NoteProperty -Name "MailboxGUID" -Value $Mailbox.GUID
-                    $Output += $Object
-                }
-            }
-
-        }
-    }
-    if (Find-TypesNeeded -TypesRequired $TypesRequired -TypesNeeded @([PSWinDocumentation.O365]::O365UExchangeEquipmentCalendarProcessing)) {
-        Write-Verbose "Get-WinO365Exchange - Getting O365UExchangeEquipmentCalendarProcessing"
-        $Data.O365UExchangeEquipmentCalendarProcessing = Invoke-Command -ScriptBlock {
-            $Output = @()
-            foreach ($Mailbox in $Data.O365UExchangeMailboxesEquipment) {
-                $Object = & "Get-$($prefix)CalendarProcessing" -Identity $Mailbox.PrimarySmtpAddress -ResultSize unlimited
-                if ($Object) {
-                    $Object | Add-Member -MemberType NoteProperty -Name "MailboxPrimarySmtpAddress" -Value $Mailbox.PrimarySmtpAddress
-                    $Object | Add-Member -MemberType NoteProperty -Name "MailboxAlias" -Value $Mailbox.Alias
-                    $Object | Add-Member -MemberType NoteProperty -Name "MailboxGUID" -Value $Mailbox.GUID
-                    $Output += $Object
-                }
-            }
-        }
-    }
-
-
+    $Data.O365UExchangeEquipmentCalendarProcessing = Get-DataInformation -Text "Getting O365 information - O365UExchangeEquipmentCalendarProcessing" {
+        Get-WinO365UExchangeEquipmentCalendarProcessing -Prefix $Prefix -O365UExchangeMailboxesEquipment   $Data.O365UExchangeMailboxesEquipment
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365UExchangeEquipmentCalendarProcessing
+    )
 
     ## Microsoft Teams
     $Data.O365TeamsConfiguration = Get-DataInformation -Text "Getting O365 information - O365TeamsConfiguration" {
@@ -241,15 +209,6 @@
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::O365AzureTenantDomains
     )
-
-
-
-
-
-
-
-
-
 
     $EndTime = Stop-TimeLog -Time $TimeToGenerate
     Write-Verbose "Getting domain information - $Domain - Time to generate: $EndTime"
