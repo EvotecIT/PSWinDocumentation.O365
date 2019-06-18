@@ -2,7 +2,9 @@
     [CmdletBinding()]
     param(
         [PSWinDocumentation.O365[]] $TypesRequired,
-        [string] $Prefix
+        [string] $Prefix,
+        [validateset("Bytes", "KB", "MB", "GB", "TB")][string]$SizeIn = 'MB',
+        [alias('Precision')][int]$SizePrecision = 2
     )
     $TimeToGenerate = Start-TimeLog
 
@@ -30,6 +32,7 @@
         [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCountry
         [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCity
         [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCountryCity
+        [PSWinDocumentation.O365]::O365ExchangeMailboxes
     )
     $Data.O365UAzureADUsersDeleted = Get-DataInformation -Text "Getting O365 information - O365UAzureADUsersDeleted" {
         Get-WinO365UAzureADUsersDeleted  #-Prefix $Prefix
@@ -106,6 +109,9 @@
         [PSWinDocumentation.O365]::O365UExchangeMailboxesEquipment
         [PSWinDocumentation.O365]::O365UExchangeMailboxesInboxRules
         [PSWinDocumentation.O365]::O365ExchangeMailboxesInboxRulesForwarding
+        [PSWinDocumentation.O365]::O365ExchangeMailboxesStatistics
+        [PSWinDocumentation.O365]::O365ExchangeMailboxesStatisticsArchive
+        [PSWinDocumentation.O365]::O365ExchangeMailboxes
     )
     $Data.O365UExchangeMailUsers = Get-DataInformation -Text "Getting O365 information - O365UExchangeMailUsers" {
         Get-WinO365UExchangeMailUsers -Prefix $Prefix
@@ -252,6 +258,40 @@
         Get-WinO365UExchangeMailboxesInboxRulesForwarding -InboxRules $O365UExchangeMailboxesInboxRules -Mailboxes $O365UExchangeMailBoxes
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::O365ExchangeMailboxesInboxRulesForwarding
+    )
+
+    $Data.O365ExchangeMailboxesStatistics = Get-DataInformation -Text "Getting O365 information - O365ExchangeMailboxesStatistics" {
+        Get-WinO365ExchangeMailboxesStatistics -ExchangeMailboxes $Data.O365UExchangeMailBoxes
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365ExchangeMailboxesStatistics
+        [PSWinDocumentation.O365]::O365ExchangeMailboxes
+    )
+    $Data.O365ExchangeMailboxesStatisticsArchive = Get-DataInformation -Text "Getting O365 information - O365ExchangeMailboxesStatisticsArchive" {
+        Get-WinO365ExchangeMailboxesStatisticsArchive -ExchangeMailboxes $Data.O365UExchangeMailBoxes
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365ExchangeMailboxesStatisticsArchive
+        [PSWinDocumentation.O365]::O365ExchangeMailboxes
+    )
+    $Data.O365ExchangeMailboxes = Get-DataInformation -Text "Getting O365 information - O365ExchangeMailboxes" {
+        Get-WinO365ExchangeMailboxes -ExchangeMailboxes $Data.O365UExchangeMailBoxes `
+            -AzureUsers $Data.O365UAzureADUsers `
+            -MailboxStatistics $Data.O365ExchangeMailboxesStatistics `
+            -MailboxStatisticsArchive $Data.O365ExchangeMailboxesStatisticsArchive
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365ExchangeMailboxes
+    )
+
+
+    $Data.O365ExchangeMailboxesPermissionsIncludingInherited = Get-DataInformation -Text "Getting O365 information - O365ExchangeMailboxesPermissionsIncludingInherited" {
+        Get-WinO365ExchangeMailboxesPermissionsIncludingInherited -ExchangeMailboxes $Data.O365UExchangeMailBoxes -AzureUsers $Data.O365UAzureADUsers
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365ExchangeMailboxesPermissionsIncludingInherited
+        [PSWinDocumentation.O365]::O365ExchangeMailboxesPermissions
+    )
+    $Data.O365ExchangeMailboxesPermissions = Get-DataInformation -Text "Getting O365 information - O365ExchangeMailboxesPermissions" {
+        Get-WinO365ExchangeMailboxesPermissions -ExchangeMailboxes $Data.O365UExchangeMailBoxes -MailboxPermissions $Data.O365ExchangeMailboxesPermissionsIncludingInherited
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365ExchangeMailboxesPermissions
     )
 
     $EndTime = Stop-TimeLog -Time $TimeToGenerate
