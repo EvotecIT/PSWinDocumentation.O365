@@ -105,6 +105,7 @@
         [PSWinDocumentation.O365]::O365UExchangeMailboxesRooms
         [PSWinDocumentation.O365]::O365UExchangeMailboxesEquipment
         [PSWinDocumentation.O365]::O365UExchangeMailboxesInboxRules
+        [PSWinDocumentation.O365]::O365ExchangeMailboxesInboxRulesForwarding
     )
     $Data.O365UExchangeMailUsers = Get-DataInformation -Text "Getting O365 information - O365UExchangeMailUsers" {
         Get-WinO365UExchangeMailUsers -Prefix $Prefix
@@ -131,6 +132,8 @@
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::O365UExchangeGroupsDistribution
         [PSWinDocumentation.O365]::O365UExchangeGroupsDistributionMembers
+        [PSWinDocumentation.O365]::O365ExchangeDistributionGroups
+        [PSWinDocumentation.O365]::O365ExchangeDistributionGroupsMembers
     )
     $Data.O365UExchangeGroupsDistributionDynamic = Get-DataInformation -Text "Getting O365 information - O365UExchangeGroupsDistributionDynamic" {
         Get-WinO365UExchangeGroupsDistributionDynamic -Prefix $Prefix
@@ -156,6 +159,7 @@
         Get-WinO365UExchangeMailboxesInboxRules -Prefix $Prefix -O365UExchangeMailBoxes $Data.O365UExchangeMailBoxes
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::O365UExchangeMailboxesInboxRules
+        [PSWinDocumentation.O365]::O365ExchangeMailboxesInboxRulesForwarding
     )
     $Data.O365UExchangeContactsMail = Get-DataInformation -Text "Getting O365 information - O365UExchangeContactsMail" {
         Get-WinO365UExchangeContactsMail -Prefix $Prefix
@@ -208,6 +212,46 @@
         Get-WinO365AzureTenantDomains -O365UAzureTenantDomains $Data.O365UAzureTenantDomains
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::O365AzureTenantDomains
+    )
+
+    $Data.O365ExchangeDistributionGroups = Get-DataInformation -Text "Getting O365 information - O365ExchangeDistributionGroups" {
+        Get-WinO365ExchangeDistributionGroups -O365UExchangeGroupsDistribution $Data.O365UExchangeGroupsDistribution
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365ExchangeDistributionGroups
+    )
+
+    $Data.O365ExchangeDistributionGroupsMembers = Get-DataInformation -Text "Getting O365 information - O365ExchangeDistributionGroupsMembers" {
+        Get-WinO365ExchangeDistributionGroupsMembers -O365UExchangeGroupsDistribution $Data.O365UExchangeGroupsDistribution
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365ExchangeDistributionGroupsMembers
+    )
+
+
+    $Data.O365UExchangeUnifiedGroups = Get-DataInformation -Text "Getting O365 information - O365UExchangeUnifiedGroups" {
+        Get-WinO365UExchangeUnifiedGroups
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365UExchangeUnifiedGroups
+        [PSWinDocumentation.O365]::O365ExchangeUnifiedGroups
+        [PSWinDocumentation.O365]::O365ExchangeUnifiedGroupsMembers
+    )
+
+    $Data.O365ExchangeUnifiedGroups = Get-DataInformation -Text "Getting O365 information - O365ExchangeUnifiedGroups" {
+        Get-WinO365ExchangeUnifiedGroups -ExchangeUnifiedGroups $Data.O365UExchangeUnifiedGroups
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365ExchangeUnifiedGroups
+    )
+
+    $Data.O365ExchangeUnifiedGroupsMembers = Get-DataInformation -Text "Getting O365 information - O365ExchangeUnifiedGroupsMembers" {
+        Get-WinO365ExchangeUnifiedGroupsMembers -ExchangeUnifiedGroups $Data.O365UExchangeUnifiedGroups
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365ExchangeUnifiedGroupsMembers
+    )
+
+
+    $Data.O365ExchangeMailboxesInboxRulesForwarding = Get-DataInformation -Text "Getting O365 information - O365ExchangeMailboxesInboxRulesForwarding" {
+        Get-WinO365UExchangeMailboxesInboxRulesForwarding -InboxRules $O365UExchangeMailboxesInboxRules -Mailboxes $O365UExchangeMailBoxes
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::O365ExchangeMailboxesInboxRulesForwarding
     )
 
     $EndTime = Stop-TimeLog -Time $TimeToGenerate

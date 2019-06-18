@@ -13,7 +13,14 @@
             O365AzureLicensing,
             O365AzureSubscription,
             O365AzureTenantDomains,
+
+            O365ExchangeDistributionGroups,
+            O365ExchangeDistributionGroupsMembers,
+            O365ExchangeMailboxesInboxRulesForwarding,
+            O365ExchangeUnifiedGroups,
+            O365ExchangeUnifiedGroupsMembers,
             O365TeamsConfiguration,
+
 
 
 
@@ -40,6 +47,7 @@
             O365UExchangeRecipients,
             O365UExchangeRecipientsPermissions,
             O365UExchangeRoomsCalendarProcessing,
+            O365UExchangeUnifiedGroups,
             O365UExchangeUsers
         }
     }
