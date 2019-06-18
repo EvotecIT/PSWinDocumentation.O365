@@ -1,4 +1,4 @@
-﻿function Get-WinUExchangeMailboxesInboxRulesForwarding {
+﻿function Get-WinExchangeMailboxesInboxRulesForwarding {
     [CmdletBinding()]
     param(
         [Array] $InboxRules,

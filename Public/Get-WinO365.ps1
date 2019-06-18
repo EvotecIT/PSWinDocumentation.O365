@@ -255,7 +255,7 @@
 
 
     $Data.ExchangeMailboxesInboxRulesForwarding = Get-DataInformation -Text "Getting O365 information - ExchangeMailboxesInboxRulesForwarding" {
-        Get-WinUExchangeMailboxesInboxRulesForwarding -InboxRules $UExchangeMailboxesInboxRules -Mailboxes $UExchangeMailBoxes
+        Get-WinExchangeMailboxesInboxRulesForwarding -InboxRules $UExchangeMailboxesInboxRules -Mailboxes $UExchangeMailBoxes
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::ExchangeMailboxesInboxRulesForwarding
     )
