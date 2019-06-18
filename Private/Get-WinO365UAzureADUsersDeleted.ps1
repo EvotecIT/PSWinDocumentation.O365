@@ -1,4 +1,4 @@
-﻿function Get-WinO365UAzureADUsersDeleted {
+﻿function Get-WinUAzureADUsersDeleted {
     param(
 
     )

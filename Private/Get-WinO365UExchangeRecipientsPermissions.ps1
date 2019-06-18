@@ -1,8 +1,8 @@
-﻿function Get-WinO365UExchangeRecipientsPermissions {
+﻿function Get-WinUExchangeRecipientsPermissions {
     [CmdletBinding()]
     param(
         [string] $Prefix
     )
-    $O365UExchangeRecipientsPermissions = & "Get-$($prefix)RecipientPermission" -ResultSize unlimited
-    return $O365UExchangeRecipientsPermissions
+    $UExchangeRecipientsPermissions = & "Get-$($prefix)RecipientPermission" -ResultSize unlimited
+    return $UExchangeRecipientsPermissions
 }

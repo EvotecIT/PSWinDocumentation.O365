@@ -1,11 +1,11 @@
-﻿function Get-WinO365UExchangeMailboxesInboxRules {
+﻿function Get-WinUExchangeMailboxesInboxRules {
     [CmdletBinding()]
     param(
         [string] $Prefix,
-        [Array] $O365UExchangeMailBoxes
+        [Array] $UExchangeMailBoxes
     )
     $InboxRules = @(
-        foreach ($Mailbox in $O365UExchangeMailBoxes) {
+        foreach ($Mailbox in $UExchangeMailBoxes) {
             & "Get-$($prefix)InboxRule" -Mailbox $Mailbox.UserPrincipalName
         }
     )

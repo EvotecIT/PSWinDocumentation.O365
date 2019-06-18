@@ -1,13 +1,13 @@
-﻿function Get-WinO365UExchangeMailboxesJunk {
+﻿function Get-WinUExchangeMailboxesJunk {
     [CmdletBinding()]
     param(
-        [Array] $O365UExchangeMailBoxes,
+        [Array] $UExchangeMailBoxes,
         [string] $Prefix
     )
     $Output = @(
-        foreach ($Mailbox in $O365UExchangeMailBoxes) {
+        foreach ($Mailbox in $UExchangeMailBoxes) {
             if ($null -eq $Mailbox.PrimarySmtpAddress) {
-                #Write-Verbose "O365UExchangeMailboxesJunk - $($Mailbox.PrimarySmtpAddress)"
+                #Write-Verbose "UExchangeMailboxesJunk - $($Mailbox.PrimarySmtpAddress)"
                 $Object = & "Get-$($prefix)MailboxJunkEmailConfiguration" -Identity $Mailbox.PrimarySmtpAddress -ResultSize unlimited
                 if ($Object) {
                     $Object | Add-Member -MemberType NoteProperty -Name "MailboxPrimarySmtpAddress" -Value $Mailbox.PrimarySmtpAddress

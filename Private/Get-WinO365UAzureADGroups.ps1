@@ -1,4 +1,4 @@
-﻿function Get-WinO365UAzureADGroups {
+﻿function Get-WinUAzureADGroups {
     [CmdletBinding()]
     param(
 

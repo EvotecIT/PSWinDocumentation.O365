@@ -1,9 +1,9 @@
-﻿function Get-WinO365AzureADUsersMFA {
+﻿function Get-WinAzureADUsersMFA {
     [CmdletBinding()]
     param(
-        [Array] $O365UAzureADUsers
+        [Array] $UAzureADUsers
     )
-    $AzureUsers = foreach ($User in $O365UAzureADUsers) {
+    $AzureUsers = foreach ($User in $UAzureADUsers) {
         $MFAOptions = @{ }
         $MFAOptions.AuthAvailable = @(
             foreach ($Auth in $User.StrongAuthenticationMethods) {

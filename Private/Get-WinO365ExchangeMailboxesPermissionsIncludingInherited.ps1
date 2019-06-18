@@ -1,4 +1,4 @@
-﻿function Get-WinO365ExchangeMailboxesPermissionsIncludingInherited {
+﻿function Get-WinExchangeMailboxesPermissionsIncludingInherited {
     [CmdletBinding()]
     param(
         [Array] $AzureUsers,

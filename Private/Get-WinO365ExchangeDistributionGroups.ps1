@@ -1,9 +1,9 @@
-﻿function Get-WinO365ExchangeDistributionGroups {
+﻿function Get-WinExchangeDistributionGroups {
     [CmdletBinding()]
     param(
-        [Array] $O365UExchangeGroupsDistribution
+        [Array] $UExchangeGroupsDistribution
     )
-    $Output = foreach ($O365Group in $O365UExchangeGroupsDistribution) {
+    $Output = foreach ($O365Group in $UExchangeGroupsDistribution) {
         # This creates new, cleaner groups list
         [PSCustomObject] @{
             "Group Name"                       = $O365Group.DisplayName

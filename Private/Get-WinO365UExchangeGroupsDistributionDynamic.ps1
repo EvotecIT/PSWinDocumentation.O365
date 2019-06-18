@@ -1,8 +1,8 @@
-﻿function Get-WinO365UExchangeGroupsDistributionDynamic {
+﻿function Get-WinUExchangeGroupsDistributionDynamic {
     [CmdletBinding()]
     param(
         [string] $Prefix
     )
-    $O365UExchangeGroupsDistributionDynamic = & "Get-$($prefix)DynamicDistributionGroup" -ResultSize unlimited
-    $O365UExchangeGroupsDistributionDynamic
+    $UExchangeGroupsDistributionDynamic = & "Get-$($prefix)DynamicDistributionGroup" -ResultSize unlimited
+    $UExchangeGroupsDistributionDynamic
 }

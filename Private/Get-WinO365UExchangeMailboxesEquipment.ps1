@@ -1,7 +1,7 @@
-﻿function Get-WinO365UExchangeMailboxesEquipment {
+﻿function Get-WinUExchangeMailboxesEquipment {
     [CmdletBinding()]
     param(
-        [Array] $O365UExchangeMailBoxes
+        [Array] $UExchangeMailBoxes
     )
-    $O365UExchangeMailBoxes | Where-Object { $_.RecipientTypeDetails -eq 'EquipmentMailbox' }
+    $UExchangeMailBoxes | Where-Object { $_.RecipientTypeDetails -eq 'EquipmentMailbox' }
 }

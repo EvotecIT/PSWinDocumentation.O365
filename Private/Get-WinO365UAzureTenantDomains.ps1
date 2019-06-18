@@ -1,8 +1,8 @@
-﻿function Get-WinO365UAzureTenantDomains {
+﻿function Get-WinUAzureTenantDomains {
     [CmdletBinding()]
     param(
 
     )
-    $O365UAzureTenantDomains = Get-MsolDomain
-    return $O365UAzureTenantDomains
+    $UAzureTenantDomains = Get-MsolDomain
+    return $UAzureTenantDomains
 }

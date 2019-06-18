@@ -1,7 +1,7 @@
-﻿function Get-WinO365AzureADUsersStatisticsByCountry {
+﻿function Get-WinAzureADUsersStatisticsByCountry {
     [CmdletBinding()]
     param(
-        [Array] $O365UAzureADUsers
+        [Array] $UAzureADUsers
     )
-    $O365UAzureADUsers | Group-Object Country | Select-Object @{ L = 'Country'; Expression = { if ($_.Name -ne '') { $_.Name } else { 'Unknown' } } } , @{ L = 'Users Count'; Expression = { $_.Count } } | Sort-Object 'Country'
+    $UAzureADUsers | Group-Object Country | Select-Object @{ L = 'Country'; Expression = { if ($_.Name -ne '') { $_.Name } else { 'Unknown' } } } , @{ L = 'Users Count'; Expression = { $_.Count } } | Sort-Object 'Country'
 }

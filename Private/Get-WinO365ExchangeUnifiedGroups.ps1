@@ -1,4 +1,4 @@
-﻿function Get-WinO365ExchangeUnifiedGroups {
+﻿function Get-WinExchangeUnifiedGroups {
     [CmdletBinding()]
     param(
        [Array] $ExchangeUnifiedGroups

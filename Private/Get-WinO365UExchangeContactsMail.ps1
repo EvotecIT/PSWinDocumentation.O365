@@ -1,9 +1,9 @@
-﻿function Get-WinO365UExchangeContactsMail {
+﻿function Get-WinUExchangeContactsMail {
     [CmdletBinding()]
     param(
         [string] $Prefix
     )
-    $O365UExchangeContactsMail = & "Get-$($prefix)MailContact" -ResultSize unlimited
-    return $O365UExchangeContactsMail
+    $UExchangeContactsMail = & "Get-$($prefix)MailContact" -ResultSize unlimited
+    return $UExchangeContactsMail
 }
 

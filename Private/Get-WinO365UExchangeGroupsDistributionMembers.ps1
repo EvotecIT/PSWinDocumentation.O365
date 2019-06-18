@@ -1,11 +1,11 @@
-﻿function Get-WinO365UExchangeGroupsDistributionMembers {
+﻿function Get-WinUExchangeGroupsDistributionMembers {
     [CmdletBinding()]
     param(
-        [Array] $O365UExchangeGroupsDistribution,
+        [Array] $UExchangeGroupsDistribution,
         [string] $Prefix
     )
     $GroupMembers = @(
-        foreach ($Group in $O365UExchangeGroupsDistribution) {
+        foreach ($Group in $UExchangeGroupsDistribution) {
             $Object = & "Get-$($prefix)DistributionGroupMember" -Identity $Group.PrimarySmtpAddress -ResultSize unlimited
             $Object | Add-Member -MemberType NoteProperty -Name "GroupGUID" -Value $Group.GUID
             $Object | Add-Member -MemberType NoteProperty -Name "GroupPrimarySmtpAddress" -Value $Group.PrimarySmtpAddress

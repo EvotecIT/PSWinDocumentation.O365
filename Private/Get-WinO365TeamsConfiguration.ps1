@@ -1,4 +1,4 @@
-﻿function Get-WinO365TeamsConfiguration {
+﻿function Get-WinTeamsConfiguration {
     param(
 
     )

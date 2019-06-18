@@ -1,4 +1,4 @@
-﻿function Get-WinO365ExchangeMailboxesPermissions {
+﻿function Get-WinExchangeMailboxesPermissions {
     [CmdletBinding()]
     param(
         #[Array] $AzureUsers,

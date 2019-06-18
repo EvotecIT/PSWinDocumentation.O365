@@ -1,8 +1,8 @@
-﻿function Get-WinO365UAzureLicensing {
+﻿function Get-WinUAzureLicensing {
     [CmdletBinding()]
     param(
 
     )
-    $O365UAzureLicensing = Get-MsolAccountSku
-    return $O365UAzureLicensing
+    $UAzureLicensing = Get-MsolAccountSku
+    return $UAzureLicensing
 }

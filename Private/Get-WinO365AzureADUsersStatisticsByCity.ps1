@@ -1,7 +1,7 @@
-﻿function Get-WinO365AzureADUsersStatisticsByCity {
+﻿function Get-WinAzureADUsersStatisticsByCity {
     [CmdletBinding()]
     param(
-        [Array] $O365UAzureADUsers
+        [Array] $UAzureADUsers
     )
-    $O365UAzureADUsers | Group-Object City | Select-Object @{ L = 'City'; Expression = { if ($_.Name -ne '') { $_.Name } else { 'Unknown' } } } , @{ L = 'Users Count'; Expression = { $_.Count } } | Sort-Object 'City'
+    $UAzureADUsers | Group-Object City | Select-Object @{ L = 'City'; Expression = { if ($_.Name -ne '') { $_.Name } else { 'Unknown' } } } , @{ L = 'Users Count'; Expression = { $_.Count } } | Sort-Object 'City'
 }

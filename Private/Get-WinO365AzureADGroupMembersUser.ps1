@@ -1,11 +1,11 @@
-﻿function Get-WinO365AzureADGroupMembersUser {
+﻿function Get-WinAzureADGroupMembersUser {
     [CmdletBinding()]
     param(
-        [Array] $O365UAzureADGroups,
-        [Array] $O365UAzureADGroupMembers
+        [Array] $UAzureADGroups,
+        [Array] $UAzureADGroupMembers
     )
-    $Members = foreach ($Group in $O365UAzureADGroups) {
-        $GroupMembers = $Data.O365UAzureADGroupMembers | Where-Object { $_.GroupObjectId -eq $Group.ObjectId }
+    $Members = foreach ($Group in $UAzureADGroups) {
+        $GroupMembers = $Data.UAzureADGroupMembers | Where-Object { $_.GroupObjectId -eq $Group.ObjectId }
         foreach ($GroupMember in $GroupMembers) {
             [PsCustomObject] @{
                 "GroupDisplayName"    = $Group.DisplayName

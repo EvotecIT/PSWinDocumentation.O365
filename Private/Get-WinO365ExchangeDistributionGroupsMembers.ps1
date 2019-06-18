@@ -1,9 +1,9 @@
-﻿function Get-WinO365ExchangeDistributionGroupsMembers {
+﻿function Get-WinExchangeDistributionGroupsMembers {
     [CmdletBinding()]
     param(
-        [Array] $O365UExchangeGroupsDistribution
+        [Array] $UExchangeGroupsDistribution
     )
-    $Output = foreach ($O365Group in $O365UExchangeGroupsDistribution) {
+    $Output = foreach ($O365Group in $UExchangeGroupsDistribution) {
         # This returns members of groups
         $O365GroupPeople = Get-DistributionGroupMember -Identity $O365Group.GUID.GUID
         foreach ($O365Member in $O365GroupPeople) {

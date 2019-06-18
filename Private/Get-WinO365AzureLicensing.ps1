@@ -1,13 +1,13 @@
-function Get-WinO365AzureLicensing {
+function Get-WinAzureLicensing {
     [CmdletBinding()]
     param(
-        [Array] $O365UAzureLicensing
+        [Array] $UAzureLicensing
     )
-    if ($null -eq $O365UAzureLicensing) {
-        $O365UAzureLicensing = Get-MsolAccountSku
+    if ($null -eq $UAzureLicensing) {
+        $UAzureLicensing = Get-MsolAccountSku
     }
 
-    $Licenses = foreach ($License in $O365UAzureLicensing ) {
+    $Licenses = foreach ($License in $UAzureLicensing ) {
         $LicensesTotal = $License.ActiveUnits + $License.WarningUnits
         $LicensesUsed = $License.ConsumedUnits
         $LicensesLeft = $LicensesTotal - $LicensesUsed

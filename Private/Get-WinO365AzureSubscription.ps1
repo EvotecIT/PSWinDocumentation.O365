@@ -1,12 +1,12 @@
-function Get-WinO365AzureSubscription {
+function Get-WinAzureSubscription {
     [CmdletBinding()]
     param(
-        [Array] $O365UAzureSubscription
+        [Array] $UAzureSubscription
     )
-    if ($null -eq $O365UAzureSubscription) {
-        $O365UAzureSubscription = Get-MsolSubscription
+    if ($null -eq $UAzureSubscription) {
+        $UAzureSubscription = Get-MsolSubscription
     }
-    $Licenses = foreach ($Subscription in $O365UAzureSubscription) {
+    $Licenses = foreach ($Subscription in $UAzureSubscription) {
         foreach ($Plan in $Subscription.ServiceStatus) {
             [PSCustomObject] @{
                 'Licenses Name'       = Convert-Office365License -License $Subscription.SkuPartNumber

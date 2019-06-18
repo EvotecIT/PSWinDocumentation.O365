@@ -1,8 +1,8 @@
-﻿function Get-WinO365UExchangeMailBoxes {
+﻿function Get-WinUExchangeMailBoxes {
     [CmdletBinding()]
     param(
         [string] $Prefix
     )
-    $O365UExchangeMailBoxes = & "Get-$($prefix)Mailbox" -ResultSize unlimited
-    return $O365UExchangeMailBoxes
+    $UExchangeMailBoxes = & "Get-$($prefix)Mailbox" -ResultSize unlimited
+    return $UExchangeMailBoxes
 }

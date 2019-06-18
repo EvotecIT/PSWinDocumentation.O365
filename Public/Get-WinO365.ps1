@@ -24,274 +24,274 @@
     $Data = @{ }
 
     # MSOnline
-    $Data.O365UAzureADUsers = Get-DataInformation -Text "Getting O365 information - O365UAzureADUsers" {
-        Get-WinO365UAzureADUsers  #-Prefix $Prefix
+    $Data.UAzureADUsers = Get-DataInformation -Text "Getting O365 information - UAzureADUsers" {
+        Get-WinUAzureADUsers  #-Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UAzureADUsers
-        [PSWinDocumentation.O365]::O365AzureADUsersMFA
-        [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCountry
-        [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCity
-        [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCountryCity
-        [PSWinDocumentation.O365]::O365ExchangeMailboxes
+        [PSWinDocumentation.O365]::UAzureADUsers
+        [PSWinDocumentation.O365]::AzureADUsersMFA
+        [PSWinDocumentation.O365]::AzureADUsersStatisticsByCountry
+        [PSWinDocumentation.O365]::AzureADUsersStatisticsByCity
+        [PSWinDocumentation.O365]::AzureADUsersStatisticsByCountryCity
+        [PSWinDocumentation.O365]::ExchangeMailboxes
     )
-    $Data.O365UAzureADUsersDeleted = Get-DataInformation -Text "Getting O365 information - O365UAzureADUsersDeleted" {
-        Get-WinO365UAzureADUsersDeleted  #-Prefix $Prefix
+    $Data.UAzureADUsersDeleted = Get-DataInformation -Text "Getting O365 information - UAzureADUsersDeleted" {
+        Get-WinUAzureADUsersDeleted  #-Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UAzureADUsersDeleted
+        [PSWinDocumentation.O365]::UAzureADUsersDeleted
     )
-    $Data.O365UAzureADContacts = Get-DataInformation -Text "Getting O365 information - O365UAzureADContacts" {
-        Get-WinO365UAzureADContacts  #-Prefix $Prefix
+    $Data.UAzureADContacts = Get-DataInformation -Text "Getting O365 information - UAzureADContacts" {
+        Get-WinUAzureADContacts  #-Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UAzureADContacts
+        [PSWinDocumentation.O365]::UAzureADContacts
     )
-    $Data.O365UAzureLicensing = Get-DataInformation -Text "Getting O365 information - O365UAzureLicensing" {
-        Get-WinO365UAzureLicensing  #-Prefix $Prefix
+    $Data.UAzureLicensing = Get-DataInformation -Text "Getting O365 information - UAzureLicensing" {
+        Get-WinUAzureLicensing  #-Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UAzureLicensing
-        [PSWinDocumentation.O365]::O365AzureLicensing
+        [PSWinDocumentation.O365]::UAzureLicensing
+        [PSWinDocumentation.O365]::AzureLicensing
     )
-    $Data.O365UAzureSubscription = Get-DataInformation -Text "Getting O365 information - O365UAzureSubscription" {
-        Get-WinO365UAzureSubscription  #-Prefix $Prefix
+    $Data.UAzureSubscription = Get-DataInformation -Text "Getting O365 information - UAzureSubscription" {
+        Get-WinUAzureSubscription  #-Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UAzureSubscription
+        [PSWinDocumentation.O365]::UAzureSubscription
     )
-    $Data.O365UAzureTenantDomains = Get-DataInformation -Text "Getting O365 information - O365UAzureTenantDomains" {
-        Get-WinO365UAzureTenantDomains  #-Prefix $Prefix
+    $Data.UAzureTenantDomains = Get-DataInformation -Text "Getting O365 information - UAzureTenantDomains" {
+        Get-WinUAzureTenantDomains  #-Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UAzureTenantDomains
-        [PSWinDocumentation.O365]::O365AzureTenantDomains
+        [PSWinDocumentation.O365]::UAzureTenantDomains
+        [PSWinDocumentation.O365]::AzureTenantDomains
     )
-    $Data.O365UAzureADGroups = Get-DataInformation -Text "Getting O365 information - O365UAzureADGroups" {
-        Get-WinO365UAzureADGroups
+    $Data.UAzureADGroups = Get-DataInformation -Text "Getting O365 information - UAzureADGroups" {
+        Get-WinUAzureADGroups
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UAzureADGroups
-        [PSWinDocumentation.O365]::O365UAzureADGroupMembers
-        [PSWinDocumentation.O365]::O365AzureADGroupMembersUser
+        [PSWinDocumentation.O365]::UAzureADGroups
+        [PSWinDocumentation.O365]::UAzureADGroupMembers
+        [PSWinDocumentation.O365]::AzureADGroupMembersUser
     )
-    $Data.O365UAzureADGroupMembers = Get-DataInformation -Text "Getting O365 information - O365UAzureADGroupMembers" {
-        Get-WinO365UAzureADGroupMembers -O365UAzureADGroups $Data.O365UAzureADGroups
+    $Data.UAzureADGroupMembers = Get-DataInformation -Text "Getting O365 information - UAzureADGroupMembers" {
+        Get-WinUAzureADGroupMembers -UAzureADGroups $Data.UAzureADGroups
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UAzureADGroupMembers
-        [PSWinDocumentation.O365]::O365AzureADGroupMembersUser
+        [PSWinDocumentation.O365]::UAzureADGroupMembers
+        [PSWinDocumentation.O365]::AzureADGroupMembersUser
     )
-    $Data.O365AzureADGroupMembersUser = Get-DataInformation -Text "Getting O365 information - O365AzureADGroupMembersUser" {
-        Get-WinO365UAzureADGroupMembers -O365UAzureADGroups $Data.O365UAzureADGroups
+    $Data.AzureADGroupMembersUser = Get-DataInformation -Text "Getting O365 information - AzureADGroupMembersUser" {
+        Get-WinUAzureADGroupMembers -UAzureADGroups $Data.UAzureADGroups
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365AzureADGroupMembersUser
+        [PSWinDocumentation.O365]::AzureADGroupMembersUser
     )
-    $Data.O365AzureADUsersMFA = Get-DataInformation -Text "Getting O365 information - O365AzureADUsersMFA" {
-        Get-WinO365AzureADUsersMFA -O365UAzureADUsers $Data.O365UAzureADUsers
+    $Data.AzureADUsersMFA = Get-DataInformation -Text "Getting O365 information - AzureADUsersMFA" {
+        Get-WinAzureADUsersMFA -UAzureADUsers $Data.UAzureADUsers
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365AzureADUsersMFA
+        [PSWinDocumentation.O365]::AzureADUsersMFA
     )
-    $Data.O365AzureADUsersStatisticsByCountry = Get-DataInformation -Text "Getting O365 information - O365AzureADUsersStatisticsByCountry" {
-        Get-WinO365AzureADUsersStatisticsByCountry -O365UAzureADUsers $Data.O365UAzureADUsers
+    $Data.AzureADUsersStatisticsByCountry = Get-DataInformation -Text "Getting O365 information - AzureADUsersStatisticsByCountry" {
+        Get-WinAzureADUsersStatisticsByCountry -UAzureADUsers $Data.UAzureADUsers
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCountry
+        [PSWinDocumentation.O365]::AzureADUsersStatisticsByCountry
     )
-    $Data.O365AzureADUsersStatisticsByCity = Get-DataInformation -Text "Getting O365 information - O365AzureADUsersStatisticsByCity" {
-        Get-WinO365AzureADUsersStatisticsByCity -O365UAzureADUsers $Data.O365UAzureADUsers
+    $Data.AzureADUsersStatisticsByCity = Get-DataInformation -Text "Getting O365 information - AzureADUsersStatisticsByCity" {
+        Get-WinAzureADUsersStatisticsByCity -UAzureADUsers $Data.UAzureADUsers
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCity
+        [PSWinDocumentation.O365]::AzureADUsersStatisticsByCity
     )
-    $Data.O365AzureADUsersStatisticsByCountryCity = Get-DataInformation -Text "Getting O365 information - O365AzureADUsersStatisticsByCountryCity" {
-        Get-WinO365AzureADUsersStatisticsByCountryCity -O365UAzureADUsers $Data.O365UAzureADUsers
+    $Data.AzureADUsersStatisticsByCountryCity = Get-DataInformation -Text "Getting O365 information - AzureADUsersStatisticsByCountryCity" {
+        Get-WinAzureADUsersStatisticsByCountryCity -UAzureADUsers $Data.UAzureADUsers
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365AzureADUsersStatisticsByCountryCity
+        [PSWinDocumentation.O365]::AzureADUsersStatisticsByCountryCity
     )
     ## Microsoft Exchange
-    $Data.O365UExchangeMailBoxes = Get-DataInformation -Text "Getting O365 information - O365UExchangeMailBoxes" {
-        Get-WinO365UExchangeMailBoxes -Prefix $Prefix
+    $Data.UExchangeMailBoxes = Get-DataInformation -Text "Getting O365 information - UExchangeMailBoxes" {
+        Get-WinUExchangeMailBoxes -Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeMailBoxes
-        [PSWinDocumentation.O365]::O365UExchangeMailboxesJunk
-        [PSWinDocumentation.O365]::O365UExchangeMailboxesRooms
-        [PSWinDocumentation.O365]::O365UExchangeMailboxesEquipment
-        [PSWinDocumentation.O365]::O365UExchangeMailboxesInboxRules
-        [PSWinDocumentation.O365]::O365ExchangeMailboxesInboxRulesForwarding
-        [PSWinDocumentation.O365]::O365ExchangeMailboxesStatistics
-        [PSWinDocumentation.O365]::O365ExchangeMailboxesStatisticsArchive
-        [PSWinDocumentation.O365]::O365ExchangeMailboxes
+        [PSWinDocumentation.O365]::UExchangeMailBoxes
+        [PSWinDocumentation.O365]::UExchangeMailboxesJunk
+        [PSWinDocumentation.O365]::UExchangeMailboxesRooms
+        [PSWinDocumentation.O365]::UExchangeMailboxesEquipment
+        [PSWinDocumentation.O365]::UExchangeMailboxesInboxRules
+        [PSWinDocumentation.O365]::ExchangeMailboxesInboxRulesForwarding
+        [PSWinDocumentation.O365]::ExchangeMailboxesStatistics
+        [PSWinDocumentation.O365]::ExchangeMailboxesStatisticsArchive
+        [PSWinDocumentation.O365]::ExchangeMailboxes
     )
-    $Data.O365UExchangeMailUsers = Get-DataInformation -Text "Getting O365 information - O365UExchangeMailUsers" {
-        Get-WinO365UExchangeMailUsers -Prefix $Prefix
+    $Data.UExchangeMailUsers = Get-DataInformation -Text "Getting O365 information - UExchangeMailUsers" {
+        Get-WinUExchangeMailUsers -Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeMailUsers
+        [PSWinDocumentation.O365]::UExchangeMailUsers
     )
-    $Data.O365UExchangeUsers = Get-DataInformation -Text "Getting O365 information - O365UExchangeUsers" {
-        Get-WinO365UExchangeUsers -Prefix $Prefix
+    $Data.UExchangeUsers = Get-DataInformation -Text "Getting O365 information - UExchangeUsers" {
+        Get-WinUExchangeUsers -Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeUsers
+        [PSWinDocumentation.O365]::UExchangeUsers
     )
-    $Data.O365UExchangeRecipients = Get-DataInformation -Text "Getting O365 information - O365UExchangeRecipients" {
-        Get-WinO365UExchangeRecipients -Prefix $Prefix
+    $Data.UExchangeRecipients = Get-DataInformation -Text "Getting O365 information - UExchangeRecipients" {
+        Get-WinUExchangeRecipients -Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeRecipients
+        [PSWinDocumentation.O365]::UExchangeRecipients
     )
-    $Data.O365UExchangeRecipientsPermissions = Get-DataInformation -Text "Getting O365 information - O365UExchangeRecipientsPermissions" {
-        Get-WinO365UExchangeRecipientsPermissions -Prefix $Prefix
+    $Data.UExchangeRecipientsPermissions = Get-DataInformation -Text "Getting O365 information - UExchangeRecipientsPermissions" {
+        Get-WinUExchangeRecipientsPermissions -Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeRecipientsPermissions
+        [PSWinDocumentation.O365]::UExchangeRecipientsPermissions
     )
-    $Data.O365UExchangeGroupsDistribution = Get-DataInformation -Text "Getting O365 information - O365UExchangeGroupsDistribution" {
-        Get-WinO365UExchangeGroupsDistribution -Prefix $Prefix
+    $Data.UExchangeGroupsDistribution = Get-DataInformation -Text "Getting O365 information - UExchangeGroupsDistribution" {
+        Get-WinUExchangeGroupsDistribution -Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeGroupsDistribution
-        [PSWinDocumentation.O365]::O365UExchangeGroupsDistributionMembers
-        [PSWinDocumentation.O365]::O365ExchangeDistributionGroups
-        [PSWinDocumentation.O365]::O365ExchangeDistributionGroupsMembers
+        [PSWinDocumentation.O365]::UExchangeGroupsDistribution
+        [PSWinDocumentation.O365]::UExchangeGroupsDistributionMembers
+        [PSWinDocumentation.O365]::ExchangeDistributionGroups
+        [PSWinDocumentation.O365]::ExchangeDistributionGroupsMembers
     )
-    $Data.O365UExchangeGroupsDistributionDynamic = Get-DataInformation -Text "Getting O365 information - O365UExchangeGroupsDistributionDynamic" {
-        Get-WinO365UExchangeGroupsDistributionDynamic -Prefix $Prefix
+    $Data.UExchangeGroupsDistributionDynamic = Get-DataInformation -Text "Getting O365 information - UExchangeGroupsDistributionDynamic" {
+        Get-WinUExchangeGroupsDistributionDynamic -Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeGroupsDistributionDynamic
+        [PSWinDocumentation.O365]::UExchangeGroupsDistributionDynamic
     )
-    $Data.O365UExchangeGroupsDistributionMembers = Get-DataInformation -Text "Getting O365 information - O365UExchangeGroupsDistributionMembers" {
-        Get-WinO365UExchangeGroupsDistributionMembers -Prefix $Prefix -O365UExchangeGroupsDistribution $Data.O365UExchangeGroupsDistribution
+    $Data.UExchangeGroupsDistributionMembers = Get-DataInformation -Text "Getting O365 information - UExchangeGroupsDistributionMembers" {
+        Get-WinUExchangeGroupsDistributionMembers -Prefix $Prefix -UExchangeGroupsDistribution $Data.UExchangeGroupsDistribution
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeGroupsDistributionMembers
+        [PSWinDocumentation.O365]::UExchangeGroupsDistributionMembers
     )
-    $Data.O365UExchangeMailboxesJunk = Get-DataInformation -Text "Getting O365 information - O365UExchangeMailboxesJunk" {
-        Get-WinO365UExchangeMailboxesJunk -Prefix $Prefix -O365UExchangeMailBoxes $Data.O365UExchangeMailBoxes
+    $Data.UExchangeMailboxesJunk = Get-DataInformation -Text "Getting O365 information - UExchangeMailboxesJunk" {
+        Get-WinUExchangeMailboxesJunk -Prefix $Prefix -UExchangeMailBoxes $Data.UExchangeMailBoxes
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeMailboxesJunk
+        [PSWinDocumentation.O365]::UExchangeMailboxesJunk
     )
-    $Data.O365UExchangeContacts = Get-DataInformation -Text "Getting O365 information - O365UExchangeContacts" {
-        Get-WinO365UExchangeContacts -Prefix $Prefix
+    $Data.UExchangeContacts = Get-DataInformation -Text "Getting O365 information - UExchangeContacts" {
+        Get-WinUExchangeContacts -Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeContacts
+        [PSWinDocumentation.O365]::UExchangeContacts
     )
-    $Data.O365UExchangeMailboxesInboxRules = Get-DataInformation -Text "Getting O365 information - O365UExchangeMailboxesInboxRules" {
-        Get-WinO365UExchangeMailboxesInboxRules -Prefix $Prefix -O365UExchangeMailBoxes $Data.O365UExchangeMailBoxes
+    $Data.UExchangeMailboxesInboxRules = Get-DataInformation -Text "Getting O365 information - UExchangeMailboxesInboxRules" {
+        Get-WinUExchangeMailboxesInboxRules -Prefix $Prefix -UExchangeMailBoxes $Data.UExchangeMailBoxes
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeMailboxesInboxRules
-        [PSWinDocumentation.O365]::O365ExchangeMailboxesInboxRulesForwarding
+        [PSWinDocumentation.O365]::UExchangeMailboxesInboxRules
+        [PSWinDocumentation.O365]::ExchangeMailboxesInboxRulesForwarding
     )
-    $Data.O365UExchangeContactsMail = Get-DataInformation -Text "Getting O365 information - O365UExchangeContactsMail" {
-        Get-WinO365UExchangeContactsMail -Prefix $Prefix
+    $Data.UExchangeContactsMail = Get-DataInformation -Text "Getting O365 information - UExchangeContactsMail" {
+        Get-WinUExchangeContactsMail -Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeContactsMail
+        [PSWinDocumentation.O365]::UExchangeContactsMail
     )
-    $Data.O365UExchangeMailboxesRooms = Get-DataInformation -Text "Getting O365 information - O365UExchangeMailboxesRooms" {
-        Get-WinO365UExchangeMailboxesRooms -O365UExchangeMailBoxes $O365UExchangeMailBoxes
+    $Data.UExchangeMailboxesRooms = Get-DataInformation -Text "Getting O365 information - UExchangeMailboxesRooms" {
+        Get-WinUExchangeMailboxesRooms -UExchangeMailBoxes $UExchangeMailBoxes
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeMailboxesRooms
-        [PSWinDocumentation.O365]::O365UExchangeRoomsCalendarProcessing
+        [PSWinDocumentation.O365]::UExchangeMailboxesRooms
+        [PSWinDocumentation.O365]::UExchangeRoomsCalendarProcessing
     )
-    $Data.O365UExchangeMailboxesEquipment = Get-DataInformation -Text "Getting O365 information - O365UExchangeMailboxesEquipment" {
-        Get-WinO365UExchangeMailboxesEquipment  -O365UExchangeMailBoxes $O365UExchangeMailBoxes
+    $Data.UExchangeMailboxesEquipment = Get-DataInformation -Text "Getting O365 information - UExchangeMailboxesEquipment" {
+        Get-WinUExchangeMailboxesEquipment  -UExchangeMailBoxes $UExchangeMailBoxes
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeMailboxesEquipment
-        [PSWinDocumentation.O365]::O365UExchangeEquipmentCalendarProcessing
+        [PSWinDocumentation.O365]::UExchangeMailboxesEquipment
+        [PSWinDocumentation.O365]::UExchangeEquipmentCalendarProcessing
     )
-    $Data.O365UExchangeRoomsCalendarProcessing = Get-DataInformation -Text "Getting O365 information - O365UExchangeMailboxesRooms" {
-        Get-WinO365UExchangeRoomsCalendarProcessing -Prefix $Prefix -O365UExchangeMailboxesRooms $Data.O365UExchangeMailboxesRooms
+    $Data.UExchangeRoomsCalendarProcessing = Get-DataInformation -Text "Getting O365 information - UExchangeMailboxesRooms" {
+        Get-WinUExchangeRoomsCalendarProcessing -Prefix $Prefix -UExchangeMailboxesRooms $Data.UExchangeMailboxesRooms
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeRoomsCalendarProcessing
+        [PSWinDocumentation.O365]::UExchangeRoomsCalendarProcessing
     )
 
-    $Data.O365UExchangeEquipmentCalendarProcessing = Get-DataInformation -Text "Getting O365 information - O365UExchangeEquipmentCalendarProcessing" {
-        Get-WinO365UExchangeEquipmentCalendarProcessing -Prefix $Prefix -O365UExchangeMailboxesEquipment   $Data.O365UExchangeMailboxesEquipment
+    $Data.UExchangeEquipmentCalendarProcessing = Get-DataInformation -Text "Getting O365 information - UExchangeEquipmentCalendarProcessing" {
+        Get-WinUExchangeEquipmentCalendarProcessing -Prefix $Prefix -UExchangeMailboxesEquipment   $Data.UExchangeMailboxesEquipment
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeEquipmentCalendarProcessing
+        [PSWinDocumentation.O365]::UExchangeEquipmentCalendarProcessing
     )
 
     ## Microsoft Teams
-    $Data.O365TeamsConfiguration = Get-DataInformation -Text "Getting O365 information - O365TeamsConfiguration" {
-        #Get-WinO365TeamsConfiguration
+    $Data.TeamsConfiguration = Get-DataInformation -Text "Getting O365 information - TeamsConfiguration" {
+        #Get-WinTeamsConfiguration
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365TeamsConfiguration
+        [PSWinDocumentation.O365]::TeamsConfiguration
     )
 
     ## Summary (Prepared Data)
-    $Data.O365AzureLicensing = Get-DataInformation -Text "Getting O365 information - O365AzureLicensing" {
-        Get-WinO365AzureLicensing -O365UAzureLicensing $Data.O365UAzureLicensing
+    $Data.AzureLicensing = Get-DataInformation -Text "Getting O365 information - AzureLicensing" {
+        Get-WinAzureLicensing -UAzureLicensing $Data.UAzureLicensing
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365AzureLicensing
+        [PSWinDocumentation.O365]::AzureLicensing
     )
-    $Data.O365AzureSubscription = Get-DataInformation -Text "Getting O365 information - O365AzureSubscription" {
-        Get-WinO365AzureSubscription -O365UAzureSubscription $Data.O365UAzureSubscription
+    $Data.AzureSubscription = Get-DataInformation -Text "Getting O365 information - AzureSubscription" {
+        Get-WinAzureSubscription -UAzureSubscription $Data.UAzureSubscription
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365AzureSubscription
+        [PSWinDocumentation.O365]::AzureSubscription
     )
-    $Data.O365AzureTenantDomains = Get-DataInformation -Text "Getting O365 information - O365AzureTenantDomains" {
-        Get-WinO365AzureTenantDomains -O365UAzureTenantDomains $Data.O365UAzureTenantDomains
+    $Data.AzureTenantDomains = Get-DataInformation -Text "Getting O365 information - AzureTenantDomains" {
+        Get-WinAzureTenantDomains -UAzureTenantDomains $Data.UAzureTenantDomains
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365AzureTenantDomains
-    )
-
-    $Data.O365ExchangeDistributionGroups = Get-DataInformation -Text "Getting O365 information - O365ExchangeDistributionGroups" {
-        Get-WinO365ExchangeDistributionGroups -O365UExchangeGroupsDistribution $Data.O365UExchangeGroupsDistribution
-    } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365ExchangeDistributionGroups
+        [PSWinDocumentation.O365]::AzureTenantDomains
     )
 
-    $Data.O365ExchangeDistributionGroupsMembers = Get-DataInformation -Text "Getting O365 information - O365ExchangeDistributionGroupsMembers" {
-        Get-WinO365ExchangeDistributionGroupsMembers -O365UExchangeGroupsDistribution $Data.O365UExchangeGroupsDistribution
+    $Data.ExchangeDistributionGroups = Get-DataInformation -Text "Getting O365 information - ExchangeDistributionGroups" {
+        Get-WinExchangeDistributionGroups -UExchangeGroupsDistribution $Data.UExchangeGroupsDistribution
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365ExchangeDistributionGroupsMembers
+        [PSWinDocumentation.O365]::ExchangeDistributionGroups
     )
 
-
-    $Data.O365UExchangeUnifiedGroups = Get-DataInformation -Text "Getting O365 information - O365UExchangeUnifiedGroups" {
-        Get-WinO365UExchangeUnifiedGroups
+    $Data.ExchangeDistributionGroupsMembers = Get-DataInformation -Text "Getting O365 information - ExchangeDistributionGroupsMembers" {
+        Get-WinExchangeDistributionGroupsMembers -UExchangeGroupsDistribution $Data.UExchangeGroupsDistribution
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365UExchangeUnifiedGroups
-        [PSWinDocumentation.O365]::O365ExchangeUnifiedGroups
-        [PSWinDocumentation.O365]::O365ExchangeUnifiedGroupsMembers
-    )
-
-    $Data.O365ExchangeUnifiedGroups = Get-DataInformation -Text "Getting O365 information - O365ExchangeUnifiedGroups" {
-        Get-WinO365ExchangeUnifiedGroups -ExchangeUnifiedGroups $Data.O365UExchangeUnifiedGroups
-    } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365ExchangeUnifiedGroups
-    )
-
-    $Data.O365ExchangeUnifiedGroupsMembers = Get-DataInformation -Text "Getting O365 information - O365ExchangeUnifiedGroupsMembers" {
-        Get-WinO365ExchangeUnifiedGroupsMembers -ExchangeUnifiedGroups $Data.O365UExchangeUnifiedGroups
-    } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365ExchangeUnifiedGroupsMembers
+        [PSWinDocumentation.O365]::ExchangeDistributionGroupsMembers
     )
 
 
-    $Data.O365ExchangeMailboxesInboxRulesForwarding = Get-DataInformation -Text "Getting O365 information - O365ExchangeMailboxesInboxRulesForwarding" {
-        Get-WinO365UExchangeMailboxesInboxRulesForwarding -InboxRules $O365UExchangeMailboxesInboxRules -Mailboxes $O365UExchangeMailBoxes
+    $Data.UExchangeUnifiedGroups = Get-DataInformation -Text "Getting O365 information - UExchangeUnifiedGroups" {
+        Get-WinUExchangeUnifiedGroups
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365ExchangeMailboxesInboxRulesForwarding
+        [PSWinDocumentation.O365]::UExchangeUnifiedGroups
+        [PSWinDocumentation.O365]::ExchangeUnifiedGroups
+        [PSWinDocumentation.O365]::ExchangeUnifiedGroupsMembers
     )
 
-    $Data.O365ExchangeMailboxesStatistics = Get-DataInformation -Text "Getting O365 information - O365ExchangeMailboxesStatistics" {
-        Get-WinO365ExchangeMailboxesStatistics -ExchangeMailboxes $Data.O365UExchangeMailBoxes
+    $Data.ExchangeUnifiedGroups = Get-DataInformation -Text "Getting O365 information - ExchangeUnifiedGroups" {
+        Get-WinExchangeUnifiedGroups -ExchangeUnifiedGroups $Data.UExchangeUnifiedGroups
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365ExchangeMailboxesStatistics
-        [PSWinDocumentation.O365]::O365ExchangeMailboxes
+        [PSWinDocumentation.O365]::ExchangeUnifiedGroups
     )
-    $Data.O365ExchangeMailboxesStatisticsArchive = Get-DataInformation -Text "Getting O365 information - O365ExchangeMailboxesStatisticsArchive" {
-        Get-WinO365ExchangeMailboxesStatisticsArchive -ExchangeMailboxes $Data.O365UExchangeMailBoxes
+
+    $Data.ExchangeUnifiedGroupsMembers = Get-DataInformation -Text "Getting O365 information - ExchangeUnifiedGroupsMembers" {
+        Get-WinExchangeUnifiedGroupsMembers -ExchangeUnifiedGroups $Data.UExchangeUnifiedGroups
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365ExchangeMailboxesStatisticsArchive
-        [PSWinDocumentation.O365]::O365ExchangeMailboxes
-    )
-    $Data.O365ExchangeMailboxes = Get-DataInformation -Text "Getting O365 information - O365ExchangeMailboxes" {
-        Get-WinO365ExchangeMailboxes -ExchangeMailboxes $Data.O365UExchangeMailBoxes `
-            -AzureUsers $Data.O365UAzureADUsers `
-            -MailboxStatistics $Data.O365ExchangeMailboxesStatistics `
-            -MailboxStatisticsArchive $Data.O365ExchangeMailboxesStatisticsArchive
-    } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365ExchangeMailboxes
+        [PSWinDocumentation.O365]::ExchangeUnifiedGroupsMembers
     )
 
 
-    $Data.O365ExchangeMailboxesPermissionsIncludingInherited = Get-DataInformation -Text "Getting O365 information - O365ExchangeMailboxesPermissionsIncludingInherited" {
-        Get-WinO365ExchangeMailboxesPermissionsIncludingInherited -ExchangeMailboxes $Data.O365UExchangeMailBoxes -AzureUsers $Data.O365UAzureADUsers
+    $Data.ExchangeMailboxesInboxRulesForwarding = Get-DataInformation -Text "Getting O365 information - ExchangeMailboxesInboxRulesForwarding" {
+        Get-WinUExchangeMailboxesInboxRulesForwarding -InboxRules $UExchangeMailboxesInboxRules -Mailboxes $UExchangeMailBoxes
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365ExchangeMailboxesPermissionsIncludingInherited
-        [PSWinDocumentation.O365]::O365ExchangeMailboxesPermissions
+        [PSWinDocumentation.O365]::ExchangeMailboxesInboxRulesForwarding
     )
-    $Data.O365ExchangeMailboxesPermissions = Get-DataInformation -Text "Getting O365 information - O365ExchangeMailboxesPermissions" {
-        Get-WinO365ExchangeMailboxesPermissions -ExchangeMailboxes $Data.O365UExchangeMailBoxes -MailboxPermissions $Data.O365ExchangeMailboxesPermissionsIncludingInherited
+
+    $Data.ExchangeMailboxesStatistics = Get-DataInformation -Text "Getting O365 information - ExchangeMailboxesStatistics" {
+        Get-WinExchangeMailboxesStatistics -ExchangeMailboxes $Data.UExchangeMailBoxes
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::O365ExchangeMailboxesPermissions
+        [PSWinDocumentation.O365]::ExchangeMailboxesStatistics
+        [PSWinDocumentation.O365]::ExchangeMailboxes
+    )
+    $Data.ExchangeMailboxesStatisticsArchive = Get-DataInformation -Text "Getting O365 information - ExchangeMailboxesStatisticsArchive" {
+        Get-WinExchangeMailboxesStatisticsArchive -ExchangeMailboxes $Data.UExchangeMailBoxes
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::ExchangeMailboxesStatisticsArchive
+        [PSWinDocumentation.O365]::ExchangeMailboxes
+    )
+    $Data.ExchangeMailboxes = Get-DataInformation -Text "Getting O365 information - ExchangeMailboxes" {
+        Get-WinExchangeMailboxes -ExchangeMailboxes $Data.UExchangeMailBoxes `
+            -AzureUsers $Data.UAzureADUsers `
+            -MailboxStatistics $Data.ExchangeMailboxesStatistics `
+            -MailboxStatisticsArchive $Data.ExchangeMailboxesStatisticsArchive
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::ExchangeMailboxes
+    )
+
+
+    $Data.ExchangeMailboxesPermissionsIncludingInherited = Get-DataInformation -Text "Getting O365 information - ExchangeMailboxesPermissionsIncludingInherited" {
+        Get-WinExchangeMailboxesPermissionsIncludingInherited -ExchangeMailboxes $Data.UExchangeMailBoxes -AzureUsers $Data.UAzureADUsers
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::ExchangeMailboxesPermissionsIncludingInherited
+        [PSWinDocumentation.O365]::ExchangeMailboxesPermissions
+    )
+    $Data.ExchangeMailboxesPermissions = Get-DataInformation -Text "Getting O365 information - ExchangeMailboxesPermissions" {
+        Get-WinExchangeMailboxesPermissions -ExchangeMailboxes $Data.UExchangeMailBoxes -MailboxPermissions $Data.ExchangeMailboxesPermissionsIncludingInherited
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::ExchangeMailboxesPermissions
     )
 
     $EndTime = Stop-TimeLog -Time $TimeToGenerate

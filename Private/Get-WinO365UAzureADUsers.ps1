@@ -1,4 +1,4 @@
-﻿function Get-WinO365UAzureADUsers {
+﻿function Get-WinUAzureADUsers {
     param(
 
     )

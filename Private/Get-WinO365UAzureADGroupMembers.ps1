@@ -1,9 +1,9 @@
-﻿function Get-WinO365UAzureADGroupMembers{
+﻿function Get-WinUAzureADGroupMembers{
     [CmdletBinding()]
     param(
-        [Array] $O365UAzureADGroups
+        [Array] $UAzureADGroups
     )
-    $GroupMembers = foreach ($Group in $O365UAzureADGroups) {
+    $GroupMembers = foreach ($Group in $UAzureADGroups) {
         $Object = Get-MsolGroupMember -GroupObjectId $Group.ObjectId -All
         $Object | Add-Member -MemberType NoteProperty -Name "GroupObjectID" -Value $Group.ObjectID
         $Object

@@ -1,11 +1,11 @@
-﻿function Get-WinO365UExchangeEquipmentCalendarProcessing {
+﻿function Get-WinUExchangeEquipmentCalendarProcessing {
     [CmdletBinding()]
     param(
         [string] $Prefix,
-        [Array] $O365UExchangeMailboxesEquipment
+        [Array] $UExchangeMailboxesEquipment
     )
     $Output = @(
-        foreach ($Mailbox in $O365UExchangeMailboxesEquipment) {
+        foreach ($Mailbox in $UExchangeMailboxesEquipment) {
             $Object = & "Get-$($prefix)CalendarProcessing" -Identity $Mailbox.PrimarySmtpAddress -ResultSize unlimited
             if ($Object) {
                 $Object | Add-Member -MemberType NoteProperty -Name "MailboxPrimarySmtpAddress" -Value $Mailbox.PrimarySmtpAddress

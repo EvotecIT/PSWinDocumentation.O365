@@ -1,4 +1,4 @@
-﻿function Get-WinO365ExchangeMailboxesStatistics {
+﻿function Get-WinExchangeMailboxesStatistics {
     [CmdletBinding()]
     param(
         #    [Array] $AzureUsers,

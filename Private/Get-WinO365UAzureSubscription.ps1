@@ -1,8 +1,8 @@
-﻿function Get-WinO365UAzureSubscription {
+﻿function Get-WinUAzureSubscription {
     [CmdletBinding()]
     param(
 
     )
-    $O365UAzureSubscription = Get-MsolSubscription
-    return $O365UAzureSubscription
+    $UAzureSubscription = Get-MsolSubscription
+    return $UAzureSubscription
 }

@@ -1,8 +1,8 @@
-﻿function Get-WinO365UExchangeRecipients {
+﻿function Get-WinUExchangeRecipients {
     [CmdletBinding()]
     param(
         [string] $Prefix
     )
-    $O365UExchangeRecipients = & "Get-$($prefix)Recipient" -ResultSize unlimited
-    return $O365UExchangeRecipients
+    $UExchangeRecipients = & "Get-$($prefix)Recipient" -ResultSize unlimited
+    return $UExchangeRecipients
 }

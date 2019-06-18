@@ -1,8 +1,8 @@
-﻿function Get-WinO365UExchangeMailUsers {
+﻿function Get-WinUExchangeMailUsers {
     [CmdletBinding()]
     param(
         [string] $Prefix
     )
-    $O365UExchangeMailUsers = & "Get-$($Prefix)MailUser" -ResultSize unlimited
-    return $O365UExchangeMailUsers
+    $UExchangeMailUsers = & "Get-$($Prefix)MailUser" -ResultSize unlimited
+    return $UExchangeMailUsers
 }

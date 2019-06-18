@@ -1,4 +1,4 @@
-﻿function Get-WinO365UAzureADContacts {
+﻿function Get-WinUAzureADContacts {
     param(
 
     )
