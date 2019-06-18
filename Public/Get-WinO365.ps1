@@ -19,7 +19,7 @@
         }
     }
 
-    $Data = [ordered] @{ }
+    $Data = @{ }
 
     # MSOnline
     $Data.O365UAzureADUsers = Get-DataInformation -Text "Getting O365 information - O365UAzureADUsers" {
@@ -256,6 +256,6 @@
 
     $EndTime = Stop-TimeLog -Time $TimeToGenerate
     Write-Verbose "Getting domain information - $Domain - Time to generate: $EndTime"
-    return $Data
+    return ConvertTo-OrderedDictionary -HashTable $Data -Verbose
 }
 

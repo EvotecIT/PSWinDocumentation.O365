@@ -69,8 +69,7 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport = 'Get-WinO365', 'Get-ReportO365Mailboxes', 
-    'Get-ReportO365UnifiedGroups'
+    FunctionsToExport = 'Get-WinO365', 'Get-ReportO365Mailboxes'
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport = @()
