@@ -14,6 +14,7 @@
             AzureSubscription,
             AzureTenantDomains,
 
+            ExchangeAcceptedDomains,
             ExchangeDistributionGroups,
             ExchangeDistributionGroupsMembers,
             ExchangeMailboxes,
@@ -24,10 +25,10 @@
             ExchangeMailboxesInboxRulesForwarding,
             ExchangeUnifiedGroups,
             ExchangeUnifiedGroupsMembers,
-            TeamsConfiguration,
 
-
-
+            TeamsChannelPolicy,
+            TeamsFileSharing,
+            TeamsSettings,
 
             UAzureADContacts,
             UAzureADGroupMembers,
@@ -54,7 +55,9 @@
             UExchangeRecipientsPermissions,
             UExchangeRoomsCalendarProcessing,
             UExchangeUnifiedGroups,
-            UExchangeUsers
+            UExchangeUsers,
+
+            UTeamsConfiguration
         }
     }
 "@

@@ -197,10 +197,27 @@
     )
 
     ## Microsoft Teams
-    $Data.TeamsConfiguration = Get-DataInformation -Text "Getting O365 information - TeamsConfiguration" {
-        #Get-WinTeamsConfiguration
+    $Data.UTeamsConfiguration = Get-DataInformation -Text "Getting O365 information - UTeamsConfiguration" {
+        Get-WinUTeamsConfiguration -Prefix $Prefix -Tenant $Tenant
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::TeamsConfiguration
+        [PSWinDocumentation.O365]::UTeamsConfiguration
+        [PSWinDocumentation.O365]::TeamsSettings
+        [PSWinDocumentation.O365]::TeamsFileSharing
+    )
+    $Data.TeamsSettings = Get-DataInformation -Text "Getting O365 information - TeamsSettings" {
+        Get-WinTeamsSettings -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted -TeamsConfiguration $Data.TeamsConfiguration
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::TeamsSettings
+    )
+    $Data.TeamsFileSharing = Get-DataInformation -Text "Getting O365 information - TeamsFileSharing" {
+        Get-WinTeamsFileSharing -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted -TeamsConfiguration $Data.TeamsConfiguration
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::TeamsFileSharing
+    )
+    $Data.TeamsChannelPolicy = Get-DataInformation -Text "Getting O365 information - TeamsChannelPolicy" {
+        Get-WinTeamsChannelsPolicy -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::TeamsChannelPolicy
     )
 
     ## Summary (Prepared Data)
@@ -293,6 +310,12 @@
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::ExchangeMailboxesPermissions
     )
+    $Data.ExchangeAcceptedDomains = Get-DataInformation -Text "Getting O365 information - ExchangeAcceptedDomains" {
+        Get-WinO365ExchangeAcceptedDomains -Prefix $Prefix
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::ExchangeAcceptedDomains
+    )
+
 
     $EndTime = Stop-TimeLog -Time $TimeToGenerate
     Write-Verbose "Getting domain information - $Domain - Time to generate: $EndTime"
