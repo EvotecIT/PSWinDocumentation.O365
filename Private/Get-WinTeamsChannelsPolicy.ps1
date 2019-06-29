@@ -44,9 +44,9 @@
 
     if ($Tenant) {
         #$ChannelsPolicy = Get-CsTeamsChannelsPolicy -Tenant $Tenant
-        $ChannelsPolicy = & "Get-$($prefix)CsTeamsChannelsPolicy" -Tenant $Tenant
+        $ChannelsPolicy = & "Get-$($prefix)CsTeamsChannelsPolicy" -Tenant $Tenant -Identity Global
     } else {
-        $ChannelsPolicy = & "Get-$($prefix)CsTeamsChannelsPolicy"
+        $ChannelsPolicy = & "Get-$($prefix)CsTeamsChannelsPolicy" -Identity Global
     }
     foreach ($_ in $ChannelsPolicy) {
         if ($Formatted) {

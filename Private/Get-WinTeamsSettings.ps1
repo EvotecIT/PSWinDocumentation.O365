@@ -9,9 +9,9 @@
     if (-not $TeamsConfiguration) {
         #$TeamsConfiguration = Get-CsTeamsClientConfiguration
         if ($Tenant) {
-            $TeamsConfiguration = & "Get-$($prefix)CsTeamsClientConfiguration" -Tenant $Tenant
+            $TeamsConfiguration = & "Get-$($prefix)CsTeamsClientConfiguration" -Tenant $Tenant -Identity Global
         } else {
-            $TeamsConfiguration = & "Get-$($prefix)CsTeamsClientConfiguration"
+            $TeamsConfiguration = & "Get-$($prefix)CsTeamsClientConfiguration" -Identity Global
         }
     }
     foreach ($_ in $TeamsConfiguration) {
