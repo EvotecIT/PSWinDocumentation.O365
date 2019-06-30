@@ -3,7 +3,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author"/>
-<meta content="2019-06-30 21:14:59" name="revised"/>
+<meta content="2019-06-30 23:49:20" name="revised"/>
 <title>O365 Dashboard</title>
 <!-- CSS Default fonts START -->
 <link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/>
@@ -522,31 +522,37 @@ td {
 <!-- END HEADER -->
 <!-- BODY -->
 <body><div class="tabsWrapper"><div class="tabs"><div class="selector"></div>
-<a href="javascript:void(0)" class="active" data-id="Tab-xyk4soje"><div class="fab fa-the-red-yeti"></div>
+<a href="javascript:void(0)" class="active" data-id="Tab-sgip9nh2"><div class="fab fa-amazon"></div>
+<span> Azure AD</span>
+</a>
+<a href="javascript:void(0)" data-id="Tab-m1ovka9f"><div class="fab fa-microsoft"></div>
+<span> Microsoft Exchange</span>
+</a>
+<a href="javascript:void(0)" data-id="Tab-zfxpsr9e"><div class="fab fa-the-red-yeti"></div>
 <span> Teams</span>
 </a>
 </div></div>
-<div id="Tab-xyk4soje" class="tabs-content active"><div class="defaultContainerOther"><div class="defaultContainerOther defaultPanelOther"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Teams Settings" style="color: #ffffff;">Teams Settings</a>
-<a id="show_1253601627" href="javascript:void(0)" onclick="show('1253601627');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1253601627" href="javascript:void(0)" onclick="hide('1253601627');" style="color: #ffffff; display:none;">(Hide)</a>
+<div id="Tab-sgip9nh2" class="tabs-content active"><div class="defaultContainerOther"><div class="defaultContainerOther defaultPanelOther"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Azure Licensing" style="color: #ffffff;">Azure Licensing</a>
+<a id="show_1725976307" href="javascript:void(0)" onclick="show('1725976307');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1725976307" href="javascript:void(0)" onclick="hide('1725976307');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-<div id="1253601627" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1253601627"><script>                $(document).ready(function() {
+<div id="1725976307" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1725976307"><script>                $(document).ready(function() {
                     $.fn.dataTable.moment( 'L' );
                                     // Setup - Looading text input from SavedState
-                $('#DT-WftMYEwZ').on('stateLoaded.dt', function(e, settings, data) {
+                $('#DT-UpkELwtq').on('stateLoaded.dt', function(e, settings, data) {
                     settings.aoPreSearchCols.forEach(function(col, index) {
                         if (col.sSearch) setTimeout(function() {
-                            $('#DT-WftMYEwZ tfoot th:eq('+index+') input').val(col.sSearch)
+                            $('#DT-UpkELwtq tfoot th:eq('+index+') input').val(col.sSearch)
                         }, 50)
                     })
                 })
                                     // Setup - add a text input to each footer cell
-                $('#DT-WftMYEwZ tfoot th').each(function () {
+                $('#DT-UpkELwtq tfoot th').each(function () {
                     var title = $(this).text();
                     $(this).html('<input type="text" placeholder="' + title + '" />');
                 });
                     //  Table code
-                    var table = $('#DT-WftMYEwZ').DataTable(
+                    var table = $('#DT-UpkELwtq').DataTable(
                         {
     "dom":  "Bfrtip",
     "buttons":  [
@@ -618,8 +624,336 @@ td {
                 });</script>
 <div class="defaultPanelOther">
 
-<table id="DT-WftMYEwZ" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
-<tbody><tr><td>Allow Email Into Channel</td><td>True</td></tr>
+<table id="DT-UpkELwtq" class="display compact"><thead><tr><th>Name</th><th>Licenses Total</th><th>Licenses Used</th><th>Licenses Left</th><th>Licenses Active</th><th>Licenses Trial</th><th>Licenses LockedOut</th><th>Licenses Suspended</th><th>Percent Used</th><th>Percent Left</th><th>SKU</th><th>SKUAccount</th><th>SKUID</th></tr></thead>
+<tbody><tr><td>Microsoft Flow Free</td><td>10000</td><td>2</td><td>9998</td><td>10000</td><td>0</td><td>0</td><td>0</td><td>0,02%</td><td>99,98%</td><td>FLOW_FREE</td><td>evotecpoland:FLOW_FREE</td><td>f30db892-07e9-47e9-837c-80727f46fd3d</td></tr>
+<tr><td>Office 365 (Plan F1)</td><td>2</td><td>2</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>100,00%</td><td>0,00%</td><td>DESKLESSPACK</td><td>evotecpoland:DESKLESSPACK</td><td>4b585984-651b-448a-9e53-3b10f069cf7f</td></tr>
+<tr><td>Office 365 Business Essentials</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>100,00%</td><td>0,00%</td><td>O365_BUSINESS_ESSENTIALS</td><td>evotecpoland:O365_BUSINESS_ESSENTIALS</td><td>3b555118-da6a-4418-894f-7df1e2096870</td></tr>
+<tr><td>Office 365 Enterprise E1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>100,00%</td><td>0,00%</td><td>STANDARDPACK</td><td>evotecpoland:STANDARDPACK</td><td>18181a46-0d4e-45cd-891e-60aabd171b4e</td></tr>
+</tbody>
+<tfoot><tr><th>Name</th><th>Licenses Total</th><th>Licenses Used</th><th>Licenses Left</th><th>Licenses Active</th><th>Licenses Trial</th><th>Licenses LockedOut</th><th>Licenses Suspended</th><th>Percent Used</th><th>Percent Left</th><th>SKU</th><th>SKUAccount</th><th>SKUID</th></tr></tfoot>
+</table>
+
+</div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Azure Domains" style="color: #ffffff;">Azure Domains</a>
+<a id="show_1548945848" href="javascript:void(0)" onclick="show('1548945848');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1548945848" href="javascript:void(0)" onclick="hide('1548945848');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1548945848" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1548945848"><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'L' );
+                                    // Setup - Looading text input from SavedState
+                $('#DT-LZSAmbjX').on('stateLoaded.dt', function(e, settings, data) {
+                    settings.aoPreSearchCols.forEach(function(col, index) {
+                        if (col.sSearch) setTimeout(function() {
+                            $('#DT-LZSAmbjX tfoot th:eq('+index+') input').val(col.sSearch)
+                        }, 50)
+                    })
+                })
+                                    // Setup - add a text input to each footer cell
+                $('#DT-LZSAmbjX tfoot th').each(function () {
+                    var title = $(this).text();
+                    $(this).html('<input type="text" placeholder="' + title + '" />');
+                });
+                    //  Table code
+                    var table = $('#DT-LZSAmbjX').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "createdRow":  ""
+}
+                    );
+                                    // Apply the search for footer cells
+                table.columns().every(function () {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+                });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-LZSAmbjX" class="display compact"><thead><tr><th>Domain Name</th><th>Default</th><th>Initial</th><th>Status</th><th>Verification Method</th><th>Capabilities</th><th>Authentication</th></tr></thead>
+<tbody><tr><td>evotecpoland.mail.onmicrosoft.com</td><td>False</td><td>False</td><td>Verified</td><td>Dns Record</td><td>None</td><td>Managed</td></tr>
+<tr><td>evotec.pl</td><td>True</td><td>False</td><td>Verified</td><td>Dns Record</td><td>Email, OfficeCommunicationsOnline, OrgIdAuthentication, Intune</td><td>Managed</td></tr>
+<tr><td>evotecpoland.onmicrosoft.com</td><td>False</td><td>True</td><td>Verified</td><td>Dns Record</td><td>Email, OfficeCommunicationsOnline</td><td>Managed</td></tr>
+<tr><td>evotec.xyz</td><td>False</td><td>False</td><td>Verified</td><td>Dns Record</td><td>Email, OfficeCommunicationsOnline, OrgIdAuthentication, Intune</td><td>Managed</td></tr>
+</tbody>
+<tfoot><tr><th>Domain Name</th><th>Default</th><th>Initial</th><th>Status</th><th>Verification Method</th><th>Capabilities</th><th>Authentication</th></tr></tfoot>
+</table>
+
+</div>
+</div></div>
+</div>
+</div></div></div>
+<div id="Tab-m1ovka9f" class="tabs-content"><div class="defaultContainerOther"><div class="defaultContainerOther defaultPanelOther"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Accepted Domain" style="color: #ffffff;">Accepted Domain</a>
+<a id="show_683767619" href="javascript:void(0)" onclick="show('683767619');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_683767619" href="javascript:void(0)" onclick="hide('683767619');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="683767619" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="683767619"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-m1ovka9f" && !$.fn.dataTable.isDataTable("#DT-czoLFdeD")) {
+                                                // Setup - Looading text input from SavedState
+                $('#DT-czoLFdeD').on('stateLoaded.dt', function(e, settings, data) {
+                    settings.aoPreSearchCols.forEach(function(col, index) {
+                        if (col.sSearch) setTimeout(function() {
+                            $('#DT-czoLFdeD tfoot th:eq('+index+') input').val(col.sSearch)
+                        }, 50)
+                    })
+                })
+                                                // Setup - add a text input to each footer cell
+                $('#DT-czoLFdeD tfoot th').each(function () {
+                    var title = $(this).text();
+                    $(this).html('<input type="text" placeholder="' + title + '" />');
+                });
+                                //  Table code
+                                var table = $('#DT-czoLFdeD').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "createdRow":  ""
+}
+                                );
+                                                // Apply the search for footer cells
+                table.columns().every(function () {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-czoLFdeD" class="display compact"><thead><tr><th>Name</th><th>Domain Name</th><th>Domain Type</th><th>Default</th><th>Match SubDomains</th><th>Catch All Recipient ID</th><th>Address Book Enabled</th><th>Email Only</th><th>Externally Managed</th><th>Authentication Type</th><th>LiveId InstanceType</th><th>Pending Removal</th><th>Pending Completion</th><th>Federated Organization Link</th><th>Mailflow Partner</th><th>Outbound Only</th><th>Pending Federated Account Namespace</th><th>Pending Federated Domain</th><th>Is Coexistence Domain</th><th>Perimeter Duplicate Detected</th><th>Is Default FederatedDomain</th><th>Enable Nego2Authentication</th><th>Initial Domain</th><th>Admin Display Name</th><th>WhenC hanged</th><th>When Created</th></tr></thead>
+<tbody><tr><td>evotec.xyz</td><td>evotec.xyz</td><td>Authoritative</td><td>False</td><td>False</td><td></td><td>True</td><td>False</td><td>False</td><td>Managed</td><td>Business</td><td>False</td><td>False</td><td>Federation</td><td></td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td></td><td>30.11.2016 00:03:57</td><td>16.10.2015 16:27:24</td></tr>
+<tr><td>evotecpoland.mail.onmicrosoft.com</td><td>evotecpoland.mail.onmicrosoft.com</td><td>Authoritative</td><td>False</td><td>False</td><td></td><td>True</td><td>False</td><td>False</td><td>Managed</td><td>Business</td><td>False</td><td>False</td><td>Federation</td><td></td><td>False</td><td>False</td><td>False</td><td>True</td><td>False</td><td>False</td><td>False</td><td>False</td><td></td><td>09.11.2018 17:57:21</td><td>09.11.2018 17:57:15</td></tr>
+<tr><td>evotec.pl</td><td>evotec.pl</td><td>Authoritative</td><td>True</td><td>False</td><td></td><td>True</td><td>False</td><td>False</td><td>Managed</td><td>Business</td><td>False</td><td>False</td><td>Federation</td><td></td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td></td><td>30.11.2016 00:03:57</td><td>16.10.2015 16:21:30</td></tr>
+<tr><td>evotecpoland.onmicrosoft.com</td><td>evotecpoland.onmicrosoft.com</td><td>Authoritative</td><td>False</td><td>False</td><td></td><td>True</td><td>False</td><td>False</td><td>Managed</td><td>Business</td><td>False</td><td>False</td><td>Federation</td><td></td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>True</td><td></td><td>30.11.2016 00:00:22</td><td>14.10.2015 15:22:40</td></tr>
+</tbody>
+<tfoot><tr><th>Name</th><th>Domain Name</th><th>Domain Type</th><th>Default</th><th>Match SubDomains</th><th>Catch All Recipient ID</th><th>Address Book Enabled</th><th>Email Only</th><th>Externally Managed</th><th>Authentication Type</th><th>LiveId InstanceType</th><th>Pending Removal</th><th>Pending Completion</th><th>Federated Organization Link</th><th>Mailflow Partner</th><th>Outbound Only</th><th>Pending Federated Account Namespace</th><th>Pending Federated Domain</th><th>Is Coexistence Domain</th><th>Perimeter Duplicate Detected</th><th>Is Default FederatedDomain</th><th>Enable Nego2Authentication</th><th>Initial Domain</th><th>Admin Display Name</th><th>WhenC hanged</th><th>When Created</th></tr></tfoot>
+</table>
+
+</div>
+</div></div>
+</div>
+<div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Test" style="color: #ffffff;">Test</a>
+<a id="show_40246146" href="javascript:void(0)" onclick="show('40246146');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_40246146" href="javascript:void(0)" onclick="hide('40246146');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="40246146" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="40246146"></div></div>
+</div>
+</div></div></div>
+<div id="Tab-zfxpsr9e" class="tabs-content"><div class="defaultContainerOther"><div class="defaultContainerOther defaultPanelOther"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Teams Settings" style="color: #ffffff;">Teams Settings</a>
+<a id="show_1167866636" href="javascript:void(0)" onclick="show('1167866636');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1167866636" href="javascript:void(0)" onclick="hide('1167866636');" style="color: #ffffff; display:none;">(Hide)</a>
+</div>
+<div id="1167866636" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1167866636"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-zfxpsr9e" && !$.fn.dataTable.isDataTable("#DT-OxNWpAPz")) {
+                                                // Setup - Looading text input from SavedState
+                $('#DT-OxNWpAPz').on('stateLoaded.dt', function(e, settings, data) {
+                    settings.aoPreSearchCols.forEach(function(col, index) {
+                        if (col.sSearch) setTimeout(function() {
+                            $('#DT-OxNWpAPz tfoot th:eq('+index+') input').val(col.sSearch)
+                        }, 50)
+                    })
+                })
+                                                // Setup - add a text input to each footer cell
+                $('#DT-OxNWpAPz tfoot th').each(function () {
+                    var title = $(this).text();
+                    $(this).html('<input type="text" placeholder="' + title + '" />');
+                });
+                                //  Table code
+                                var table = $('#DT-OxNWpAPz').DataTable(
+                                    {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           -1
+                       ],
+                       [
+                           15,
+                           25,
+                           50,
+                           100,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  true
+                   },
+    "createdRow":  ""
+}
+                                );
+                                                // Apply the search for footer cells
+                table.columns().every(function () {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+                            };
+                        });
+                    });</script>
+<div class="defaultPanelOther">
+
+<table id="DT-OxNWpAPz" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<tbody><tr><td>Allow Email into Channel</td><td>True</td></tr>
 <tr><td>Restricted Sender List</td><td></td></tr>
 <tr><td>Allow Organization Tab</td><td>True</td></tr>
 <tr><td>Allow Skype for Business Interop</td><td>True</td></tr>
@@ -636,27 +970,29 @@ td {
 </div></div>
 </div>
 <div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Teams File Sharing" style="color: #ffffff;">Teams File Sharing</a>
-<a id="show_747009197" href="javascript:void(0)" onclick="show('747009197');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_747009197" href="javascript:void(0)" onclick="hide('747009197');" style="color: #ffffff; display:none;">(Hide)</a>
+<a id="show_2070788224" href="javascript:void(0)" onclick="show('2070788224');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_2070788224" href="javascript:void(0)" onclick="hide('2070788224');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-<div id="747009197" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="747009197"><script>                $(document).ready(function() {
-                    $.fn.dataTable.moment( 'L' );
-                                    // Setup - Looading text input from SavedState
-                $('#DT-nZOqiglb').on('stateLoaded.dt', function(e, settings, data) {
+<div id="2070788224" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="2070788224"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-zfxpsr9e" && !$.fn.dataTable.isDataTable("#DT-BzCxFQfI")) {
+                                                // Setup - Looading text input from SavedState
+                $('#DT-BzCxFQfI').on('stateLoaded.dt', function(e, settings, data) {
                     settings.aoPreSearchCols.forEach(function(col, index) {
                         if (col.sSearch) setTimeout(function() {
-                            $('#DT-nZOqiglb tfoot th:eq('+index+') input').val(col.sSearch)
+                            $('#DT-BzCxFQfI tfoot th:eq('+index+') input').val(col.sSearch)
                         }, 50)
                     })
                 })
-                                    // Setup - add a text input to each footer cell
-                $('#DT-nZOqiglb tfoot th').each(function () {
+                                                // Setup - add a text input to each footer cell
+                $('#DT-BzCxFQfI tfoot th').each(function () {
                     var title = $(this).text();
                     $(this).html('<input type="text" placeholder="' + title + '" />');
                 });
-                    //  Table code
-                    var table = $('#DT-nZOqiglb').DataTable(
-                        {
+                                //  Table code
+                                var table = $('#DT-BzCxFQfI').DataTable(
+                                    {
     "dom":  "Bfrtip",
     "buttons":  [
                     {
@@ -713,8 +1049,8 @@ td {
                    },
     "createdRow":  ""
 }
-                    );
-                                    // Apply the search for footer cells
+                                );
+                                                // Apply the search for footer cells
                 table.columns().every(function () {
                     var that = this;
 
@@ -724,10 +1060,12 @@ td {
                         }
                     });
                 });
-                });</script>
+                            };
+                        });
+                    });</script>
 <div class="defaultPanelOther">
 
-<table id="DT-nZOqiglb" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<table id="DT-BzCxFQfI" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
 <tbody><tr><td>Allow DropBox</td><td>True</td></tr>
 <tr><td>Allow Box</td><td>True</td></tr>
 <tr><td>Allow GoogleDrive</td><td>True</td></tr>
@@ -741,27 +1079,29 @@ td {
 </div>
 </div></div>
 <div class="defaultContainerOther"><div class="defaultContainerOther defaultPanelOther"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Teams Settings for Channel" style="color: #ffffff;">Teams Settings for Channel</a>
-<a id="show_1551339350" href="javascript:void(0)" onclick="show('1551339350');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1551339350" href="javascript:void(0)" onclick="hide('1551339350');" style="color: #ffffff; display:none;">(Hide)</a>
+<a id="show_247437526" href="javascript:void(0)" onclick="show('247437526');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_247437526" href="javascript:void(0)" onclick="hide('247437526');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-<div id="1551339350" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1551339350"><script>                $(document).ready(function() {
-                    $.fn.dataTable.moment( 'L' );
-                                    // Setup - Looading text input from SavedState
-                $('#DT-FpZkJxmf').on('stateLoaded.dt', function(e, settings, data) {
+<div id="247437526" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="247437526"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-zfxpsr9e" && !$.fn.dataTable.isDataTable("#DT-VcumBJFU")) {
+                                                // Setup - Looading text input from SavedState
+                $('#DT-VcumBJFU').on('stateLoaded.dt', function(e, settings, data) {
                     settings.aoPreSearchCols.forEach(function(col, index) {
                         if (col.sSearch) setTimeout(function() {
-                            $('#DT-FpZkJxmf tfoot th:eq('+index+') input').val(col.sSearch)
+                            $('#DT-VcumBJFU tfoot th:eq('+index+') input').val(col.sSearch)
                         }, 50)
                     })
                 })
-                                    // Setup - add a text input to each footer cell
-                $('#DT-FpZkJxmf tfoot th').each(function () {
+                                                // Setup - add a text input to each footer cell
+                $('#DT-VcumBJFU tfoot th').each(function () {
                     var title = $(this).text();
                     $(this).html('<input type="text" placeholder="' + title + '" />');
                 });
-                    //  Table code
-                    var table = $('#DT-FpZkJxmf').DataTable(
-                        {
+                                //  Table code
+                                var table = $('#DT-VcumBJFU').DataTable(
+                                    {
     "dom":  "Bfrtip",
     "buttons":  [
                     {
@@ -818,8 +1158,8 @@ td {
                    },
     "createdRow":  ""
 }
-                    );
-                                    // Apply the search for footer cells
+                                );
+                                                // Apply the search for footer cells
                 table.columns().every(function () {
                     var that = this;
 
@@ -829,10 +1169,12 @@ td {
                         }
                     });
                 });
-                });</script>
+                            };
+                        });
+                    });</script>
 <div class="defaultPanelOther">
 
-<table id="DT-FpZkJxmf" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<table id="DT-VcumBJFU" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
 <tbody><tr><td>Allow Teams Creation</td><td>True</td></tr>
 <tr><td>Allow Private Team Discovery</td><td>True</td></tr>
 <tr><td>Allow Private Channel Creation</td><td>True</td></tr>
@@ -846,27 +1188,29 @@ td {
 </div></div>
 </div>
 <div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Teams Settings for Guests" style="color: #ffffff;">Teams Settings for Guests</a>
-<a id="show_150394496" href="javascript:void(0)" onclick="show('150394496');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_150394496" href="javascript:void(0)" onclick="hide('150394496');" style="color: #ffffff; display:none;">(Hide)</a>
+<a id="show_933162010" href="javascript:void(0)" onclick="show('933162010');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_933162010" href="javascript:void(0)" onclick="hide('933162010');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-<div id="150394496" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="150394496"><script>                $(document).ready(function() {
-                    $.fn.dataTable.moment( 'L' );
-                                    // Setup - Looading text input from SavedState
-                $('#DT-EPCziUCr').on('stateLoaded.dt', function(e, settings, data) {
+<div id="933162010" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="933162010"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-zfxpsr9e" && !$.fn.dataTable.isDataTable("#DT-cpUAuDke")) {
+                                                // Setup - Looading text input from SavedState
+                $('#DT-cpUAuDke').on('stateLoaded.dt', function(e, settings, data) {
                     settings.aoPreSearchCols.forEach(function(col, index) {
                         if (col.sSearch) setTimeout(function() {
-                            $('#DT-EPCziUCr tfoot th:eq('+index+') input').val(col.sSearch)
+                            $('#DT-cpUAuDke tfoot th:eq('+index+') input').val(col.sSearch)
                         }, 50)
                     })
                 })
-                                    // Setup - add a text input to each footer cell
-                $('#DT-EPCziUCr tfoot th').each(function () {
+                                                // Setup - add a text input to each footer cell
+                $('#DT-cpUAuDke tfoot th').each(function () {
                     var title = $(this).text();
                     $(this).html('<input type="text" placeholder="' + title + '" />');
                 });
-                    //  Table code
-                    var table = $('#DT-EPCziUCr').DataTable(
-                        {
+                                //  Table code
+                                var table = $('#DT-cpUAuDke').DataTable(
+                                    {
     "dom":  "Bfrtip",
     "buttons":  [
                     {
@@ -923,8 +1267,8 @@ td {
                    },
     "createdRow":  ""
 }
-                    );
-                                    // Apply the search for footer cells
+                                );
+                                                // Apply the search for footer cells
                 table.columns().every(function () {
                     var that = this;
 
@@ -934,10 +1278,12 @@ td {
                         }
                     });
                 });
-                });</script>
+                            };
+                        });
+                    });</script>
 <div class="defaultPanelOther">
 
-<table id="DT-EPCziUCr" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<table id="DT-cpUAuDke" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
 <tbody><tr><td>Allow User Edit Message</td><td>True</td></tr>
 <tr><td>Allow User Delete Message</td><td>True</td></tr>
 <tr><td>Allow User Chat</td><td>True</td></tr>
@@ -959,27 +1305,29 @@ td {
 </div>
 </div></div>
 <div class="defaultContainerOther"><div class="defaultContainerOther defaultPanelOther"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Teams Upgrade Options" style="color: #ffffff;">Teams Upgrade Options</a>
-<a id="show_1768424690" href="javascript:void(0)" onclick="show('1768424690');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1768424690" href="javascript:void(0)" onclick="hide('1768424690');" style="color: #ffffff; display:none;">(Hide)</a>
+<a id="show_1585873176" href="javascript:void(0)" onclick="show('1585873176');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1585873176" href="javascript:void(0)" onclick="hide('1585873176');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-<div id="1768424690" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1768424690"><script>                $(document).ready(function() {
-                    $.fn.dataTable.moment( 'L' );
-                                    // Setup - Looading text input from SavedState
-                $('#DT-VWatqHyf').on('stateLoaded.dt', function(e, settings, data) {
+<div id="1585873176" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1585873176"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-zfxpsr9e" && !$.fn.dataTable.isDataTable("#DT-gBmbQUWb")) {
+                                                // Setup - Looading text input from SavedState
+                $('#DT-gBmbQUWb').on('stateLoaded.dt', function(e, settings, data) {
                     settings.aoPreSearchCols.forEach(function(col, index) {
                         if (col.sSearch) setTimeout(function() {
-                            $('#DT-VWatqHyf tfoot th:eq('+index+') input').val(col.sSearch)
+                            $('#DT-gBmbQUWb tfoot th:eq('+index+') input').val(col.sSearch)
                         }, 50)
                     })
                 })
-                                    // Setup - add a text input to each footer cell
-                $('#DT-VWatqHyf tfoot th').each(function () {
+                                                // Setup - add a text input to each footer cell
+                $('#DT-gBmbQUWb tfoot th').each(function () {
                     var title = $(this).text();
                     $(this).html('<input type="text" placeholder="' + title + '" />');
                 });
-                    //  Table code
-                    var table = $('#DT-VWatqHyf').DataTable(
-                        {
+                                //  Table code
+                                var table = $('#DT-gBmbQUWb').DataTable(
+                                    {
     "dom":  "Bfrtip",
     "buttons":  [
                     {
@@ -1036,8 +1384,8 @@ td {
                    },
     "createdRow":  ""
 }
-                    );
-                                    // Apply the search for footer cells
+                                );
+                                                // Apply the search for footer cells
                 table.columns().every(function () {
                     var that = this;
 
@@ -1047,10 +1395,12 @@ td {
                         }
                     });
                 });
-                });</script>
+                            };
+                        });
+                    });</script>
 <div class="defaultPanelOther">
 
-<table id="DT-VWatqHyf" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<table id="DT-gBmbQUWb" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
 <tbody><tr><td>Description</td><td>Use Teams Only</td></tr>
 <tr><td>Mode</td><td>Teams Only</td></tr>
 <tr><td>Notify Skype Users</td><td>False</td></tr>
@@ -1064,27 +1414,29 @@ td {
 </div></div>
 </div>
 <div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Teams Settings for Users" style="color: #ffffff;">Teams Settings for Users</a>
-<a id="show_1824864785" href="javascript:void(0)" onclick="show('1824864785');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1824864785" href="javascript:void(0)" onclick="hide('1824864785');" style="color: #ffffff; display:none;">(Hide)</a>
+<a id="show_2143168204" href="javascript:void(0)" onclick="show('2143168204');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_2143168204" href="javascript:void(0)" onclick="hide('2143168204');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-<div id="1824864785" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1824864785"><script>                $(document).ready(function() {
-                    $.fn.dataTable.moment( 'L' );
-                                    // Setup - Looading text input from SavedState
-                $('#DT-akegTfMQ').on('stateLoaded.dt', function(e, settings, data) {
+<div id="2143168204" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="2143168204"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-zfxpsr9e" && !$.fn.dataTable.isDataTable("#DT-xTkUopGi")) {
+                                                // Setup - Looading text input from SavedState
+                $('#DT-xTkUopGi').on('stateLoaded.dt', function(e, settings, data) {
                     settings.aoPreSearchCols.forEach(function(col, index) {
                         if (col.sSearch) setTimeout(function() {
-                            $('#DT-akegTfMQ tfoot th:eq('+index+') input').val(col.sSearch)
+                            $('#DT-xTkUopGi tfoot th:eq('+index+') input').val(col.sSearch)
                         }, 50)
                     })
                 })
-                                    // Setup - add a text input to each footer cell
-                $('#DT-akegTfMQ tfoot th').each(function () {
+                                                // Setup - add a text input to each footer cell
+                $('#DT-xTkUopGi tfoot th').each(function () {
                     var title = $(this).text();
                     $(this).html('<input type="text" placeholder="' + title + '" />');
                 });
-                    //  Table code
-                    var table = $('#DT-akegTfMQ').DataTable(
-                        {
+                                //  Table code
+                                var table = $('#DT-xTkUopGi').DataTable(
+                                    {
     "dom":  "Bfrtip",
     "buttons":  [
                     {
@@ -1141,8 +1493,8 @@ td {
                    },
     "createdRow":  ""
 }
-                    );
-                                    // Apply the search for footer cells
+                                );
+                                                // Apply the search for footer cells
                 table.columns().every(function () {
                     var that = this;
 
@@ -1152,10 +1504,12 @@ td {
                         }
                     });
                 });
-                });</script>
+                            };
+                        });
+                    });</script>
 <div class="defaultPanelOther">
 
-<table id="DT-akegTfMQ" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<table id="DT-xTkUopGi" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
 <tbody><tr><td>Description</td><td></td></tr>
 <tr><td>Allow Url Previews</td><td>True</td></tr>
 <tr><td>Allow Owner Delete Message</td><td>True</td></tr>
@@ -1182,27 +1536,29 @@ td {
 </div>
 </div></div>
 <div class="defaultContainerOther"><div class="defaultContainerOther defaultPanelOther"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Teams Broadcasting" style="color: #ffffff;">Teams Broadcasting</a>
-<a id="show_157774241" href="javascript:void(0)" onclick="show('157774241');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_157774241" href="javascript:void(0)" onclick="hide('157774241');" style="color: #ffffff; display:none;">(Hide)</a>
+<a id="show_1735738759" href="javascript:void(0)" onclick="show('1735738759');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1735738759" href="javascript:void(0)" onclick="hide('1735738759');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-<div id="157774241" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="157774241"><script>                $(document).ready(function() {
-                    $.fn.dataTable.moment( 'L' );
-                                    // Setup - Looading text input from SavedState
-                $('#DT-ccYACsIU').on('stateLoaded.dt', function(e, settings, data) {
+<div id="1735738759" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1735738759"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-zfxpsr9e" && !$.fn.dataTable.isDataTable("#DT-twqMuZvR")) {
+                                                // Setup - Looading text input from SavedState
+                $('#DT-twqMuZvR').on('stateLoaded.dt', function(e, settings, data) {
                     settings.aoPreSearchCols.forEach(function(col, index) {
                         if (col.sSearch) setTimeout(function() {
-                            $('#DT-ccYACsIU tfoot th:eq('+index+') input').val(col.sSearch)
+                            $('#DT-twqMuZvR tfoot th:eq('+index+') input').val(col.sSearch)
                         }, 50)
                     })
                 })
-                                    // Setup - add a text input to each footer cell
-                $('#DT-ccYACsIU tfoot th').each(function () {
+                                                // Setup - add a text input to each footer cell
+                $('#DT-twqMuZvR tfoot th').each(function () {
                     var title = $(this).text();
                     $(this).html('<input type="text" placeholder="' + title + '" />');
                 });
-                    //  Table code
-                    var table = $('#DT-ccYACsIU').DataTable(
-                        {
+                                //  Table code
+                                var table = $('#DT-twqMuZvR').DataTable(
+                                    {
     "dom":  "Bfrtip",
     "buttons":  [
                     {
@@ -1259,8 +1615,8 @@ td {
                    },
     "createdRow":  ""
 }
-                    );
-                                    // Apply the search for footer cells
+                                );
+                                                // Apply the search for footer cells
                 table.columns().every(function () {
                     var that = this;
 
@@ -1270,10 +1626,12 @@ td {
                         }
                     });
                 });
-                });</script>
+                            };
+                        });
+                    });</script>
 <div class="defaultPanelOther">
 
-<table id="DT-ccYACsIU" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<table id="DT-twqMuZvR" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
 <tbody><tr><td>Allow Broadcast Scheduling</td><td>True</td></tr>
 <tr><td>Allow Broadcast Transcription</td><td>False</td></tr>
 <tr><td>Allow Sdn Provider For BroadcastMeeting</td><td>False</td></tr>
@@ -1288,27 +1646,29 @@ td {
 </div></div>
 </div>
 <div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Teams Calling" style="color: #ffffff;">Teams Calling</a>
-<a id="show_327493112" href="javascript:void(0)" onclick="show('327493112');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_327493112" href="javascript:void(0)" onclick="hide('327493112');" style="color: #ffffff; display:none;">(Hide)</a>
+<a id="show_698032799" href="javascript:void(0)" onclick="show('698032799');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_698032799" href="javascript:void(0)" onclick="hide('698032799');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-<div id="327493112" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="327493112"><script>                $(document).ready(function() {
-                    $.fn.dataTable.moment( 'L' );
-                                    // Setup - Looading text input from SavedState
-                $('#DT-NNrXKsus').on('stateLoaded.dt', function(e, settings, data) {
+<div id="698032799" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="698032799"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-zfxpsr9e" && !$.fn.dataTable.isDataTable("#DT-JXlPinZs")) {
+                                                // Setup - Looading text input from SavedState
+                $('#DT-JXlPinZs').on('stateLoaded.dt', function(e, settings, data) {
                     settings.aoPreSearchCols.forEach(function(col, index) {
                         if (col.sSearch) setTimeout(function() {
-                            $('#DT-NNrXKsus tfoot th:eq('+index+') input').val(col.sSearch)
+                            $('#DT-JXlPinZs tfoot th:eq('+index+') input').val(col.sSearch)
                         }, 50)
                     })
                 })
-                                    // Setup - add a text input to each footer cell
-                $('#DT-NNrXKsus tfoot th').each(function () {
+                                                // Setup - add a text input to each footer cell
+                $('#DT-JXlPinZs tfoot th').each(function () {
                     var title = $(this).text();
                     $(this).html('<input type="text" placeholder="' + title + '" />');
                 });
-                    //  Table code
-                    var table = $('#DT-NNrXKsus').DataTable(
-                        {
+                                //  Table code
+                                var table = $('#DT-JXlPinZs').DataTable(
+                                    {
     "dom":  "Bfrtip",
     "buttons":  [
                     {
@@ -1365,8 +1725,8 @@ td {
                    },
     "createdRow":  ""
 }
-                    );
-                                    // Apply the search for footer cells
+                                );
+                                                // Apply the search for footer cells
                 table.columns().every(function () {
                     var that = this;
 
@@ -1376,10 +1736,12 @@ td {
                         }
                     });
                 });
-                });</script>
+                            };
+                        });
+                    });</script>
 <div class="defaultPanelOther">
 
-<table id="DT-NNrXKsus" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<table id="DT-JXlPinZs" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
 <tbody><tr><td>Allow Private Calling</td><td>True</td></tr>
 <tr><td>Allow Voicemail</td><td>User Override</td></tr>
 <tr><td>Allow Call Groups</td><td>True</td></tr>
@@ -1399,27 +1761,29 @@ td {
 </div>
 </div></div>
 <div class="defaultContainerOther"><div class="defaultContainerOther defaultPanelOther"><div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Teams Meetings" style="color: #ffffff;">Teams Meetings</a>
-<a id="show_1593972266" href="javascript:void(0)" onclick="show('1593972266');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_1593972266" href="javascript:void(0)" onclick="hide('1593972266');" style="color: #ffffff; display:none;">(Hide)</a>
+<a id="show_1043082078" href="javascript:void(0)" onclick="show('1043082078');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1043082078" href="javascript:void(0)" onclick="hide('1043082078');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-<div id="1593972266" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1593972266"><script>                $(document).ready(function() {
-                    $.fn.dataTable.moment( 'L' );
-                                    // Setup - Looading text input from SavedState
-                $('#DT-HCVhvSae').on('stateLoaded.dt', function(e, settings, data) {
+<div id="1043082078" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1043082078"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-zfxpsr9e" && !$.fn.dataTable.isDataTable("#DT-vCLuzzqV")) {
+                                                // Setup - Looading text input from SavedState
+                $('#DT-vCLuzzqV').on('stateLoaded.dt', function(e, settings, data) {
                     settings.aoPreSearchCols.forEach(function(col, index) {
                         if (col.sSearch) setTimeout(function() {
-                            $('#DT-HCVhvSae tfoot th:eq('+index+') input').val(col.sSearch)
+                            $('#DT-vCLuzzqV tfoot th:eq('+index+') input').val(col.sSearch)
                         }, 50)
                     })
                 })
-                                    // Setup - add a text input to each footer cell
-                $('#DT-HCVhvSae tfoot th').each(function () {
+                                                // Setup - add a text input to each footer cell
+                $('#DT-vCLuzzqV tfoot th').each(function () {
                     var title = $(this).text();
                     $(this).html('<input type="text" placeholder="' + title + '" />');
                 });
-                    //  Table code
-                    var table = $('#DT-HCVhvSae').DataTable(
-                        {
+                                //  Table code
+                                var table = $('#DT-vCLuzzqV').DataTable(
+                                    {
     "dom":  "Bfrtip",
     "buttons":  [
                     {
@@ -1476,8 +1840,8 @@ td {
                    },
     "createdRow":  ""
 }
-                    );
-                                    // Apply the search for footer cells
+                                );
+                                                // Apply the search for footer cells
                 table.columns().every(function () {
                     var that = this;
 
@@ -1487,10 +1851,12 @@ td {
                         }
                     });
                 });
-                });</script>
+                            };
+                        });
+                    });</script>
 <div class="defaultPanelOther">
 
-<table id="DT-HCVhvSae" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<table id="DT-vCLuzzqV" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
 <tbody><tr><td>Allow Channel Meeting Scheduling</td><td>True</td></tr>
 <tr><td>Allow MeetNow</td><td>True</td></tr>
 <tr><td>Allow Private MeetNow</td><td>True</td></tr>
@@ -1522,27 +1888,29 @@ td {
 </div></div>
 </div>
 <div class="defaultSection defaultCard"><div class="defaultHeader" style="text-align:center;background-color:#00bfff"><a name="Teams Meetings Technical" style="color: #ffffff;">Teams Meetings Technical</a>
-<a id="show_165399952" href="javascript:void(0)" onclick="show('165399952');" style="color: #ffffff; display:none;">(Show)</a>
-<a id="hide_165399952" href="javascript:void(0)" onclick="hide('165399952');" style="color: #ffffff; display:none;">(Hide)</a>
+<a id="show_1139917592" href="javascript:void(0)" onclick="show('1139917592');" style="color: #ffffff; display:none;">(Show)</a>
+<a id="hide_1139917592" href="javascript:void(0)" onclick="hide('1139917592');" style="color: #ffffff; display:none;">(Hide)</a>
 </div>
-<div id="165399952" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="165399952"><script>                $(document).ready(function() {
-                    $.fn.dataTable.moment( 'L' );
-                                    // Setup - Looading text input from SavedState
-                $('#DT-iYcWqWao').on('stateLoaded.dt', function(e, settings, data) {
+<div id="1139917592" class="defaultContainerOther"><div class="defaultContainer defaultPanelOther collapsable" id="1139917592"><script>                    $(document).ready(function() {
+                        $.fn.dataTable.moment( 'L' );
+                        $('.tabs').on('click', 'a', function (event) {
+                            if ($(event.currentTarget).attr("data-id") == "Tab-zfxpsr9e" && !$.fn.dataTable.isDataTable("#DT-QsBOFxvt")) {
+                                                // Setup - Looading text input from SavedState
+                $('#DT-QsBOFxvt').on('stateLoaded.dt', function(e, settings, data) {
                     settings.aoPreSearchCols.forEach(function(col, index) {
                         if (col.sSearch) setTimeout(function() {
-                            $('#DT-iYcWqWao tfoot th:eq('+index+') input').val(col.sSearch)
+                            $('#DT-QsBOFxvt tfoot th:eq('+index+') input').val(col.sSearch)
                         }, 50)
                     })
                 })
-                                    // Setup - add a text input to each footer cell
-                $('#DT-iYcWqWao tfoot th').each(function () {
+                                                // Setup - add a text input to each footer cell
+                $('#DT-QsBOFxvt tfoot th').each(function () {
                     var title = $(this).text();
                     $(this).html('<input type="text" placeholder="' + title + '" />');
                 });
-                    //  Table code
-                    var table = $('#DT-iYcWqWao').DataTable(
-                        {
+                                //  Table code
+                                var table = $('#DT-QsBOFxvt').DataTable(
+                                    {
     "dom":  "Bfrtip",
     "buttons":  [
                     {
@@ -1599,8 +1967,8 @@ td {
                    },
     "createdRow":  ""
 }
-                    );
-                                    // Apply the search for footer cells
+                                );
+                                                // Apply the search for footer cells
                 table.columns().every(function () {
                     var that = this;
 
@@ -1610,10 +1978,12 @@ td {
                         }
                     });
                 });
-                });</script>
+                            };
+                        });
+                    });</script>
 <div class="defaultPanelOther">
 
-<table id="DT-iYcWqWao" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
+<table id="DT-QsBOFxvt" class="display compact"><thead><tr><th>Name</th><th>Value</th></tr></thead>
 <tbody><tr><td>Disable Anonymous Join</td><td>False</td></tr>
 <tr><td>Enable QoS</td><td>False</td></tr>
 <tr><td>Client Audio Port</td><td>50000</td></tr>

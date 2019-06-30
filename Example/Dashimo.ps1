@@ -7,6 +7,31 @@
 #}
 
 Dashboard -Name 'O365 Dashboard' -FilePath $PSScriptRoot\Output\Dashboard.html {
+    Tab -Name 'Azure AD'  -IconBrands amazon {
+        Section -Invisible {
+            Section -Name 'Azure Licensing' {
+                Table -DataTable $O365.AzureLicensing -Filtering {
+                    #TableHeader -Title 'Teams Settings' -Color Black -BackGroundColor Gray
+                }
+            }
+            Section -Name 'Azure Domains' {
+                Table -DataTable $O365.AzureTenantDomains -Filtering
+            }
+        }
+
+    }
+    Tab -Name 'Microsoft Exchange'  -IconBrands microsoft {
+        Section -Invisible {
+            Section -Name 'Accepted Domain' {
+                Table -DataTable $O365.ExchangeAcceptedDomains -Filtering {
+                    #TableHeader -Title 'Teams Settings' -Color Black -BackGroundColor Gray
+                }
+            }
+            Section -Name 'Test' {
+
+            }
+        }
+    }
     Tab -Name 'Teams' -IconBrands the-red-yeti {
         Section -Invisible {
             Section -Name 'Teams Settings' {

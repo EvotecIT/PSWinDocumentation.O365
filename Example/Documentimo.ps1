@@ -8,6 +8,26 @@ Documentimo -FilePath "$PSScriptRoot\Output\Office365-Documentation.docx" {
     DocText {
         "This document provides documentation of Office 365 for $CompanyName."
     }
+    DocNumbering -Text 'Azure Active Directory' -Level 0 -Type Numbered -Heading Heading1 {
+
+        DocNumbering -Text 'Licenses' -Level 1 -Type Numbered -Heading Heading1 {
+            DocTable -DataTable $O365.AzureLicensing
+        }
+        DocNumbering -Text 'Domains' -Level 1 -Type Numbered -Heading Heading1 {
+            DocTable -DataTable $O365.AzureTenantDomains
+        }
+    }
+
+    DocNumbering -Text 'Microsoft Exchange' -Level 0 -Type Numbered -Heading Heading1 {
+
+        DocNumbering -Text 'Accepted Domain' -Level 1 -Type Numbered -Heading Heading1 {
+            DocTable -DataTable $O365.ExchangeAcceptedDomains
+        }
+        #DocNumbering -Text 'Domains' -Level 1 -Type Numbered -Heading Heading1 {
+        #    DocTable -DataTable $O365.AzureTenantDomains
+        #}
+    }
+
     DocNumbering -Text 'Microsoft Teams' -Level 0 -Type Numbered -Heading Heading1 {
         DocText -Text "Following section provides overview of settings for Microsoft Teams and it's relation to Skype For Business"
 

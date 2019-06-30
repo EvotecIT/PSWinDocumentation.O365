@@ -262,17 +262,17 @@
     )
     ## Summary (Prepared Data)
     $Data.AzureLicensing = Get-DataInformation -Text "Getting O365 information - AzureLicensing" {
-        Get-WinAzureLicensing -UAzureLicensing $Data.UAzureLicensing
+        Get-WinAzureLicensing -UAzureLicensing $Data.UAzureLicensing -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::AzureLicensing
     )
     $Data.AzureSubscription = Get-DataInformation -Text "Getting O365 information - AzureSubscription" {
-        Get-WinAzureSubscription -UAzureSubscription $Data.UAzureSubscription
+        Get-WinAzureSubscription -UAzureSubscription $Data.UAzureSubscription -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::AzureSubscription
     )
     $Data.AzureTenantDomains = Get-DataInformation -Text "Getting O365 information - AzureTenantDomains" {
-        Get-WinAzureTenantDomains -UAzureTenantDomains $Data.UAzureTenantDomains
+        Get-WinAzureTenantDomains -UAzureTenantDomains $Data.UAzureTenantDomains -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::AzureTenantDomains
     )
@@ -351,7 +351,7 @@
         [PSWinDocumentation.O365]::ExchangeMailboxesPermissions
     )
     $Data.ExchangeAcceptedDomains = Get-DataInformation -Text "Getting O365 information - ExchangeAcceptedDomains" {
-        Get-WinO365ExchangeAcceptedDomains -Prefix $Prefix
+        Get-WinExchangeAcceptedDomains -Prefix $Prefix -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::ExchangeAcceptedDomains
     )
