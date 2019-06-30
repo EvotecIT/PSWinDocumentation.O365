@@ -17,7 +17,7 @@
     if ($Formatted) {
         [ordered]@{
             #Identity                         = $TeamsConfiguration.Identity
-            'Allow Email Into Channel'            = $TeamsConfiguration.AllowEmailIntoChannel
+            'Allow Email into Channel'            = $TeamsConfiguration.AllowEmailIntoChannel
             'Restricted Sender List'              = $TeamsConfiguration.RestrictedSenderList
             'Allow Organization Tab'              = $TeamsConfiguration.AllowOrganizationTab
             'Allow Skype for Business Interop'    = $TeamsConfiguration.AllowSkypeBusinessInterop
