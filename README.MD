@@ -84,6 +84,6 @@
 | Overall  |         |             | UExchangeRecipientsPermissions                 |
 | Overall  |         |             | UExchangeRoomsCalendarProcessing               |
 | Overall  |         |             | UExchangeUnifiedGroups                         |
-| Overall  |         |             | UExc                                           |
+| Overall  |         |             | UExchangeUsers                                 |
 | Overall  |         |             | UTeamsConfiguration                            |
 | Overall  |         |             | UTeamsVideoInteropService                      |
