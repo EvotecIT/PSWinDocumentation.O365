@@ -3,7 +3,7 @@
     param(
         [string] $Prefix
     )
-    $AcceptedDomains = & "Get-$($prefix)AcceptedDomain" -ResultSize unlimited
+    $AcceptedDomains = & "Get-$($prefix)AcceptedDomain"
     #$AcceptedDomains = Get-AcceptedDomain #| Select Name, DomainName, DomainType, Default
 
     foreach ($_ in $AcceptedDomains) {

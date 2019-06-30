@@ -4,7 +4,8 @@
         [PSWinDocumentation.O365[]] $TypesRequired,
         [string] $Prefix,
         [validateset("Bytes", "KB", "MB", "GB", "TB")][string]$SizeIn = 'MB',
-        [alias('Precision')][int]$SizePrecision = 2
+        [alias('Precision')][int]$SizePrecision = 2,
+        [switch] $Formatted
     )
     $TimeToGenerate = Start-TimeLog
 
@@ -202,24 +203,63 @@
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::UTeamsConfiguration
         [PSWinDocumentation.O365]::TeamsSettings
-        [PSWinDocumentation.O365]::TeamsFileSharing
+        [PSWinDocumentation.O365]::TeamsSettingsFileSharing
     )
     $Data.TeamsSettings = Get-DataInformation -Text "Getting O365 information - TeamsSettings" {
         Get-WinTeamsSettings -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted -TeamsConfiguration $Data.TeamsConfiguration
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::TeamsSettings
     )
-    $Data.TeamsFileSharing = Get-DataInformation -Text "Getting O365 information - TeamsFileSharing" {
-        Get-WinTeamsFileSharing -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted -TeamsConfiguration $Data.TeamsConfiguration
+    $Data.TeamsSettingsBroadcasting = Get-DataInformation -Text "Getting O365 information - TeamsSettingsBroadcasting" {
+        Get-WinTeamsSettingsBroadcasting -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::TeamsFileSharing
+        [PSWinDocumentation.O365]::TeamsSettingsBroadcasting
     )
-    $Data.TeamsChannelPolicy = Get-DataInformation -Text "Getting O365 information - TeamsChannelPolicy" {
-        Get-WinTeamsChannelsPolicy -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
+    $Data.TeamsSettingsCalling = Get-DataInformation -Text "Getting O365 information - TeamsSettingsCalling" {
+        Get-WinTeamsSettingsCalling -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::TeamsChannelPolicy
+        [PSWinDocumentation.O365]::TeamsSettingsCalling
     )
-
+    $Data.TeamsSettingsChannels = Get-DataInformation -Text "Getting O365 information - TeamsSettingsChannels" {
+        Get-WinTeamsSettingsChannels -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::TeamsSettingsChannels
+    )
+    $Data.TeamsSettingsEducationAppPolicy = Get-DataInformation -Text "Getting O365 information - TeamsSettingsEducationAppPolicy" {
+        Get-WinTeamsSettingsEducationAppPolicy -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::TeamsSettingsEducationAppPolicy
+    )
+    $Data.TeamsSettingsFileSharing = Get-DataInformation -Text "Getting O365 information - TeamsSettingsFileSharing" {
+        Get-WinTeamsSettingsFileSharing -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted -TeamsConfiguration $Data.TeamsConfiguration
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::TeamsSettingsFileSharing
+    )
+    $Data.TeamsSettingsGuests = Get-DataInformation -Text "Getting O365 information - TeamsSettingsGuests" {
+        Get-WinTeamsSettingsGuests -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::TeamsSettingsGuests
+    )
+    $Data.TeamsSettingsMeetings = Get-DataInformation -Text "Getting O365 information - TeamsSettingsMeetings" {
+        Get-WinTeamsSettingsMeetings -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::TeamsSettingsMeetings
+    )
+    $Data.TeamsSettingsMeetingsTechnical = Get-DataInformation -Text "Getting O365 information - TeamsSettingsMeetingsTechnical" {
+        Get-WinTeamsSettingsMeetingsTechnical -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::TeamsSettingsMeetingsTechnical
+    )
+    $Data.TeamsSettingsUpgrade = Get-DataInformation -Text "Getting O365 information - TeamsSettingsUpgrade" {
+        Get-WinTeamsSettingsUpgrade -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::TeamsSettingsUpgrade
+    )
+    $Data.TeamsSettingsUsers = Get-DataInformation -Text "Getting O365 information - TeamsSettingsUsers" {
+        Get-WinTeamsSettingsUsers -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::TeamsSettingsUsers
+    )
     ## Summary (Prepared Data)
     $Data.AzureLicensing = Get-DataInformation -Text "Getting O365 information - AzureLicensing" {
         Get-WinAzureLicensing -UAzureLicensing $Data.UAzureLicensing

@@ -10,7 +10,7 @@
 # Get-RecipientPermission | Where {($_.Trustee -ne 'nt authority\self') } | select Identity, Trustee, AccessRights
 
 
-function Get-WinUExchangeRecipientsPermissions {
+function Get-WinUExchangeRecipientsPermissions1 {
     [CmdletBinding()]
     param(
         [Array] $ExchangeRecipientsPermissions

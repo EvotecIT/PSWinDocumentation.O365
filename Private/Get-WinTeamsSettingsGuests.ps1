@@ -1,4 +1,4 @@
-﻿function Get-WinTeamsGuestSettings {
+﻿function Get-WinTeamsSettingsGuests {
     [CmdletBinding()]
     param(
         [string] $Prefix,
@@ -50,9 +50,9 @@
 
 
     if ($Formatted) {
-        [PSCustomObject]@{
-            'Allow User EditMessage'   = $CsTeamsGuestMessagingConfiguration.AllowUserEditMessage
-            'Allow User DeleteMessage' = $CsTeamsGuestMessagingConfiguration.AllowUserDeleteMessage
+        [ordered]@{
+            'Allow User Edit Message'   = $CsTeamsGuestMessagingConfiguration.AllowUserEditMessage
+            'Allow User Delete Message' = $CsTeamsGuestMessagingConfiguration.AllowUserDeleteMessage
             'Allow User Chat'          = $CsTeamsGuestMessagingConfiguration.AllowUserChat
             'Allow Giphy'              = $CsTeamsGuestMessagingConfiguration.AllowGiphy
             'Giphy Rating Type'        = $CsTeamsGuestMessagingConfiguration.GiphyRatingType
@@ -60,12 +60,12 @@
             'Allow Immersive Reader'   = $CsTeamsGuestMessagingConfiguration.AllowImmersiveReader
             'Allow Stickers'           = $CsTeamsGuestMessagingConfiguration.AllowStickers
             'Allow IPVideo'            = $CsTeamsGuestMeetingConfiguration.AllowIPVideo
-            'Screen Sharing Mode'      = $CsTeamsGuestMeetingConfiguration.ScreenSharingMode
+            'Screen Sharing Mode'      = Format-AddSpaceToSentence -Text $CsTeamsGuestMeetingConfiguration.ScreenSharingMode
             'Allow MeetNow'            = $CsTeamsGuestMeetingConfiguration.AllowMeetNow
             'Allow Private Calling'    = $CsTeamsGuestCallingConfiguration.AllowPrivateCalling
         }
     } else {
-        [PSCustomObject]@{
+        [ordered]@{
             AllowUserEditMessage   = $CsTeamsGuestMessagingConfiguration.AllowUserEditMessage
             AllowUserDeleteMessage = $CsTeamsGuestMessagingConfiguration.AllowUserDeleteMessage
             AllowUserChat          = $CsTeamsGuestMessagingConfiguration.AllowUserChat

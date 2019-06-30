@@ -26,9 +26,18 @@
             ExchangeUnifiedGroups,
             ExchangeUnifiedGroupsMembers,
 
-            TeamsChannelPolicy,
-            TeamsFileSharing,
             TeamsSettings,
+            TeamsSettingsBroadcasting,
+            TeamsSettingsCalling,
+            TeamsSettingsChannels,
+            TeamsSettingsEducationAppPolicy,
+            TeamsSettingsFileSharing,
+            TeamsSettingsGuests,
+            TeamsSettingsMeetings,
+            TeamsSettingsMeetingsTechnical,
+            TeamsSettingsUpgrade,
+            TeamsSettingsUsers,
+
 
             UAzureADContacts,
             UAzureADGroupMembers,
@@ -57,7 +66,8 @@
             UExchangeUnifiedGroups,
             UExchangeUsers,
 
-            UTeamsConfiguration
+            UTeamsConfiguration,
+            UTeamsVideoInteropService
         }
     }
 "@

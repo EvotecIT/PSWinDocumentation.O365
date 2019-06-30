@@ -31,9 +31,9 @@
         Enabled      : False
     #>
     if ($Tenant) {
-        $TeamsConfiguration = & "Get-$($prefix)CsTeamsVideoInteropServicePolicy" -Tenant $Tenant -Identity Global
+        $CsTeamsVideoInteropServicePolicy = & "Get-$($prefix)CsTeamsVideoInteropServicePolicy" -Tenant $Tenant -Identity Global
     } else {
-        $TeamsConfiguration = & "Get-$($prefix)CsTeamsVideoInteropServicePolicy" -Identity Global
+        $CsTeamsVideoInteropServicePolicy = & "Get-$($prefix)CsTeamsVideoInteropServicePolicy" -Identity Global
     }
-    return $TeamsConfiguration
+    return $CsTeamsVideoInteropServicePolicy
 }

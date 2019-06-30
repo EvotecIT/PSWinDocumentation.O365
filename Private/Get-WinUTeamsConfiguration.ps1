@@ -19,12 +19,11 @@
         ResourceAccountContentAccess     : NoAccess
         AllowGuestUser                   : False
         AllowScopedPeopleSearchandAccess : False
-
     #>
     if ($Tenant) {
-        $TeamsConfiguration = & "Get-$($prefix)CsTeamsClientConfiguration" -Tenant $Tenant -Identity Global
+        $CsTeamsClientConfiguration = & "Get-$($prefix)CsTeamsClientConfiguration" -Tenant $Tenant -Identity Global
     } else {
-        $TeamsConfiguration = & "Get-$($prefix)CsTeamsClientConfiguration" -Identity Global
+        $CsTeamsClientConfiguration = & "Get-$($prefix)CsTeamsClientConfiguration" -Identity Global
     }
-    return $TeamsConfiguration
+    return $CsTeamsClientConfiguration
 }

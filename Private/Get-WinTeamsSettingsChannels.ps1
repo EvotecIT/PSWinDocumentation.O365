@@ -1,4 +1,4 @@
-﻿function Get-WinTeamsChannelsPolicy {
+﻿function Get-WinTeamsSettingsChannels {
     [CmdletBinding()]
     param(
         [string] $Prefix,
@@ -22,24 +22,6 @@
     Identity                    : Global
     TypedIdentity               : Global
     Element                     : <TeamsChannelsPolicy xmlns="urn:schema:Microsoft.Rtc.Management.Policy.Teams.2017" AllowOrgWideTeamCreation="true" AllowPrivateTeamDiscovery="true" AllowPrivateChannelCreation="true" />
-
-    XsAnyElements               :
-    XsAnyAttributes             :
-    PSComputerName              : admin1e.online.lync.com
-    RunspaceId                  : ab26fd46-85ab-4838-bd35-6ffa005f46db
-    PSShowComputerName          : False
-    Description                 :
-    AllowOrgWideTeamCreation    : True
-    AllowPrivateTeamDiscovery   : True
-    AllowPrivateChannelCreation : True
-    DataSource                  : CMS
-    Key                         : [{urn:schema:Microsoft.Rtc.Management.Policy.Teams.2017}TeamsChannelsPolicy,Host{00000000-0000-0000-0000-000000000000},Tag]
-    ScopeClass                  : Tag
-    Anchor                      : (1) Default
-    Identity                    : Tag:Default
-    TypedIdentity               : Tag:Default
-    Element                     : <TeamsChannelsPolicy xmlns="urn:schema:Microsoft.Rtc.Management.Policy.Teams.2017" AllowOrgWideTeamCreation="true" AllowPrivateTeamDiscovery="true" AllowPrivateChannelCreation="true" />
-
     #>
 
     if ($Tenant) {
@@ -50,21 +32,21 @@
     }
     foreach ($_ in $ChannelsPolicy) {
         if ($Formatted) {
-            [PSCustomObject]@{
+            [ordered]@{
                 'Allow Teams Creation'           = $_.AllowOrgWideTeamCreation
                 'Allow Private Team Discovery'   = $_.AllowPrivateTeamDiscovery
                 'Allow Private Channel Creation' = $_.AllowPrivateChannelCreation
                 'Scope Class'                    = $_.ScopeClass
-                'Identity'                       = $_.Identity
+                #'Identity'                       = $_.Identity
                 'Description'                    = $_.Description
             }
         } else {
-            [PSCustomObject]@{
+            [ordered]@{
                 AllowOrgWideTeamCreation    = $_.AllowOrgWideTeamCreation
                 AllowPrivateTeamDiscovery   = $_.AllowPrivateTeamDiscovery
                 AllowPrivateChannelCreation = $_.AllowPrivateChannelCreation
                 ScopeClass                  = $_.ScopeClass
-                Identity                    = $_.Identity
+                # Identity                    = $_.Identity
                 Description                 = $_.Description
             }
         }

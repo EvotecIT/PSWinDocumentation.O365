@@ -1,4 +1,4 @@
-﻿function Get-WinTeamsFileSharing {
+﻿function Get-WinTeamsSettingsFileSharing {
     [CmdletBinding()]
     param(
         [string] $Prefix,
@@ -16,14 +16,14 @@
     }
     foreach ($_ in $TeamsConfiguration) {
         if ($Formatted) {
-            [PSCustomObject]@{
+            [ordered]@{
                 'Allow DropBox'     = $_.AllowDropBox
                 'Allow Box'         = $_.AllowBox
                 'Allow GoogleDrive' = $_.AllowGoogleDrive
                 'Allow Share File'  = $_.AllowShareFile
             }
         } else {
-            [PSCustomObject]@{
+            [ordered]@{
                 AllowDropBox     = $_.AllowDropBox
                 AllowBox         = $_.AllowBox
                 AllowGoogleDrive = $_.AllowGoogleDrive

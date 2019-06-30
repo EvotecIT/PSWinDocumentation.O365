@@ -14,33 +14,31 @@
             $TeamsConfiguration = & "Get-$($prefix)CsTeamsClientConfiguration" -Identity Global
         }
     }
-    foreach ($_ in $TeamsConfiguration) {
-        if ($Formatted) {
-            [PSCustomObject]@{
-                #Identity                         = $_.Identity
-                'Allow EmailInto Channel'             = $_.AllowEmailIntoChannel
-                'Restricted Sender List'              = $_.RestrictedSenderList
-                'Allow Organization Tab'              = $_.AllowOrganizationTab
-                'Allow SkypeBusiness Interop'         = $_.AllowSkypeBusinessInterop
-                'Content Pin'                         = Format-AddSpaceToSentence -Text $_.ContentPin
-                'Allow Resource Account Send Message' = $_.AllowResourceAccountSendMessage
-                'Resource Account Content Access'     = Format-AddSpaceToSentence -Text $_.ResourceAccountContentAccess
-                'Allow Guest User'                    = $_.AllowGuestUser
-                'Allow Scoped People Search'          = $_.AllowScopedPeopleSearchandAccess
-            }
-        } else {
-            [PSCustomObject]@{
-                #Identity                         = $_.Identity
-                AllowEmailIntoChannel            = $_.AllowEmailIntoChannel
-                RestrictedSenderList             = $_.RestrictedSenderList
-                AllowOrganizationTab             = $_.AllowOrganizationTab
-                AllowSkypeBusinessInterop        = $_.AllowSkypeBusinessInterop
-                ContentPin                       = Format-AddSpaceToSentence -Text $_.ContentPin
-                AllowResourceAccountSendMessage  = $_.AllowResourceAccountSendMessage
-                ResourceAccountContentAccess     = Format-AddSpaceToSentence -Text $_.ResourceAccountContentAccess
-                AllowGuestUser                   = $_.AllowGuestUser
-                AllowScopedPeopleSearchandAccess = $_.AllowScopedPeopleSearchandAccess
-            }
+    if ($Formatted) {
+        [ordered]@{
+            #Identity                         = $TeamsConfiguration.Identity
+            'Allow Email Into Channel'            = $TeamsConfiguration.AllowEmailIntoChannel
+            'Restricted Sender List'              = $TeamsConfiguration.RestrictedSenderList
+            'Allow Organization Tab'              = $TeamsConfiguration.AllowOrganizationTab
+            'Allow Skype for Business Interop'    = $TeamsConfiguration.AllowSkypeBusinessInterop
+            'Content Pin'                         = Format-AddSpaceToSentence -Text $TeamsConfiguration.ContentPin
+            'Allow Resource Account Send Message' = $TeamsConfiguration.AllowResourceAccountSendMessage
+            'Resource Account Content Access'     = Format-AddSpaceToSentence -Text $TeamsConfiguration.ResourceAccountContentAccess
+            'Allow Guest User'                    = $TeamsConfiguration.AllowGuestUser
+            'Allow Scoped People Search'          = $TeamsConfiguration.AllowScopedPeopleSearchandAccess
+        }
+    } else {
+        [ordered]@{
+            #Identity                         = $TeamsConfiguration.Identity
+            AllowEmailIntoChannel            = $TeamsConfiguration.AllowEmailIntoChannel
+            RestrictedSenderList             = $TeamsConfiguration.RestrictedSenderList
+            AllowOrganizationTab             = $TeamsConfiguration.AllowOrganizationTab
+            AllowSkypeBusinessInterop        = $TeamsConfiguration.AllowSkypeBusinessInterop
+            ContentPin                       = $TeamsConfiguration.ContentPin
+            AllowResourceAccountSendMessage  = $TeamsConfiguration.AllowResourceAccountSendMessage
+            ResourceAccountContentAccess     = $TeamsConfiguration.ResourceAccountContentAccess
+            AllowGuestUser                   = $TeamsConfiguration.AllowGuestUser
+            AllowScopedPeopleSearchandAccess = $TeamsConfiguration.AllowScopedPeopleSearchandAccess
         }
     }
 }
