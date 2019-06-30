@@ -1,14 +1,14 @@
 ﻿<p align="center">
-  <a href="https://www.powershellgallery.com/packages/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/v/PSWriteHTML.svg"></a>
-  <a href="https://www.powershellgallery.com/packages/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/vpre/PSWriteHTML.svg?label=powershell%20gallery%20preview&colorB=yellow"></a>
-  <a href="https://github.com/EvotecIT/PSWriteHTML"><img src="https://img.shields.io/github/license/EvotecIT/PSWriteHTML.svg"></a>
+  <a href="https://www.powershellgallery.com/packages/PSWindocumentation.O365"><img src="https://img.shields.io/powershellgallery/v/PSWindocumentation.O365.svg"></a>
+  <a href="https://www.powershellgallery.com/packages/PSWindocumentation.O365"><img src="https://img.shields.io/powershellgallery/vpre/PSWindocumentation.O365.svg?label=powershell%20gallery%20preview&colorB=yellow"></a>
+  <a href="https://github.com/EvotecIT/PSWindocumentation.O365"><img src="https://img.shields.io/github/license/EvotecIT/PSWindocumentation.O365.svg"></a>
 </p>
 
 <p align="center">
-  <a href="https://www.powershellgallery.com/packages/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/p/PSWriteHTML.svg"></a>
-  <a href="https://github.com/EvotecIT/PSWriteHTML"><img src="https://img.shields.io/github/languages/top/evotecit/PSWriteHTML.svg"></a>
-  <a href="https://github.com/EvotecIT/PSWriteHTML"><img src="https://img.shields.io/github/languages/code-size/evotecit/PSWriteHTML.svg"></a>
-  <a href="https://github.com/EvotecIT/PSWriteHTML"><img src="https://img.shields.io/powershellgallery/dt/PSWriteHTML.svg"></a>
+  <a href="https://www.powershellgallery.com/packages/PSWindocumentation.O365"><img src="https://img.shields.io/powershellgallery/p/PSWindocumentation.O365.svg"></a>
+  <a href="https://github.com/EvotecIT/PSWindocumentation.O365"><img src="https://img.shields.io/github/languages/top/evotecit/PSWindocumentation.O365.svg"></a>
+  <a href="https://github.com/EvotecIT/PSWindocumentation.O365"><img src="https://img.shields.io/github/languages/code-size/evotecit/PSWindocumentation.O365.svg"></a>
+  <a href="https://github.com/EvotecIT/PSWindocumentation.O365"><img src="https://img.shields.io/powershellgallery/dt/PSWindocumentation.O365.svg"></a>
 </p>
 
 <p align="center">
