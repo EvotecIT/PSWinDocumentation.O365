@@ -6,15 +6,22 @@
         [Flags]
         public enum O365 {
             AzureADGroupMembersUser,
+            AzureADUsers,
+            AzureADGuests,
             AzureADUsersMFA,
             AzureADUsersStatisticsByCity,
             AzureADUsersStatisticsByCountry,
             AzureADUsersStatisticsByCountryCity,
             AzureLicensing,
+            AzureRoles,
+            AzureRolesActiveOnly,
+            AzureRolesMembers,
             AzureSubscription,
             AzureTenantDomains,
 
             ExchangeAcceptedDomains,
+            ExchangeConnectorsInbound,
+            ExchangeConnectorsOutbound,
             ExchangeDistributionGroups,
             ExchangeDistributionGroupsMembers,
             ExchangeMailboxes,
@@ -25,6 +32,7 @@
             ExchangeMailboxesInboxRulesForwarding,
             ExchangeUnifiedGroups,
             ExchangeUnifiedGroupsMembers,
+            ExchangeTransportConfig,
 
             TeamsSettings,
             TeamsSettingsBroadcasting,
@@ -45,6 +53,7 @@
             UAzureADUsers,
             UAzureADUsersDeleted,
             UAzureLicensing,
+            UAzureRoles,
             UAzureSubscription,
             UAzureTenantDomains,
             UExchangeContacts,

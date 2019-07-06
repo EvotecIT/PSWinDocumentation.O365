@@ -80,7 +80,7 @@
                 'Enable Nego2Authentication'          = $_.EnableNego2Authentication
                 'Initial Domain'                      = $_.InitialDomain
                 'Admin Display Name'                  = $_.AdminDisplayName
-                'WhenC hanged'                        = $_.WhenChanged # WhenChangedUTC
+                'When Changed'                        = $_.WhenChanged # WhenChangedUTC
                 'When Created'                        = $_.WhenCreated # WhenCreatedUTC
             }
         } else {

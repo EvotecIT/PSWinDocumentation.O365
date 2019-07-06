@@ -55,7 +55,7 @@
             'Allow User Delete Message' = $CsTeamsGuestMessagingConfiguration.AllowUserDeleteMessage
             'Allow User Chat'          = $CsTeamsGuestMessagingConfiguration.AllowUserChat
             'Allow Giphy'              = $CsTeamsGuestMessagingConfiguration.AllowGiphy
-            'Giphy Rating Type'        = $CsTeamsGuestMessagingConfiguration.GiphyRatingType
+            'Giphy Rating Type'        = Format-AddSpaceToSentence -Text $CsTeamsGuestMessagingConfiguration.GiphyRatingType
             'Allow Memes'              = $CsTeamsGuestMessagingConfiguration.AllowMemes
             'Allow Immersive Reader'   = $CsTeamsGuestMessagingConfiguration.AllowImmersiveReader
             'Allow Stickers'           = $CsTeamsGuestMessagingConfiguration.AllowStickers

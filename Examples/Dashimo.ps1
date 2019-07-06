@@ -2,12 +2,12 @@
 
 #Connect-WinConnectivity -UserName 'przemyslaw.klys@evotec.pl' -FilePath 'C:\Support\Important\Password-O365-Evotec.txt' -AsSecure -Service AzureAD, MSOnline, ExchangeOnline, Teams, SkypeOnline
 
-#if (-not $O365) {
-#$O365 = Get-WinO365 -Formatted -Verbose
-#}
+if (-not $O365) {
+    # $O365 = Get-WinO365 -Formatted -Verbose
+}
 
 Dashboard -Name 'O365 Dashboard' -FilePath $PSScriptRoot\Output\Dashboard.html {
-    Tab -Name 'Azure AD'  -IconBrands amazon {
+    Tab -Name 'Azure AD' -IconBrands black-tie {
         Section -Invisible {
             Section -Name 'Azure Licensing' {
                 Table -DataTable $O365.AzureLicensing -Filtering {
@@ -18,7 +18,24 @@ Dashboard -Name 'O365 Dashboard' -FilePath $PSScriptRoot\Output\Dashboard.html {
                 Table -DataTable $O365.AzureTenantDomains -Filtering
             }
         }
-
+        Section -Invisible {
+            Section -Name 'Active Management Roles' {
+                Table -DataTable $O365.AzureRolesActiveOnly
+            }
+            Section -Name 'Active Management Roles Members' {
+                Table -DataTable $O365.AzureRolesMembers -ResponsivePriorityOrder UserType -Filtering
+            }
+        }
+        Section -Invisible {
+            Section -Name 'Azure Users' {
+                Table -DataTable $O365.AzureADUsers -Filtering
+            }
+        }
+        Section -Invisible {
+            Section -Name 'Azure Guests' {
+                Table -DataTable $O365.AzureADGuests -Filtering
+            }
+        }
     }
     Tab -Name 'Microsoft Exchange'  -IconBrands microsoft {
         Section -Invisible {
@@ -27,8 +44,27 @@ Dashboard -Name 'O365 Dashboard' -FilePath $PSScriptRoot\Output\Dashboard.html {
                     #TableHeader -Title 'Teams Settings' -Color Black -BackGroundColor Gray
                 }
             }
-            Section -Name 'Test' {
+            Section -Name 'Mx Records' {
+                Table -DataTable $O365.ExchangeMxRecords -Filtering {
+                    #TableHeader -Title 'Teams Settings' -Color Black -BackGroundColor Gray
+                }
+            }
+            Section -Name 'Transport Config' {
+                Table -DataTable $O365.ExchangeTransportConfig -Filtering {
+                    TableHeader -Title 'Exchange Transport Config' -Color Black
+                }
+            }
+        }
+        Section -Invisible {
+            Section -Name 'Inbound Connectors' {
+                Table -DataTable $O365.ExchangeConnectorsInbound -Filtering {
 
+                }
+            }
+            Section -Name 'Outbound Connectors' {
+                Table -DataTable $O365.ExchangeConnectorsOutbound -Filtering {
+
+                }
             }
         }
     }

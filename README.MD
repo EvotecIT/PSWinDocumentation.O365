@@ -27,6 +27,7 @@
 | Category | Dashimo | Documentimo | Type                                           |
 | -------- | ------- | ----------- | ---------------------------------------------- |
 | Azure    |         |             | AzureADGroupMembersUser                        |
+| Azure    |         |             | AzureADUsers                                   |
 | Azure    |         |             | AzureADUsersMFA                                |
 | Azure    |         |             | AzureADUsersStatisticsByCity                   |
 | Azure    |         |             | AzureADUsersStatisticsByCountry                |
@@ -36,6 +37,8 @@
 | Azure    | Yes     |             | AzureTenantDomains                             |
 |          |         |             |                                                |
 | Exchange | Yes     |             | ExchangeAcceptedDomains                        |
+| Exchange | Yes     | Partially   | ExchangeConnectorsInbound                      |
+| Exchange | Yes     | Partially   | ExchangeConnectorsOutbound                     |
 | Exchange |         |             | ExchangeDistributionGroups                     |
 | Exchange |         |             | ExchangeDistributionGroupsMembers              |
 | Exchange |         |             | ExchangeMailboxes                              |
@@ -46,7 +49,7 @@
 | Exchange |         |             | ExchangeMailboxesInboxRulesForwarding          |
 | Exchange |         |             | ExchangeUnifiedGroups                          |
 | Exchange |         |             | ExchangeUnifiedGroupsMembers                   |
-|          |         |             |                                                |
+| Exchange | Yes     | Yes         | ExchangeTransportConfig                        |
 | Teams    | Yes     | Yes         | TeamsSettings                                  |
 | Teams    | Yes     | Yes         | TeamsSettingsBroadcasting                      |
 | Teams    | Yes     | Yes         | TeamsSettingsCalling                           |

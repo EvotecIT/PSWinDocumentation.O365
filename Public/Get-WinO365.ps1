@@ -5,8 +5,14 @@
         [string] $Prefix,
         [validateset("Bytes", "KB", "MB", "GB", "TB")][string]$SizeIn = 'MB',
         [alias('Precision')][int]$SizePrecision = 2,
-        [switch] $Formatted
+        [switch] $Formatted,
+        [switch] $SkipAvailability,
+        [string] $Splitter = ', ',
+        [string] $Tenant
     )
+
+    $PSDefaultParameterValues["Get-DataInformation:Verbose"] = $PSCmdlet.MyInvocation.BoundParameters["Verbose"].IsPresent
+
     $TimeToGenerate = Start-TimeLog
 
     if ($null -eq $TypesRequired) {
@@ -14,7 +20,7 @@
         $TypesRequired = Get-Types -Types ([PSWinDocumentation.O365])
     } # Gets all types
 
-    if ($SkipAvailability) {
+    if (-not $SkipAvailability) {
         $Commands = Test-AvailabilityCommands -Commands "Get-$($Prefix)Mailbox", "Get-$($Prefix)MsolUser", "Get-$($Prefix)MailboxStatistics"
         if ($Commands -contains $false) {
             Write-Warning "Get-WinO365 - One of commands Get-$($Prefix)Mailbox, Get-$($Prefix)MsolUser, Get-$($Prefix)MailboxStatistics is not available. Make sure connectivity to Office 365 exists."
@@ -24,16 +30,23 @@
 
     $Data = @{ }
 
+    $Data.Objects = @{ }
+
     # MSOnline
     $Data.UAzureADUsers = Get-DataInformation -Text "Getting O365 information - UAzureADUsers" {
-        Get-WinUAzureADUsers  #-Prefix $Prefix
+        Get-WinUAzureADUsers -Tenant $Tenant  #-Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::UAzureADUsers
+        [PSWinDocumentation.O365]::AzureADUsers
         [PSWinDocumentation.O365]::AzureADUsersMFA
         [PSWinDocumentation.O365]::AzureADUsersStatisticsByCountry
         [PSWinDocumentation.O365]::AzureADUsersStatisticsByCity
         [PSWinDocumentation.O365]::AzureADUsersStatisticsByCountryCity
         [PSWinDocumentation.O365]::ExchangeMailboxes
+        [PSWinDocumentation.O365]::AzureRolesMembers
+        [PSWinDocumentation.O365]::AzureRoles
+        [PSWinDocumentation.O365]::AzureRolesActiveOnly
+        [PSWinDocumentation.O365]::AzureADGuests
     )
     $Data.UAzureADUsersDeleted = Get-DataInformation -Text "Getting O365 information - UAzureADUsersDeleted" {
         Get-WinUAzureADUsersDeleted  #-Prefix $Prefix
@@ -84,6 +97,48 @@
         Get-WinAzureADUsersMFA -UAzureADUsers $Data.UAzureADUsers
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::AzureADUsersMFA
+    )
+    $Data.AzureADUsers = Get-DataInformation -Text "Getting O365 information - AzureADUsers" {
+        Get-WinAzureUsers -MsolUsers $Data.UAzureADUsers -Prefix $Prefix -Formatted:$Formatted -Splitter $Splitter -Users $Data.Objects
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::AzureADUsers
+        [PSWinDocumentation.O365]::AzureRolesMembers
+        [PSWinDocumentation.O365]::AzureRoles
+        [PSWinDocumentation.O365]::AzureRolesActiveOnly
+    )
+    $Data.AzureADGuests = Get-DataInformation -Text "Getting O365 information - AzureADGuests" {
+        Get-WinAzureGuests -MsolUsers $Data.UAzureADUsers -Prefix $Prefix -Formatted:$Formatted -Splitter $Splitter -Users $Data.Objects
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::AzureADGuests
+        [PSWinDocumentation.O365]::AzureRolesMembers
+        [PSWinDocumentation.O365]::AzureRoles
+        [PSWinDocumentation.O365]::AzureRolesActiveOnly
+    )
+    $Data.UAzureRoles = Get-DataInformation -Text "Getting O365 information - UAzureRoles" {
+        Get-WinUAzureRoles -Prefix $Prefix
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::UAzureRoles
+        [PSWinDocumentation.O365]::AzureRolesMembers
+        [PSWinDocumentation.O365]::AzureRoles
+        [PSWinDocumentation.O365]::AzureRolesActiveOnly
+    )
+    $Data.AzureRolesMembers = Get-DataInformation -Text "Getting O365 information - AzureRolesMembers" {
+        Get-WinAzureRolesMembers -MsolRoles $Data.UAzureRoles -Prefix $Prefix -Formatted:$Formatted -Users $Data.Objects
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::AzureRolesMembers
+        [PSWinDocumentation.O365]::AzureRoles
+        [PSWinDocumentation.O365]::AzureRolesActiveOnly
+    )
+    $Data.AzureRoles = Get-DataInformation -Text "Getting O365 information - AzureRoles" {
+        Get-WinAzureRoles -MsolRoles $Data.UAzureRoles -AzureRolesMembers $Data.AzureRolesMembers -Prefix $Prefix -Formatted:$Formatted
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::AzureRoles
+        [PSWinDocumentation.O365]::AzureRolesActiveOnly
+    )
+    $Data.AzureRolesActiveOnly = Get-DataInformation -Text "Getting O365 information - AzureRolesActiveOnly" {
+        Get-WinAzureRolesActiveOnly -AzureRoles $Data.AzureRoles -Formatted:$Formatted
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::AzureRolesActiveOnly
     )
     $Data.AzureADUsersStatisticsByCountry = Get-DataInformation -Text "Getting O365 information - AzureADUsersStatisticsByCountry" {
         Get-WinAzureADUsersStatisticsByCountry -UAzureADUsers $Data.UAzureADUsers
@@ -354,11 +409,33 @@
         Get-WinExchangeAcceptedDomains -Prefix $Prefix -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::ExchangeAcceptedDomains
+        [PSWinDocumentation.O365]::ExchangeMxRecords
+    )
+    $Data.ExchangeMxRecords = Get-DataInformation -Text "Getting O365 information - ExchangeMxRecords" {
+        Get-WinExchangeMxRecord -Prefix $Prefix -Formatted:$Formatted -ExchangeAcceptedDomains $Data.ExchangeAcceptedDomains
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::ExchangeMxRecords
+    )
+    $Data.ExchangeTransportConfig = Get-DataInformation -Text "Getting O365 information - ExchangeTransportConfig" {
+        Get-WinExchangeTransportConfig -Prefix $Prefix -Formatted:$Formatted
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::ExchangeTransportConfig
+    )
+
+    $Data.ExchangeConnectorsInbound = Get-DataInformation -Text "Getting O365 information - ExchangeConnectorsInbound" {
+        Get-WinExchangeConnectorsInbound -Prefix $Prefix -Formatted:$Formatted
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::ExchangeConnectorsInbound
+    )
+    $Data.ExchangeConnectorsOutbound = Get-DataInformation -Text "Getting O365 information - ExchangeConnectorsOutbound" {
+        Get-WinExchangeConnectorsOutbound -Prefix $Prefix -Formatted:$Formatted
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::ExchangeConnectorsOutbound
     )
 
 
     $EndTime = Stop-TimeLog -Time $TimeToGenerate
     Write-Verbose "Getting domain information - $Domain - Time to generate: $EndTime"
-    return ConvertTo-OrderedDictionary -HashTable $Data -Verbose
+    return ConvertTo-OrderedDictionary -HashTable $Data #-Verbose
 }
 

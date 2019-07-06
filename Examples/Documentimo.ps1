@@ -11,18 +11,41 @@ Documentimo -FilePath "$PSScriptRoot\Output\Office365-Documentation.docx" {
     DocNumbering -Text 'Azure Active Directory' -Level 0 -Type Numbered -Heading Heading1 {
 
         DocNumbering -Text 'Licenses' -Level 1 -Type Numbered -Heading Heading1 {
-            DocTable -DataTable $O365.AzureLicensing
+            DocTable -DataTable $O365.AzureLicensing -MaximumColumns 6
         }
+
         DocNumbering -Text 'Domains' -Level 1 -Type Numbered -Heading Heading1 {
             DocTable -DataTable $O365.AzureTenantDomains
         }
-    }
 
+        DocNumbering -Text 'Management Roles' -Level 1 -Type Numbered -Heading Heading1 {
+            DocTable -DataTable $O365.AzureRolesActiveOnly -AutoFit Contents
+
+            foreach ($Role in $O365.AzureRolesActiveOnly) {
+                DocNumbering -Text $Role.Name -Level 2 -Type Numbered -Heading Heading1 {
+                    [Array] $AzureRoleMembers = $O365.AzureRolesMembers | Where-Object { $_.Role -eq $Role.Name }
+                    DocTable -DataTable $AzureRoleMembers -AutoFit Contents -MaximumColumns 4
+                }
+            }
+        }
+    }
     DocNumbering -Text 'Microsoft Exchange' -Level 0 -Type Numbered -Heading Heading1 {
 
         DocNumbering -Text 'Accepted Domain' -Level 1 -Type Numbered -Heading Heading1 {
             DocTable -DataTable $O365.ExchangeAcceptedDomains
         }
+        DocNumbering -Text 'Mx Records' -Level 1 -Type Numbered -Heading Heading1 {
+            DocTable -DataTable $O365.ExchangeMxRecords
+        }
+
+        DocNumbering -Text 'Inbound Connectors' -Level 1 -Type Numbered -Heading Heading1 {
+            DocTable -DataTable $O365.ExchangeConnectorsInbound
+        }
+
+        DocNumbering -Text 'Outbound Connectors' -Level 1 -Type Numbered -Heading Heading1 {
+            DocTable -DataTable $O365.ExchangeConnectorsOutbound
+        }
+
         #DocNumbering -Text 'Domains' -Level 1 -Type Numbered -Heading Heading1 {
         #    DocTable -DataTable $O365.AzureTenantDomains
         #}
