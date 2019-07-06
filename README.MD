@@ -27,12 +27,16 @@
 | Category | Dashimo | Documentimo | Type                                           |
 | -------- | ------- | ----------- | ---------------------------------------------- |
 | Azure    |         |             | AzureADGroupMembersUser                        |
-| Azure    |         |             | AzureADUsers                                   |
+| Azure    | Yes     |             | AzureADGuests                                  |
+| Azure    | Yes     |             | AzureADUsers                                   |
 | Azure    |         |             | AzureADUsersMFA                                |
 | Azure    |         |             | AzureADUsersStatisticsByCity                   |
 | Azure    |         |             | AzureADUsersStatisticsByCountry                |
 | Azure    |         |             | AzureADUsersStatisticsByCountryCity            |
-| Azure    | Yes     |             | AzureLicensing                                 |
+| Azure    | Yes     | Yes         | AzureLicensing                                 |
+| Azure    |         |             | AzureRoles                                     |
+| Azure    | Yes     | Yes         | AzureRolesActiveOnly                           |
+| Azure    | Yes     | Yes         | AzureRolesMembers                              |
 | Azure    |         |             | AzureSubscription                              |
 | Azure    | Yes     |             | AzureTenantDomains                             |
 |          |         |             |                                                |
