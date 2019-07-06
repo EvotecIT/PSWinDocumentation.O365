@@ -24,73 +24,73 @@
 
 ## Features covered with their usage in Examples
 
-| Category | Dashimo | Documentimo | Type                                           |
-| -------- | ------- | ----------- | ---------------------------------------------- |
-| Azure    |         |             | AzureADGroupMembersUser                        |
-| Azure    | Yes     |             | AzureADGuests                                  |
-| Azure    | Yes     |             | AzureADUsers                                   |
-| Azure    |         |             | AzureADUsersMFA                                |
-| Azure    |         |             | AzureADUsersStatisticsByCity                   |
-| Azure    |         |             | AzureADUsersStatisticsByCountry                |
-| Azure    |         |             | AzureADUsersStatisticsByCountryCity            |
-| Azure    | Yes     | Yes         | AzureLicensing                                 |
-| Azure    |         |             | AzureRoles                                     |
-| Azure    | Yes     | Yes         | AzureRolesActiveOnly                           |
-| Azure    | Yes     | Yes         | AzureRolesMembers                              |
-| Azure    |         |             | AzureSubscription                              |
-| Azure    | Yes     |             | AzureTenantDomains                             |
-|          |         |             |                                                |
-| Exchange | Yes     |             | ExchangeAcceptedDomains                        |
-| Exchange | Yes     | Partially   | ExchangeConnectorsInbound                      |
-| Exchange | Yes     | Partially   | ExchangeConnectorsOutbound                     |
-| Exchange |         |             | ExchangeDistributionGroups                     |
-| Exchange |         |             | ExchangeDistributionGroupsMembers              |
-| Exchange |         |             | ExchangeMailboxes                              |
-| Exchange |         |             | ExchangeMailboxesStatistics                    |
-| Exchange |         |             | ExchangeMailboxesStatisticsArchive             |
-| Exchange |         |             | ExchangeMailboxesPermissions                   |
-| Exchange |         |             | ExchangeMailboxesPermissionsIncludingInherited |
-| Exchange |         |             | ExchangeMailboxesInboxRulesForwarding          |
-| Exchange |         |             | ExchangeUnifiedGroups                          |
-| Exchange |         |             | ExchangeUnifiedGroupsMembers                   |
-| Exchange | Yes     | Yes         | ExchangeTransportConfig                        |
-| Teams    | Yes     | Yes         | TeamsSettings                                  |
-| Teams    | Yes     | Yes         | TeamsSettingsBroadcasting                      |
-| Teams    | Yes     | Yes         | TeamsSettingsCalling                           |
-| Teams    | Yes     | Yes         | TeamsSettingsChannels                          |
-| Teams    | Yes     | Yes         | TeamsSettingsEducationAppPolicy                |
-| Teams    | Yes     | Yes         | TeamsSettingsFileSharing                       |
-| Teams    | Yes     | Yes         | TeamsSettingsGuests                            |
-| Teams    | Yes     | Yes         | TeamsSettingsMeetings                          |
-| Teams    | Yes     | Yes         | TeamsSettingsMeetingsTechnical                 |
-| Teams    | Yes     | Yes         | TeamsSettingsUpgrade                           |
-| Teams    | Yes     | Yes         | TeamsSettingsUsers                             |
-|          |         |             |                                                |
-| Overall  |         |             | UAzureADContacts                               |
-| Overall  |         |             | UAzureADGroupMembers                           |
-| Overall  |         |             | UAzureADGroups                                 |
-| Overall  |         |             | UAzureADUsers                                  |
-| Overall  |         |             | UAzureADUsersDeleted                           |
-| Overall  |         |             | UAzureLicensing                                |
-| Overall  |         |             | UAzureSubscription                             |
-| Overall  |         |             | UAzureTenantDomains                            |
-| Overall  |         |             | UExchangeContacts                              |
-| Overall  |         |             | UExchangeContactsMail                          |
-| Overall  |         |             | UExchangeEquipmentCalendarProcessing           |
-| Overall  |         |             | UExchangeGroupsDistribution                    |
-| Overall  |         |             | UExchangeGroupsDistributionDynamic             |
-| Overall  |         |             | UExchangeGroupsDistributionMembers             |
-| Overall  |         |             | UExchangeMailBoxes                             |
-| Overall  |         |             | UExchangeMailboxesEquipment                    |
-| Overall  |         |             | UExchangeMailboxesInboxRules                   |
-| Overall  |         |             | UExchangeMailboxesJunk                         |
-| Overall  |         |             | UExchangeMailboxesPermissions                  |
-| Overall  |         |             | UExchangeMailboxesRooms                        |
-| Overall  |         |             | UExchangeMailUsers                             |
-| Overall  |         |             | UExchangeRecipients                            |
-| Overall  |         |             | UExchangeRecipientsPermissions                 |
-| Overall  |         |             | UExchangeRoomsCalendarProcessing               |
-| Overall  |         |             | UExchangeUnifiedGroups                         |
-| Overall  |         |             | UExchangeUsers                                 |
-| Overall  |         |             | UTeamsConfiguration                            |
-| Overall  |         |             | UTeamsVideoInteropService                      |
+| Category | Dashimo (HTML) | Documentimo (Word) | Excelimo (Excel) | Type                                           | Comments |
+| -------- | -------------- | ------------------ | ---------------- | ---------------------------------------------- | -------- |
+| Azure    |                |                    |                  | AzureADGroupMembersUser                        |          |
+| Azure    | Yes            |                    |                  | AzureADGuests                                  |          |
+| Azure    | Yes            |                    |                  | AzureADUsers                                   |          |
+| Azure    |                |                    |                  | AzureADUsersMFA                                |          |
+| Azure    |                |                    |                  | AzureADUsersStatisticsByCity                   |          |
+| Azure    |                |                    |                  | AzureADUsersStatisticsByCountry                |          |
+| Azure    |                |                    |                  | AzureADUsersStatisticsByCountryCity            |          |
+| Azure    | Yes            | Yes                |                  | AzureLicensing                                 |          |
+| Azure    |                |                    |                  | AzureRoles                                     |          |
+| Azure    | Yes            | Yes                |                  | AzureRolesActiveOnly                           |          |
+| Azure    | Yes            | Yes                |                  | AzureRolesMembers                              |          |
+| Azure    |                |                    |                  | AzureSubscription                              |          |
+| Azure    | Yes            |                    |                  | AzureTenantDomains                             |          |
+|          |                |                    |                  |                                                |          |
+| Exchange | Yes            |                    |                  | ExchangeAcceptedDomains                        |          |
+| Exchange | Yes            | Partially          |                  | ExchangeConnectorsInbound                      |          |
+| Exchange | Yes            | Partially          |                  | ExchangeConnectorsOutbound                     |          |
+| Exchange |                |                    |                  | ExchangeDistributionGroups                     |          |
+| Exchange |                |                    |                  | ExchangeDistributionGroupsMembers              |          |
+| Exchange |                |                    |                  | ExchangeMailboxes                              |          |
+| Exchange |                |                    |                  | ExchangeMailboxesStatistics                    |          |
+| Exchange |                |                    |                  | ExchangeMailboxesStatisticsArchive             |          |
+| Exchange |                |                    |                  | ExchangeMailboxesPermissions                   |          |
+| Exchange |                |                    |                  | ExchangeMailboxesPermissionsIncludingInherited |          |
+| Exchange |                |                    |                  | ExchangeMailboxesInboxRulesForwarding          |          |
+| Exchange |                |                    |                  | ExchangeUnifiedGroups                          |          |
+| Exchange |                |                    |                  | ExchangeUnifiedGroupsMembers                   |          |
+| Exchange | Yes            | Yes                |                  | ExchangeTransportConfig                        |          |
+| Teams    | Yes            | Yes                |                  | TeamsSettings                                  |          |
+| Teams    | Yes            | Yes                |                  | TeamsSettingsBroadcasting                      |          |
+| Teams    | Yes            | Yes                |                  | TeamsSettingsCalling                           |          |
+| Teams    | Yes            | Yes                |                  | TeamsSettingsChannels                          |          |
+| Teams    | Yes            | Yes                |                  | TeamsSettingsEducationAppPolicy                |          |
+| Teams    | Yes            | Yes                |                  | TeamsSettingsFileSharing                       |          |
+| Teams    | Yes            | Yes                |                  | TeamsSettingsGuests                            |          |
+| Teams    | Yes            | Yes                |                  | TeamsSettingsMeetings                          |          |
+| Teams    | Yes            | Yes                |                  | TeamsSettingsMeetingsTechnical                 |          |
+| Teams    | Yes            | Yes                |                  | TeamsSettingsUpgrade                           |          |
+| Teams    | Yes            | Yes                |                  | TeamsSettingsUsers                             |          |
+|          |                |                    |                  |                                                |          |
+| Overall  |                |                    |                  | UAzureADContacts                               |          |
+| Overall  |                |                    |                  | UAzureADGroupMembers                           |          |
+| Overall  |                |                    |                  | UAzureADGroups                                 |          |
+| Overall  |                |                    |                  | UAzureADUsers                                  |          |
+| Overall  |                |                    |                  | UAzureADUsersDeleted                           |          |
+| Overall  |                |                    |                  | UAzureLicensing                                |          |
+| Overall  |                |                    |                  | UAzureSubscription                             |          |
+| Overall  |                |                    |                  | UAzureTenantDomains                            |          |
+| Overall  |                |                    |                  | UExchangeContacts                              |          |
+| Overall  |                |                    |                  | UExchangeContactsMail                          |          |
+| Overall  |                |                    |                  | UExchangeEquipmentCalendarProcessing           |          |
+| Overall  |                |                    |                  | UExchangeGroupsDistribution                    |          |
+| Overall  |                |                    |                  | UExchangeGroupsDistributionDynamic             |          |
+| Overall  |                |                    |                  | UExchangeGroupsDistributionMembers             |          |
+| Overall  |                |                    |                  | UExchangeMailBoxes                             |          |
+| Overall  |                |                    |                  | UExchangeMailboxesEquipment                    |          |
+| Overall  |                |                    |                  | UExchangeMailboxesInboxRules                   |          |
+| Overall  |                |                    |                  | UExchangeMailboxesJunk                         |          |
+| Overall  |                |                    |                  | UExchangeMailboxesPermissions                  |          |
+| Overall  |                |                    |                  | UExchangeMailboxesRooms                        |          |
+| Overall  |                |                    |                  | UExchangeMailUsers                             |          |
+| Overall  |                |                    |                  | UExchangeRecipients                            |          |
+| Overall  |                |                    |                  | UExchangeRecipientsPermissions                 |          |
+| Overall  |                |                    |                  | UExchangeRoomsCalendarProcessing               |          |
+| Overall  |                |                    |                  | UExchangeUnifiedGroups                         |          |
+| Overall  |                |                    |                  | UExchangeUsers                                 |          |
+| Overall  |                |                    |                  | UTeamsConfiguration                            |          |
+| Overall  |                |                    |                  | UTeamsVideoInteropService                      |          |
