@@ -2,76 +2,26 @@
 # https://docs.microsoft.com/en-us/powershell/module/exchange/reporting/get-mailtraffictopreport?view=exchange-ps
 
 
+#Get-MailTrafficSummaryReport -Category TopSpamRecipient -StartDate 06/13/2015 -EndDate 06/15/2015
 
-function Get-WinExchangeMailTrafficTopUser {
-    [CmdletBinding()]
-    param(
-        [string] $Prefix,
-        [string] $Tenant,
-        [switch] $Formatted,
-        [string] $Splitter = ', '
-    )
-    <# Get-MxRecordReport evotec.xyz
-    PSComputerName                   : outlook.office365.com
-    RunspaceId                       : 71a39192-2143-40be-8df2-92173c7e9efe
-    PSShowComputerName               : False
-    Organization                     : evotecpoland.onmicrosoft.com
-    IsAcceptedDomain                 : True
-    RecordExists                     : True
-    PointsToService                  : True
-    HighestPriorityMailhost          : evotec-xyz.mail.protection.outlook.com
-    HighestPriorityMailhostIpAddress : 104.47.8.36
-    Domain                           : evotec.xyz
-
-    PSComputerName                   : outlook.office365.com
-    RunspaceId                       : 71a39192-2143-40be-8df2-92173c7e9efe
-    PSShowComputerName               : False
-    Organization                     : evotecpoland.onmicrosoft.com
-    IsAcceptedDomain                 : True
-    RecordExists                     : True
-    PointsToService                  : True
-    HighestPriorityMailhost          : evotec-xyz.mail.protection.outlook.com
-    HighestPriorityMailhostIpAddress : 104.47.10.36
-    Domain                           : evotec.xyz
-
-    #>
-    if (-not $ExchangeAcceptedDomains) {
-        $ExchangeAcceptedDomains = & "Get-$($prefix)AcceptedDomain"
-    }
-
-    foreach ($_ in $ExchangeAcceptedDomains.Name) {
-        $MxRecordReport = & "Get-$($prefix)MxRecordReport" -Domain $_
-        foreach ($Mx in $MxRecordReport) {
-            if ($Formatted) {
-                [PSCustomObject]@{
-                    'Domain'             = $Mx.Domain
-                    'Is Accepted Domain' = $Mx.IsAcceptedDomain
-                    'Record Exists'      = $Mx.RecordExists
-                    'Points to Service'  = $Mx.PointsToService
-                    'Mailhost'           = $Mx.HighestPriorityMailhost
-                    'Ip Addresses'       = $MxRecordReport.HighestPriorityMailhostIpAddress -join ', '
-                    #Organization                     = $MxRecordReport.Organization
-                }
-            } else {
-                [PSCustomObject]@{
-                    Domain           = $Mx.Domain
-                    IsAcceptedDomain = $Mx.IsAcceptedDomain
-                    RecordExists     = $Mx.RecordExists
-                    PointsToService  = $Mx.PointsToService
-                    Mailhost         = $Mx.HighestPriorityMailhost
-                    IpAddresses      = $MxRecordReport.HighestPriorityMailhostIpAddress
-                    #Organization                     = $MxRecordReport.Organization
-                }
-            }
-            # since the result will be the same except for ipadress changer (at least according to my tests we just need to loop once)
-            break
-        }
-    }
-}
-
-
-#$EventActions = Get-MailFilterListReport -SelectionTarget Actions
-
+#$EventActions = (Get-MailFilterListReport -SelectionTarget Actions).Value
 #$EventTypes = Get-MailFilterListReport -SelectionTarget EventTypes
+#$EventTypes | fl *
+#$T = Get-MailTrafficTopReport -Direction inbound -AggregateBy Date
+#$T
+#$T | Group-Object Direction
 
-#et-MailTrafficTopReport -
+#$T | Group-Object Name
+
+#$T | Group-Object 'EventType'
+
+#$Date = (Get-Date).AddDays(-1)
+#$Date
+#$T | Where-Object { $_.Date -eq $Date } #| Group-Object count
+#$T | Group-Object count
+
+#Get-MailTrafficReport -StartDate 12/12/2015 -EndDate 12/12/2015 -Direction Outbound -SummarizeBy Domain,EventType | Format-Table Domain,Date,EventType,Action,MessageCount
+#Get-MailTrafficReport -StartDate 12/12/2015 -EndDate 12/12/2015 -Direction Outbound | Format-Table Domain,Date,EventType,Action,MessageCount
+#Get-MailTrafficReport -Direction Inbound -StartDate 06/13/2015 -EndDate 06/15/2015
+
+#Get-MailTrafficTopReport -StartDate 06/13/2015 -EndDate 06/15/2015
