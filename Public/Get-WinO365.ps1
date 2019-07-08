@@ -89,6 +89,8 @@
     $Data.AzureADUsers = Get-DataInformation -Text "Getting O365 information - AzureADUsers" {
         Get-WinAzureUsers -MsolUsers $Data.UAzureADUsers -Prefix $Prefix -Formatted:$Formatted -Splitter $Splitter -Users $Data.Objects
     } -TypesRequired $TypesRequired -TypesNeeded @(
+        # remember that when you add objects here, you need to add them to AzureADGuests
+        # It's important because $Data.Objects needs it
         [PSWinDocumentation.O365]::AzureADUsers
         [PSWinDocumentation.O365]::AzureRolesMembers
         [PSWinDocumentation.O365]::AzureRoles
@@ -98,10 +100,13 @@
     $Data.AzureADGuests = Get-DataInformation -Text "Getting O365 information - AzureADGuests" {
         Get-WinAzureGuests -MsolUsers $Data.UAzureADUsers -Prefix $Prefix -Formatted:$Formatted -Splitter $Splitter -Users $Data.Objects
     } -TypesRequired $TypesRequired -TypesNeeded @(
+        # remember that when you add objects here, you need to add them to AzureADUsers
+        # It's important because $Data.Objects needs it
         [PSWinDocumentation.O365]::AzureADGuests
         [PSWinDocumentation.O365]::AzureRolesMembers
         [PSWinDocumentation.O365]::AzureRoles
         [PSWinDocumentation.O365]::AzureRolesActiveOnly
+        [PSWinDocumentation.O365]::AzureADGroupMembers
     )
     $Data.AzureADGroupMembers = Get-DataInformation -Text "Getting O365 information - AzureADGroupMembers" {
         Get-WinAzureADGroupMembers -UAzureADGroups $Data.UAzureADGroups -Users $Data.Objects
