@@ -34,7 +34,11 @@ $TypesRequired = @(
     'TeamsSettingsUpgrade'
     'TeamsSettingsUsers'
 )
+$TypesRequired = @(
+    'AzureADGroupMembers'
+    'UAzureADGroups'
+)
 
-
+#$O365 = Get-WinO365 -Formatted -Verbose
 $O365 = Get-WinO365 -Formatted -Verbose -TypesRequired $TypesRequired
-$O365
+$O365.UAzureADGroups | ft -a

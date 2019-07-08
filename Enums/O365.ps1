@@ -5,7 +5,7 @@
     {
         [Flags]
         public enum O365 {
-            AzureADGroupMembersUser,
+            AzureADGroupMembers,
             AzureADUsers,
             AzureADGuests,
             AzureADUsersMFA,
@@ -48,7 +48,6 @@
 
 
             UAzureADContacts,
-            UAzureADGroupMembers,
             UAzureADGroups,
             UAzureADUsers,
             UAzureADUsersDeleted,

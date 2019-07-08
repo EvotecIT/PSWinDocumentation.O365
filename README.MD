@@ -26,7 +26,7 @@
 
 | Category | Dashimo (HTML) | Documentimo (Word) | Excelimo (Excel) | Type                                           |
 | -------- | -------------- | ------------------ | ---------------- | ---------------------------------------------- |
-| Azure    |                |                    |                  | AzureADGroupMembersUser                        |
+| Azure    |                |                    |                  | AzureADGroupMembers                            |
 | Azure    | Yes            |                    |                  | AzureADGuests                                  |
 | Azure    | Yes            |                    |                  | AzureADUsers                                   |
 | Azure    |                |                    |                  | AzureADUsersMFA                                |
@@ -67,7 +67,6 @@
 | Teams    | Yes            | Yes                |                  | TeamsSettingsUsers                             |
 |          |                |                    |                  |                                                |
 | Overall  |                |                    |                  | UAzureADContacts                               |
-| Overall  |                |                    |                  | UAzureADGroupMembers                           |
 | Overall  |                |                    |                  | UAzureADGroups                                 |
 | Overall  |                |                    |                  | UAzureADUsers                                  |
 | Overall  |                |                    |                  | UAzureADUsersDeleted                           |

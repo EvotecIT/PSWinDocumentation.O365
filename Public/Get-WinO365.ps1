@@ -30,7 +30,7 @@
 
     $Data = @{ }
 
-    $Data.Objects = @{ }
+    $Data.Objects = [ordered]@{ }
 
     # MSOnline
     $Data.UAzureADUsers = Get-DataInformation -Text "Getting O365 information - UAzureADUsers" {
@@ -79,19 +79,7 @@
         Get-WinUAzureADGroups
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::UAzureADGroups
-        [PSWinDocumentation.O365]::UAzureADGroupMembers
-        [PSWinDocumentation.O365]::AzureADGroupMembersUser
-    )
-    $Data.UAzureADGroupMembers = Get-DataInformation -Text "Getting O365 information - UAzureADGroupMembers" {
-        Get-WinUAzureADGroupMembers -UAzureADGroups $Data.UAzureADGroups
-    } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::UAzureADGroupMembers
-        [PSWinDocumentation.O365]::AzureADGroupMembersUser
-    )
-    $Data.AzureADGroupMembersUser = Get-DataInformation -Text "Getting O365 information - AzureADGroupMembersUser" {
-        Get-WinUAzureADGroupMembers -UAzureADGroups $Data.UAzureADGroups
-    } -TypesRequired $TypesRequired -TypesNeeded @(
-        [PSWinDocumentation.O365]::AzureADGroupMembersUser
+        [PSWinDocumentation.O365]::AzureADGroupMembers
     )
     $Data.AzureADUsersMFA = Get-DataInformation -Text "Getting O365 information - AzureADUsersMFA" {
         Get-WinAzureADUsersMFA -UAzureADUsers $Data.UAzureADUsers
@@ -105,6 +93,7 @@
         [PSWinDocumentation.O365]::AzureRolesMembers
         [PSWinDocumentation.O365]::AzureRoles
         [PSWinDocumentation.O365]::AzureRolesActiveOnly
+        [PSWinDocumentation.O365]::AzureADGroupMembers
     )
     $Data.AzureADGuests = Get-DataInformation -Text "Getting O365 information - AzureADGuests" {
         Get-WinAzureGuests -MsolUsers $Data.UAzureADUsers -Prefix $Prefix -Formatted:$Formatted -Splitter $Splitter -Users $Data.Objects
@@ -113,6 +102,11 @@
         [PSWinDocumentation.O365]::AzureRolesMembers
         [PSWinDocumentation.O365]::AzureRoles
         [PSWinDocumentation.O365]::AzureRolesActiveOnly
+    )
+    $Data.AzureADGroupMembers = Get-DataInformation -Text "Getting O365 information - AzureADGroupMembers" {
+        Get-WinAzureADGroupMembers -UAzureADGroups $Data.UAzureADGroups -Users $Data.Objects
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::AzureADGroupMembers
     )
     $Data.UAzureRoles = Get-DataInformation -Text "Getting O365 information - UAzureRoles" {
         Get-WinUAzureRoles -Prefix $Prefix
