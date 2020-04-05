@@ -9,6 +9,26 @@ if (-not $O365) {
 Dashboard -Name 'O365 Dashboard' -FilePath $PSScriptRoot\Output\Dashboard.html {
     Tab -Name 'Azure AD' -IconBrands black-tie {
         Section -Invisible {
+            Section -Name 'Azure Company' {
+                Table -DataTable $O365.AzureCompany -Filtering {
+                    #TableHeader -Title 'Teams Settings' -Color Black -BackGroundColor Gray
+                }
+            }
+            Section -Name 'Azure Synchronization Settings' {
+                Table -DataTable $O365.AzureSynchronizationSetings -Filtering
+            }
+        }
+        Section -Invisible {
+            Section -Name 'Empty' {
+                #Table -DataTable $O365.AzureCompany -Filtering {
+
+                #}
+            }
+            Section -Name 'Azure Password Policy' {
+                Table -DataTable $O365.AzurePasswordPolicy -Filtering
+            }
+        }
+        Section -Invisible {
             Section -Name 'Azure Licensing' {
                 Table -DataTable $O365.AzureLicensing -Filtering {
                     #TableHeader -Title 'Teams Settings' -Color Black -BackGroundColor Gray

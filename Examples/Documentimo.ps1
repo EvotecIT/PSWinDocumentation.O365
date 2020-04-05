@@ -1,4 +1,6 @@
-﻿$CompanyName = 'Evotec'
+﻿Import-Module .\PSWinDocumentation.O365.psd1 -Force
+
+$CompanyName = 'Evotec'
 
 Documentimo -FilePath "$PSScriptRoot\Output\Office365-Documentation.docx" {
     DocToc -Title 'Table of content'
@@ -10,9 +12,24 @@ Documentimo -FilePath "$PSScriptRoot\Output\Office365-Documentation.docx" {
     }
     DocNumbering -Text 'Azure Active Directory' -Level 0 -Type Numbered -Heading Heading1 {
 
+        DocNumbering -Text 'Company' -Level 1 -Type Numbered -Heading Heading1 {
+            DocText -Text "Tenant is registed for company data as shown in below table:"
+            DocTable -DataTable $O365.AzureCompany -MaximumColumns 6 -OverwriteTitle 'Company Information' -Transpose
+        }
+
+        DocNumbering -Text 'Synchronization Settings' -Level 1 -Type Numbered -Heading Heading1 {
+            DocText -Text "Following synchronization settings are set in tenant:"
+            DocTable -DataTable $O365.AzureSynchronizationSetings -MaximumColumns 6 -OverwriteTitle 'Synchronization Settings' -Transpose
+        }
+
         DocNumbering -Text 'Licenses' -Level 1 -Type Numbered -Heading Heading1 {
             DocTable -DataTable $O365.AzureLicensing -MaximumColumns 6
         }
+
+        DocNumbering -Text 'Password Policy' -Level 1 -Type Numbered -Heading Heading1 {
+            DocTable -DataTable $O365.AzurePasswordPolicy -MaximumColumns 6
+        }
+
 
         DocNumbering -Text 'Domains' -Level 1 -Type Numbered -Heading Heading1 {
             DocTable -DataTable $O365.AzureTenantDomains

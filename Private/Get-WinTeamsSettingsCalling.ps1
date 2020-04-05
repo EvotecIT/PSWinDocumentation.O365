@@ -41,7 +41,7 @@
         [ordered]@{
             'Allow Private Calling'          = $CsTeamsCallingPolicy.AllowPrivateCalling
             'Allow Voicemail'                = Format-AddSpaceToSentence -Text $CsTeamsCallingPolicy.AllowVoicemail
-            'Allow Call Groups'               = $CsTeamsCallingPolicy.AllowCallGroups
+            'Allow Call Groups'              = $CsTeamsCallingPolicy.AllowCallGroups
             'Allow Delegation'               = $CsTeamsCallingPolicy.AllowDelegation
             'Allow Call Forwarding to User'  = $CsTeamsCallingPolicy.AllowCallForwardingToUser
             'Allow Call Forwarding to Phone' = $CsTeamsCallingPolicy.AllowCallForwardingToPhone

@@ -48,6 +48,24 @@
         [PSWinDocumentation.O365]::AzureRolesActiveOnly
         [PSWinDocumentation.O365]::AzureADGuests
     )
+    $Data.UAzureMsolCompany = Get-DataInformation -Text "Getting O365 information - UAzureCompany" {
+        Get-WinUAzureCompany -Prefix $Prefix
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::UAzureMsolCompany
+    )
+    $Data.AzureCompany = Get-DataInformation -Text "Getting O365 information - AzureCompany" {
+        Get-WinAzureCompany -UAzureCompany $Data.UAzureMsolCompany -Formatted:$Formatted -Splitter $Splitter
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::UAzureMsolCompany
+        [PSWinDocumentation.O365]::AzureCompany
+    )
+    $Data.AzureSynchronizationSetings = Get-DataInformation -Text "Getting O365 information - AzureSynchronizationSetings" {
+        Get-WinAzureSynchronizationSetings -UAzureCompany $Data.UAzureMsolCompany -Formatted:$Formatted -Splitter $Splitter
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::UAzureMsolCompany
+        [PSWinDocumentation.O365]::AzureSynchronizationSetings
+    )
+
     $Data.UAzureADUsersDeleted = Get-DataInformation -Text "Getting O365 information - UAzureADUsersDeleted" {
         Get-WinUAzureADUsersDeleted  #-Prefix $Prefix
     } -TypesRequired $TypesRequired -TypesNeeded @(
@@ -74,6 +92,12 @@
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::UAzureTenantDomains
         [PSWinDocumentation.O365]::AzureTenantDomains
+        [PSWinDocumentation.O365]::AzurePasswordPolicy
+    )
+    $Data.AzurePasswordPolicy = Get-DataInformation -Text "Getting O365 information - AzurePasswordPolicy" {
+        Get-WinAzurePasswordPolicy -Prefix $Prefix -MsolDomains $Data.UAzureTenantDomains -Tenant $Tenant -Formatted:$Formatted -Splitter $Splitter
+    } -TypesRequired $TypesRequired -TypesNeeded @(
+        [PSWinDocumentation.O365]::AzurePasswordPolicy
     )
     $Data.UAzureADGroups = Get-DataInformation -Text "Getting O365 information - UAzureADGroups" {
         Get-WinUAzureADGroups
@@ -82,7 +106,7 @@
         [PSWinDocumentation.O365]::AzureADGroupMembers
     )
     $Data.AzureADUsersMFA = Get-DataInformation -Text "Getting O365 information - AzureADUsersMFA" {
-        Get-WinAzureADUsersMFA -UAzureADUsers $Data.UAzureADUsers
+        Get-WinAzureADUsersMFA -UAzureADUsers $Data.UAzureADUsers -Splitter $Splitter -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::AzureADUsersMFA
     )
@@ -258,62 +282,100 @@
         [PSWinDocumentation.O365]::UTeamsConfiguration
         [PSWinDocumentation.O365]::TeamsSettings
         [PSWinDocumentation.O365]::TeamsSettingsFileSharing
-    )
+    ) -Commands @(
+        "Get-$($prefix)CsTeamsClientConfiguration"
+    ) -SkipAvailability:$SkipAvailability
     $Data.TeamsSettings = Get-DataInformation -Text "Getting O365 information - TeamsSettings" {
         Get-WinTeamsSettings -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted -TeamsConfiguration $Data.TeamsConfiguration
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::TeamsSettings
-    )
+    ) -Commands @(
+        "Get-$($prefix)CsTeamsClientConfiguration"
+    ) -SkipAvailability:$SkipAvailability
+
     $Data.TeamsSettingsBroadcasting = Get-DataInformation -Text "Getting O365 information - TeamsSettingsBroadcasting" {
         Get-WinTeamsSettingsBroadcasting -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::TeamsSettingsBroadcasting
-    )
+    ) -Commands @(
+        "Get-$($prefix)CsTeamsMeetingBroadcastPolicy"
+        "Get-$($prefix)CsTeamsMeetingBroadcastConfiguration"
+    ) -SkipAvailability:$SkipAvailability
+
+
     $Data.TeamsSettingsCalling = Get-DataInformation -Text "Getting O365 information - TeamsSettingsCalling" {
         Get-WinTeamsSettingsCalling -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::TeamsSettingsCalling
-    )
+    ) -Commands @(
+        "Get-$($prefix)CsTeamsCallingPolicy"
+    ) -SkipAvailability:$SkipAvailability
     $Data.TeamsSettingsChannels = Get-DataInformation -Text "Getting O365 information - TeamsSettingsChannels" {
         Get-WinTeamsSettingsChannels -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::TeamsSettingsChannels
-    )
+    ) -Commands @(
+        "Get-$($prefix)CsTeamsChannelsPolicy"
+    ) -SkipAvailability:$SkipAvailability
+
     $Data.TeamsSettingsEducationAppPolicy = Get-DataInformation -Text "Getting O365 information - TeamsSettingsEducationAppPolicy" {
         Get-WinTeamsSettingsEducationAppPolicy -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::TeamsSettingsEducationAppPolicy
-    )
+    ) -Commands @(
+        "Get-$($prefix)CsTeamsMessagingPolicy"
+    ) -SkipAvailability:$SkipAvailability
     $Data.TeamsSettingsFileSharing = Get-DataInformation -Text "Getting O365 information - TeamsSettingsFileSharing" {
         Get-WinTeamsSettingsFileSharing -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted -TeamsConfiguration $Data.TeamsConfiguration
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::TeamsSettingsFileSharing
-    )
+    ) -Commands @(
+        "Get-$($prefix)CsTeamsClientConfiguration"
+    ) -SkipAvailability:$SkipAvailability
+
     $Data.TeamsSettingsGuests = Get-DataInformation -Text "Getting O365 information - TeamsSettingsGuests" {
         Get-WinTeamsSettingsGuests -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::TeamsSettingsGuests
-    )
+    ) -Commands @(
+        "Get-$($prefix)CsTeamsGuestMessagingConfiguration"
+        "Get-$($prefix)CsTeamsGuestMeetingConfiguration"
+        "Get-$($prefix)CsTeamsGuestCallingConfiguration"
+    ) -SkipAvailability:$SkipAvailability
+
     $Data.TeamsSettingsMeetings = Get-DataInformation -Text "Getting O365 information - TeamsSettingsMeetings" {
         Get-WinTeamsSettingsMeetings -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::TeamsSettingsMeetings
-    )
+    ) -Commands @(
+        "Get-$($prefix)CsTeamsMeetingPolicy"
+    ) -SkipAvailability:$SkipAvailability
+
+
     $Data.TeamsSettingsMeetingsTechnical = Get-DataInformation -Text "Getting O365 information - TeamsSettingsMeetingsTechnical" {
         Get-WinTeamsSettingsMeetingsTechnical -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::TeamsSettingsMeetingsTechnical
-    )
+    ) -Commands @(
+        "Get-$($prefix)CsTeamsMeetingConfiguration"
+    ) -SkipAvailability:$SkipAvailability
+
     $Data.TeamsSettingsUpgrade = Get-DataInformation -Text "Getting O365 information - TeamsSettingsUpgrade" {
         Get-WinTeamsSettingsUpgrade -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::TeamsSettingsUpgrade
-    )
+    ) -Commands @(
+        "Get-$($prefix)CsTeamsUpgradePolicy"
+        "Get-$($prefix)CsTeamsUpgradeConfiguration"
+    ) -SkipAvailability:$SkipAvailability
+
     $Data.TeamsSettingsUsers = Get-DataInformation -Text "Getting O365 information - TeamsSettingsUsers" {
         Get-WinTeamsSettingsUsers -Prefix $Prefix -Tenant $Tenant -Formatted:$Formatted
     } -TypesRequired $TypesRequired -TypesNeeded @(
         [PSWinDocumentation.O365]::TeamsSettingsUsers
-    )
+    ) -Commands @(
+        "Get-$($prefix)CsTeamsMessagingPolicy"
+    ) -SkipAvailability:$SkipAvailability
     ## Summary (Prepared Data)
     $Data.AzureLicensing = Get-DataInformation -Text "Getting O365 information - AzureLicensing" {
         Get-WinAzureLicensing -UAzureLicensing $Data.UAzureLicensing -Formatted:$Formatted
@@ -437,4 +499,3 @@
     Write-Verbose "Getting domain information - $Domain - Time to generate: $EndTime"
     return ConvertTo-OrderedDictionary -HashTable $Data #-Verbose
 }
-

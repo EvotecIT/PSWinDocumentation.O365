@@ -18,6 +18,9 @@
             AzureRolesMembers,
             AzureSubscription,
             AzureTenantDomains,
+            AzureCompany,
+            AzureSynchronizationSetings,
+            AzurePasswordPolicy,
 
             ExchangeAcceptedDomains,
             ExchangeConnectorsInbound,
@@ -46,7 +49,7 @@
             TeamsSettingsUpgrade,
             TeamsSettingsUsers,
 
-
+            UAzureMsolCompany,
             UAzureADContacts,
             UAzureADGroups,
             UAzureADUsers,

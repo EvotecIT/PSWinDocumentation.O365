@@ -16,6 +16,9 @@ $TypesRequired = @(
     'AzureRolesMembers'
     'AzureSubscription'
     'AzureTenantDomains'
+    'AzureCompany'
+    'AzureSynchronizationSetings'
+    'AzurePasswordPolicy'
 
     'ExchangeAcceptedDomains'
     'ExchangeConnectorsInbound'
@@ -34,11 +37,12 @@ $TypesRequired = @(
     'TeamsSettingsUpgrade'
     'TeamsSettingsUsers'
 )
-$TypesRequired = @(
-    'AzureADGroupMembers'
-    'UAzureADGroups'
-)
+#$TypesRequired = @(
+#    'AzureADGroupMembers'
+#    'UAzureADGroups'
+#)
 
 #$O365 = Get-WinO365 -Formatted -Verbose
 $O365 = Get-WinO365 -Formatted -Verbose -TypesRequired $TypesRequired
-$O365.UAzureADGroups | ft -a
+#$O365.UAzureADGroups | Format-Table -a
+$O365
