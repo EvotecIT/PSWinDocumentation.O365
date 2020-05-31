@@ -42,7 +42,7 @@
                 #>
                 #$Member
             } else {
-                Add-Member -InputObject $U -MemberType NoteProperty -Name 'Role' -Value $_.Name
+                Add-Member -InputObject $U -MemberType NoteProperty -Name 'Role' -Value $_.Name -Force
                 $U
             }
         }

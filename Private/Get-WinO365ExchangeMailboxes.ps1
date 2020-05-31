@@ -14,7 +14,7 @@
         $MailboxStats = $MailboxStatistics | Where-Object { $_.MailboxGuid.Guid -eq $Mailbox.ExchangeGuid.Guid }
         $MailboxStatsArchive = $MailboxStatisticsArchive | Where-Object { $_.MailboxGuid.Guid -eq $Mailbox.ArchiveGuid.Guid }
 
-        [PSCustomObject][ordered] @{
+        [PSCustomObject] @{
             DisplayName               = $Mailbox.DisplayName
             UserPrincipalName         = $Mailbox.UserPrincipalName
             FirstName                 = $Azure.FirstName

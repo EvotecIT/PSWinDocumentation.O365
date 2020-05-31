@@ -8,7 +8,7 @@
         foreach ($Mailbox in $Mailboxes) {
             $UserRules = $InboxRules | Where-Object { ($Mailbox.Identity -eq $_.MailboxOwnerID) -and (($null -ne $_.ForwardTo) -or ($null -ne $_.ForwardAsAttachmentTo) -or ($null -ne $_.RedirectsTo)) }
             foreach ($Rule in $UserRules) {
-                [pscustomobject][ordered] @{
+                [PSCustomobject] @{
                     UserPrincipalName     = $Mailbox.UserPrincipalName
                     DisplayName           = $Mailbox.DisplayName
                     RuleName              = $Rule.Name
