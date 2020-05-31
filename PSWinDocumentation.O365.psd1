@@ -52,7 +52,10 @@
 
     # Modules that must be imported into the global environment prior to importing this module
     RequiredModules   = @(@{ModuleName = 'PSSharedGoods'; GUID = 'ee272aa8-baaa-4edf-9f45-b6d6f7d844fe'; ModuleVersion = '0.0.144'; }, 
-        @{ModuleName = 'MSOnline'; GUID = 'd162594e-d7aa-42be-9884-84928d3f7acf'; ModuleVersion = '1.1.183.57'; })
+        @{ModuleName = 'MSOnline'; GUID = 'd162594e-d7aa-42be-9884-84928d3f7acf'; ModuleVersion = '1.1.183.57'; }, 
+        @{ModuleName = 'ExchangeOnlineManagement'; GUID = 'b5eced50-afa4-455b-847a-d8fb64140a22'; ModuleVersion = '0.3374.4'; }, 
+        @{ModuleName = 'AzureADPreview'; GUID = 'b433e830-b479-4f7f-9c80-9cc6c28e1b51'; ModuleVersion = '2.0.2.62'; }, 
+        @{ModuleName = 'MicrosoftTeams'; GUID = 'd910df43-3ca6-4c9c-a2e3-e9f45a8e2ad9'; ModuleVersion = '1.0.6'; })
 
     # Assemblies that must be loaded prior to importing this module
     # RequiredAssemblies = @()
