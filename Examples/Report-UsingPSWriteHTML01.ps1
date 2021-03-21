@@ -1,12 +1,10 @@
-﻿#Import-Module .\PSWinDocumentation.O365.psd1 -Force
+﻿Import-Module .\PSWinDocumentation.O365.psd1 -Force
 
-#Connect-WinConnectivity -UserName 'przemyslaw.klys@evotec.pl' -FilePath 'C:\Support\Important\Password-O365-Evotec.txt' -AsSecure -Service AzureAD, MSOnline, ExchangeOnline, Teams, SkypeOnline
-
-if (-not $O365) {
-    # $O365 = Get-WinO365 -Formatted -Verbose
-}
-
+# Gather data first before running Dashboard
 Dashboard -Name 'O365 Dashboard' -FilePath $PSScriptRoot\Output\Dashboard.html {
+    SectionOption -BorderRadius 0px -RemoveShadow -HeaderBackGroundColor DarkGray
+    TabOption -BorderRadius 0px -BackgroundColorActive DarkGray
+    TableOption -DataStore JavaScript -ArrayJoin -ArrayJoinString ', '
     Tab -Name 'Azure AD' -IconBrands black-tie {
         Section -Invisible {
             Section -Name 'Azure Company' {
@@ -57,7 +55,7 @@ Dashboard -Name 'O365 Dashboard' -FilePath $PSScriptRoot\Output\Dashboard.html {
             }
         }
     }
-    Tab -Name 'Microsoft Exchange'  -IconBrands microsoft {
+    Tab -Name 'Microsoft Exchange' -IconBrands microsoft {
         Section -Invisible {
             Section -Name 'Accepted Domain' {
                 Table -DataTable $O365.ExchangeAcceptedDomains -Filtering {

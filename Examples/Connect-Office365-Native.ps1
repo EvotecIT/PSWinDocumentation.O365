@@ -1,0 +1,4 @@
+﻿Connect-ExchangeOnline
+Connect-MicrosoftTeams
+Connect-MsolService
+Connect-AzureAD
